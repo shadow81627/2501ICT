@@ -9,6 +9,21 @@
 import Foundation
 
 class Person {
+    var firstName: String
+    var lastName: String
+    var middleName: String?
     
-    init(firstName: String, lastName: String, age: Int, middleName: String? = nil)
+    init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
+        self.firstName = firstName
+        self.lastName = lastName
+        self.middleName = middleName
+    }
+    
+    func fullName() -> String {
+        if middleName != nil {
+            return firstName + middleName! + lastName
+        }else {
+            return firstName + lastName
+        }
+    }
 }
