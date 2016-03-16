@@ -15,6 +15,7 @@ class Person {
     var lastName: String
     var age : Int
     var middleName: String?
+    
     /**
     * The initator for the Person class 
     */

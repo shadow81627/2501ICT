@@ -26,12 +26,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
     @IBAction func fullDetail(sender: UIButton) {
-        let person = Person(firstName: firstNameField.text!,
-                            lastName: lastNameField.text!,
-                            age:  Int(ageField.text!)!,
-                            middleName: middleNameField.text)
-        details.text = person.fullName()
+        let firstName = firstNameField.text!,
+            lastName = lastNameField.text!,
+            age = Int(ageField.text!),
+            middleName = middleNameField.text
+        if age != nil {
+            let person = Person(firstName: firstName, lastName: lastName, age: age!, middleName: middleName)
+            details.text = person.fullName()
+        } else {
+            details.text = "Please enter age"
+        }
     }
 }
 
