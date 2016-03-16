@@ -26,8 +26,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBOutlet var firstName: UITextField!
-
     @IBAction func fullDetail(sender: UIButton) {
         let person = Person(firstName: firstNameField.text!,
                             lastName: lastNameField.text!,
