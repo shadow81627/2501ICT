@@ -14,7 +14,17 @@ import Foundation
 class Person {
     var firstName: String
     var lastName: String
-    var yearOfBirth: Int?
+    var yearOfBirth: Int? {
+         get{
+            return self.yearOfBirth
+        }
+        set(age){
+            let currentDate = NSDate(),
+            calendar = NSCalendar.currentCalendar(),
+            currentYear = calendar.component(.Year, fromDate: currentDate)
+            self.yearOfBirth = currentYear - age!
+        }
+    }
     var age : Int{
         get{
             let currentDate = NSDate(),
@@ -23,10 +33,7 @@ class Person {
             return currentYear - yearOfBirth!
         }
         set(age){
-            let currentDate = NSDate(),
-            calendar = NSCalendar.currentCalendar(),
-            currentYear = calendar.component(.Year, fromDate: currentDate)
-             currentYear - age
+            yearOfBirth = age
         }
     }
     var middleName: String?
@@ -41,10 +48,8 @@ class Person {
     
     // The old initialiser for the Person class
     convenience init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
-        self.middleName = middleName
+        self.init(firstName: firstName, lastName: lastName, yearOfBirth: age, middleName: middleName)
+
     }
     
     // The to string function
