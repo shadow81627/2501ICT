@@ -7,9 +7,10 @@
 //
 
 import Foundation
-/**
-* THe person class
-*/
+
+
+// THe person class
+
 class Person {
     var firstName: String
     var lastName: String
@@ -21,21 +22,32 @@ class Person {
             currentYear = calendar.component(.Year, fromDate: currentDate)
             return currentYear - yearOfBirth!
         }
+        set(age){
+            let currentDate = NSDate(),
+            calendar = NSCalendar.currentCalendar(),
+            currentYear = calendar.component(.Year, fromDate: currentDate)
+             currentYear - age
+        }
     }
     var middleName: String?
     
-    /**
-    * The initator for the Person class 
-    */
+    // The initator for the Person class
     init(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String? = nil){
         self.firstName = firstName
         self.lastName = lastName
         self.yearOfBirth = yearOfBirth
         self.middleName = middleName
     }
-    /**
-    * The to string function
-    */
+    
+    // The old initialiser for the Person class
+    init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+        self.middleName = middleName
+    }
+    
+    // The to string function
     func fullName() -> String {
         if middleName != nil {
             return firstName + middleName! + lastName + "\(age)"
