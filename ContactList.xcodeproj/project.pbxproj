@@ -17,6 +17,8 @@
 		5B1AAB871C98F95A00E52C7E /* ContactListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB861C98F95A00E52C7E /* ContactListUITests.swift */; };
 		5B1AAB971C99163900E52C7E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB961C99163900E52C7E /* Person.swift */; };
 		5B1AAB991C9916BE00E52C7E /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB981C9916BE00E52C7E /* PersonTests.swift */; };
+		5B3BEB411CA25A6F00F767FD /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BEB401CA25A6F00F767FD /* ContactList.swift */; };
+		5B3BEB431CA25C3300F767FD /* ContactListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BEB421CA25C3300F767FD /* ContactListEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5B1AAB881C98F95A00E52C7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1AAB961C99163900E52C7E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5B1AAB981C9916BE00E52C7E /* PersonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
+		5B3BEB401CA25A6F00F767FD /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		5B3BEB421CA25C3300F767FD /* ContactListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				5B1AAB6D1C98F95900E52C7E /* Assets.xcassets */,
 				5B1AAB6F1C98F95900E52C7E /* LaunchScreen.storyboard */,
 				5B1AAB721C98F95900E52C7E /* Info.plist */,
+				5B3BEB401CA25A6F00F767FD /* ContactList.swift */,
+				5B3BEB421CA25C3300F767FD /* ContactListEntry.swift */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -268,7 +274,9 @@
 				5B1AAB691C98F95900E52C7E /* DetailViewController.swift in Sources */,
 				5B1AAB671C98F95900E52C7E /* MasterViewController.swift in Sources */,
 				5B1AAB971C99163900E52C7E /* Person.swift in Sources */,
+				5B3BEB431CA25C3300F767FD /* ContactListEntry.swift in Sources */,
 				5B1AAB651C98F95900E52C7E /* AppDelegate.swift in Sources */,
+				5B3BEB411CA25A6F00F767FD /* ContactList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

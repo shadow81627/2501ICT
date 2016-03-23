@@ -9,11 +9,13 @@
 import Foundation
 
 
-// THe person class
-
+// The person class
 class Person {
+    
     var firstName: String
     var lastName: String
+    
+    // The date of birth of a person is used to derive the age of a person using the current date 
     var yearOfBirth: Int? {
          get{
             return self.yearOfBirth
@@ -25,6 +27,7 @@ class Person {
             self.yearOfBirth = currentYear - age!
         }
     }
+    // The age of a person, derived from the date of birth of a person
     var age : Int{
         get{
             let currentDate = NSDate(),
@@ -36,6 +39,7 @@ class Person {
             yearOfBirth = age
         }
     }
+    // The middle name of a person
     var middleName: String?
     
     // The initator for the Person class
@@ -46,7 +50,7 @@ class Person {
         self.middleName = middleName
     }
     
-    // The old initialiser for the Person class
+    // Secondary Initaliser for the Person class
     convenience init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
         self.init(firstName: firstName, lastName: lastName, yearOfBirth: age, middleName: middleName)
 
