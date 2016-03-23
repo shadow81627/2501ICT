@@ -8,5 +8,5 @@
 
 import Foundation
 class ContactList {
-    var entries = [ContactListEntrys]()
+    var entries = [ContactListEntry]()
 }
