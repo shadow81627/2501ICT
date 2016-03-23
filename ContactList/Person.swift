@@ -39,7 +39,7 @@ class Person {
     var middleName: String?
     
     // The initator for the Person class
-    init(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String? = nil){
+    init(firstName: String, lastName: String, yearOfBirth: Int? = nil, middleName: String? = nil){
         self.firstName = firstName
         self.lastName = lastName
         self.yearOfBirth = yearOfBirth
