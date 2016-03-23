@@ -40,7 +40,7 @@ class Person {
     }
     
     // The old initialiser for the Person class
-    init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
+    convenience init(firstName: String, lastName: String, age: Int, middleName: String? = nil){
         self.firstName = firstName
         self.lastName = lastName
         self.age = age
