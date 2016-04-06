@@ -21,10 +21,12 @@ class Person {
             return self.yearOfBirth
         }
         set(age){
-            let currentDate = NSDate(),
-            calendar = NSCalendar.currentCalendar(),
-            currentYear = calendar.component(.Year, fromDate: currentDate)
-            self.yearOfBirth = currentYear - age!
+            if(age != nil){
+                let currentDate = NSDate(),
+                calendar = NSCalendar.currentCalendar(),
+                currentYear = calendar.component(.Year, fromDate: currentDate)
+                self.yearOfBirth = currentYear - age!
+            }
         }
     }
     // The age of a person, derived from the date of birth of a person
