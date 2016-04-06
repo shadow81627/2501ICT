@@ -16,10 +16,10 @@
 		5B1AAB7C1C98F95A00E52C7E /* ContactListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB7B1C98F95A00E52C7E /* ContactListTests.swift */; };
 		5B1AAB871C98F95A00E52C7E /* ContactListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB861C98F95A00E52C7E /* ContactListUITests.swift */; };
 		5B1AAB971C99163900E52C7E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB961C99163900E52C7E /* Person.swift */; };
-		5B1AAB991C9916BE00E52C7E /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AAB981C9916BE00E52C7E /* PersonTests.swift */; };
 		5B3BEB411CA25A6F00F767FD /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BEB401CA25A6F00F767FD /* ContactList.swift */; };
 		5B3BEB431CA25C3300F767FD /* ContactListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BEB421CA25C3300F767FD /* ContactListEntry.swift */; };
 		5B3BEB461CA25F6E00F767FD /* ContactListEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BEB451CA25F6E00F767FD /* ContactListEntryTests.swift */; };
+		5BE4A00B1CB4BE4B00DEE7A6 /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4A00A1CB4BE4B00DEE7A6 /* PersonTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +55,10 @@
 		5B1AAB861C98F95A00E52C7E /* ContactListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListUITests.swift; sourceTree = "<group>"; };
 		5B1AAB881C98F95A00E52C7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1AAB961C99163900E52C7E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		5B1AAB981C9916BE00E52C7E /* PersonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 		5B3BEB401CA25A6F00F767FD /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		5B3BEB421CA25C3300F767FD /* ContactListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListEntry.swift; sourceTree = "<group>"; };
 		5B3BEB451CA25F6E00F767FD /* ContactListEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListEntryTests.swift; sourceTree = "<group>"; };
+		5BE4A00A1CB4BE4B00DEE7A6 /* PersonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				5B3BEB451CA25F6E00F767FD /* ContactListEntryTests.swift */,
-				5B1AAB981C9916BE00E52C7E /* PersonTests.swift */,
 				5B1AAB7B1C98F95A00E52C7E /* ContactListTests.swift */,
 				5B1AAB7D1C98F95A00E52C7E /* Info.plist */,
+				5BE4A00A1CB4BE4B00DEE7A6 /* PersonTests.swift */,
 			);
 			path = ContactListTests;
 			sourceTree = "<group>";
@@ -287,8 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1AAB991C9916BE00E52C7E /* PersonTests.swift in Sources */,
 				5B1AAB7C1C98F95A00E52C7E /* ContactListTests.swift in Sources */,
+				5BE4A00B1CB4BE4B00DEE7A6 /* PersonTests.swift in Sources */,
 				5B3BEB461CA25F6E00F767FD /* ContactListEntryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
