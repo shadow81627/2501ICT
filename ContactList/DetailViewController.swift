@@ -12,7 +12,20 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
+    @IBOutlet weak var firstNameField: UITextField!
 
+    @IBOutlet weak var middleNameField: UITextField!
+    
+    @IBOutlet weak var lastNameField: UITextField!
+    
+    @IBOutlet var yearOfBirthField: UIView!
+    
+    @IBOutlet var PhoneField: UIView!
+    
+    @IBOutlet weak var addressField: UITextField!
+    
+    
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
