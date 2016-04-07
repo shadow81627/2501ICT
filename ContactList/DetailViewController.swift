@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var person: ContactListEntry?
+
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
     @IBOutlet weak var firstNameField: UITextField!
@@ -18,9 +20,9 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var lastNameField: UITextField!
     
-    @IBOutlet var yearOfBirthField: UIView!
-    
-    @IBOutlet var PhoneField: UIView!
+    @IBOutlet weak var yearOfBirthField: UITextField!
+
+    @IBOutlet weak var phoneField: UITextField!
     
     @IBOutlet weak var addressField: UITextField!
     
@@ -46,6 +48,22 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        
+        if let firstName = person?.firstName {
+            firstNameField.text = firstName
+        }
+        if let lastName = person?.lastName {
+            lastNameField.text = lastName
+        }
+        if let middleName = person?.middleName {
+            middleNameField.text = middleName
+        }
+        if let yearOfBirth = person?.yearOfBirth {
+            yearOfBirthField.text = String(yearOfBirth)
+        }
+        if let phone = person?.phoneNumber {
+            phoneField.text = String(phone)
+        }
     }
 
     override func didReceiveMemoryWarning() {

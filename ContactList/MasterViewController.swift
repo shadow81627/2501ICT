@@ -18,8 +18,8 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-       // let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        //the old code for the add button
+        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -44,19 +44,23 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Segues
+    //gets the segue looks at the identifier and if the identifier is "contactDetailSegue"
+    //
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
+        if let identifier = segue.identifier where identifier == "contactDetailSegue" {
+            print("Got contactDetailSegue")
+            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            vc.person = Person(firstName: "memes", lastName: "stuff")
+            
+            //old code
+            /*if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-        if segue.identifier == "newContact"{
-            
+            }*/
         }
     }
 
