@@ -33,56 +33,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Year of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRx-7z-EZs">
-                                <rect key="frame" x="128" y="67" width="452" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Year of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRx-7z-EZs">
+                                <rect key="frame" x="128" y="117" width="452" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aet-T7-UfP">
-                                <rect key="frame" x="128" y="125" width="452" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aet-T7-UfP">
+                                <rect key="frame" x="128" y="175" width="452" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-uo-ujL">
-                                <rect key="frame" x="20" y="76" width="100" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Year of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-uo-ujL">
+                                <rect key="frame" x="20" y="126" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNo-Vm-kwj">
-                                <rect key="frame" x="20" y="134" width="54" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNo-Vm-kwj">
+                                <rect key="frame" x="20" y="184" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-3f-gtM">
-                                <rect key="frame" x="20" y="190" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-3f-gtM">
+                                <rect key="frame" x="20" y="240" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Middle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hre-Oh-SiQ">
-                                <rect key="frame" x="265" y="20" width="142" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Middle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hre-Oh-SiQ">
+                                <rect key="frame" x="265" y="70" width="142" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAz-i1-MQ4">
-                                <rect key="frame" x="443" y="20" width="137" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAz-i1-MQ4">
+                                <rect key="frame" x="443" y="70" width="137" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIB-fu-bky">
-                                <rect key="frame" x="128" y="181" width="452" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIB-fu-bky">
+                                <rect key="frame" x="128" y="231" width="452" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoD-yE-gJs">
-                                <rect key="frame" x="128" y="20" width="111" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoD-yE-gJs">
+                                <rect key="frame" x="128" y="70" width="111" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pl-JG-HRd">
-                                <rect key="frame" x="20" y="29" width="50" height="21"/>
+                                <rect key="frame" x="20" y="79" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                             <constraint firstItem="NRx-7z-EZs" firstAttribute="leading" secondItem="CoD-yE-gJs" secondAttribute="leading" id="LzZ-aJ-tzB"/>
                             <constraint firstItem="aet-T7-UfP" firstAttribute="leading" secondItem="NRx-7z-EZs" secondAttribute="leading" id="OPB-e2-Dxw"/>
                             <constraint firstItem="hre-Oh-SiQ" firstAttribute="width" secondItem="CoD-yE-gJs" secondAttribute="width" constant="31" id="QTe-Ky-K1I"/>
-                            <constraint firstItem="CoD-yE-gJs" firstAttribute="bottom" secondItem="5pl-JG-HRd" secondAttribute="bottom" constant="5" id="SVg-bl-zQP"/>
+                            <constraint firstItem="CoD-yE-gJs" firstAttribute="bottom" secondItem="5pl-JG-HRd" secondAttribute="bottom" id="SVg-bl-zQP"/>
                             <constraint firstItem="uAz-i1-MQ4" firstAttribute="trailing" secondItem="NRx-7z-EZs" secondAttribute="trailing" id="Vzn-ab-buY"/>
                             <constraint firstItem="AnD-3f-gtM" firstAttribute="leading" secondItem="TNo-Vm-kwj" secondAttribute="leading" id="Xf5-zy-88h"/>
                             <constraint firstItem="uAz-i1-MQ4" firstAttribute="width" secondItem="CoD-yE-gJs" secondAttribute="width" constant="26" id="Yxw-ad-0IK"/>
@@ -113,13 +113,24 @@
                             <constraint firstItem="CoD-yE-gJs" firstAttribute="baseline" secondItem="hre-Oh-SiQ" secondAttribute="baseline" id="ioC-K4-59x"/>
                             <constraint firstItem="TNo-Vm-kwj" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="ksz-Wu-eAz"/>
                             <constraint firstItem="aet-T7-UfP" firstAttribute="leading" secondItem="FIB-fu-bky" secondAttribute="leading" id="mpB-na-70k"/>
-                            <constraint firstItem="CoD-yE-gJs" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="uID-0g-fkv"/>
+                            <constraint firstItem="CoD-yE-gJs" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="50" id="uID-0g-fkv"/>
                             <constraint firstItem="TNo-Vm-kwj" firstAttribute="leading" secondItem="DPA-uo-ujL" secondAttribute="leading" id="wvE-HN-jVm"/>
                             <constraint firstItem="aet-T7-UfP" firstAttribute="top" secondItem="NRx-7z-EZs" secondAttribute="bottom" constant="28" id="y8w-b2-HGE"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Enter Contact Details" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Enter Contact Details" id="mOI-FS-AaM">
+                        <barButtonItem key="leftBarButtonItem" title="Submit" id="aff-Qe-pp6">
+                            <connections>
+                                <segue destination="RMx-3f-FxP" kind="show" id="Te5-I7-MqU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="3cB-ns-l9c">
+                            <connections>
+                                <segue destination="RMx-3f-FxP" kind="show" identifier="cancel" id="Fch-2f-UcY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="PhoneField" destination="svH-Pt-448" id="bIp-I7-MHd"/>
                         <outlet property="addressField" destination="FIB-fu-bky" id="U1V-Pr-azM"/>
@@ -187,7 +198,7 @@
                     <navigationItem key="navigationItem" title="Contact List" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CCv-xf-6Jm">
                             <connections>
-                                <segue destination="JEX-9P-axG" kind="showDetail" identifier="newContact" id="kL0-ze-WQB"/>
+                                <segue destination="vC3-pB-5Vb" kind="showDetail" id="bBI-Hk-sAn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -214,6 +225,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
-        <segue reference="kL0-ze-WQB"/>
+        <segue reference="Fch-2f-UcY"/>
     </inferredMetricsTieBreakers>
 </document>
