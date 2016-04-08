@@ -16,19 +16,7 @@ class Person {
     var lastName: String
     
     // The date of birth of a person is used to derive the age of a person using the current date 
-    var yearOfBirth: Int? {
-         get{
-            return self.yearOfBirth
-        }
-        set(age){
-            if(age != nil){
-                let currentDate = NSDate(),
-                calendar = NSCalendar.currentCalendar(),
-                currentYear = calendar.component(.Year, fromDate: currentDate)
-                self.yearOfBirth = currentYear - age!
-            }
-        }
-    }
+    var yearOfBirth: Int?
     // The age of a person, derived from the date of birth of a person
     var age : Int{
         get{
@@ -38,7 +26,10 @@ class Person {
             return currentYear - yearOfBirth!
         }
         set(age){
-            yearOfBirth = age
+                let currentDate = NSDate(),
+                calendar = NSCalendar.currentCalendar(),
+                currentYear = calendar.component(.Year, fromDate: currentDate)
+                yearOfBirth = currentYear - age
         }
     }
     // The middle name of a person

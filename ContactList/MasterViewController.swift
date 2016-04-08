@@ -51,7 +51,7 @@ class MasterViewController: UITableViewController {
         if let identifier = segue.identifier where identifier == "contactDetailSegue" {
             print("Got contactDetailSegue")
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.person = Person(firstName: "memes", lastName: "stuff")
+            vc.person = ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Bendoverson", address: "9 Fake st", phoneNumber: "12234")
             
             //old code
             /*if let indexPath = self.tableView.indexPathForSelectedRow {

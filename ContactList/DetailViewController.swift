@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextFieldDelegate{
     
     var person: ContactListEntry?
 
@@ -63,6 +63,9 @@ class DetailViewController: UIViewController {
         }
         if let phone = person?.phoneNumber {
             phoneField.text = String(phone)
+        }
+        if let address = person?.address {
+            addressField.text = address
         }
     }
 
