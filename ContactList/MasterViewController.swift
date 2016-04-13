@@ -73,6 +73,12 @@ class MasterViewController: UITableViewController {
         }
         
     }
+    
+    func submitPress(vc: DetailViewController){
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
 
     // MARK: - Table View
 

@@ -8,9 +8,14 @@
 
 import UIKit
 
+//
+protocol DetailViewControllerDelegate {
+    func submitPress(vc: DetailViewController)
+}
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
     
+    var delegate: DetailViewControllerDelegate?
     var person: ContactListEntry?
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -73,6 +78,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func submitButton(sender: AnyObject) {
+        
+        delegate?.submitPress(self)
+        
+    }
+    
+    
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        
     }
 
 

@@ -120,16 +120,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Enter Contact Details" id="mOI-FS-AaM">
-                        <barButtonItem key="leftBarButtonItem" title="Submit" id="aff-Qe-pp6">
-                            <connections>
-                                <segue destination="RMx-3f-FxP" kind="show" id="Te5-I7-MqU"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="3cB-ns-l9c">
-                            <connections>
-                                <segue destination="RMx-3f-FxP" kind="show" identifier="cancel" id="Fch-2f-UcY"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Submit" id="aff-Qe-pp6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="3cB-ns-l9c"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addressField" destination="FIB-fu-bky" id="U1V-Pr-azM"/>
@@ -225,6 +217,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
-        <segue reference="Te5-I7-MqU"/>
     </inferredMetricsTieBreakers>
 </document>
