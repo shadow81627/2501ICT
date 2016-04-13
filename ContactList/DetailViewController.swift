@@ -10,7 +10,9 @@ import UIKit
 
 //
 protocol DetailViewControllerDelegate {
-    func submitPress(vc: DetailViewController)
+    func submitPressed(vc: DetailViewController)
+    
+    func cancelPressed(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
@@ -81,17 +83,36 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func submitButton(sender: AnyObject) {
-        
-        delegate?.submitPress(self)
-        
+        delegate?.submitPressed(self)
     }
     
     
     
     @IBAction func cancelButton(sender: AnyObject) {
-        
+        delegate?.cancelPressed(self)
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        if let firstName = firstNameField.text {
+            person?.firstName = firstNameField.text!
+        }
+        if let lastName = lastNameField.text {
+            person?.lastName = lastNameField.text!
+        }
+        if let middleName = person?.middleName {
+            middleNameField.text = middleName
+        }
+        if let yearOfBirth = person?.yearOfBirth {
+            person?.yearOfBirth = yearOfBirthField.text = String(yearOfBirth)
+        }
+        if let phone = person?.phoneNumber {
+            phoneField.text = String(phone)
+        }
+        if let address = person?.address {
+            addressField.text = address
+        }
+    }
+    }
 
 }
 

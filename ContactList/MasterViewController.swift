@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, DetailViewControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
     //the array of contacts
@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController {
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton*/
         //addes a defualt object tot he objects array
-        objects.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Bendoverson", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
+        objects.insert(ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -54,7 +54,8 @@ class MasterViewController: UITableViewController {
         if let identifier = segue.identifier where identifier == "contactDetailSegue" {
             print("Got contactDetailSegue")
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.person = ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Bendoverson", address: "9 Fake st", phoneNumber: "12234")
+            vc.person = ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234")
+            vc.delegate = self
             
             //old code
             /*if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -69,15 +70,18 @@ class MasterViewController: UITableViewController {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 vc.person = objects[indexPath.row]
+                vc.delegate = self
             }
         }
         
     }
     
-    func submitPress(vc: DetailViewController){
-        
+    func submitPressed(vc: DetailViewController){
         dismissViewControllerAnimated(true, completion: nil)
-        
+    }
+    
+    func cancelPressed(vc: DetailViewController){
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: - Table View
