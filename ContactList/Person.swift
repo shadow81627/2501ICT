@@ -54,9 +54,9 @@ class Person {
     // The fullName function returns the full name and age of a person
     func fullName() -> String {
         if middleName != nil {
-            return firstName + middleName! + lastName + "\(age)"
+            return firstName + " " + middleName! + " " + lastName + " " + "\(age)"
         }else {
-            return firstName + lastName + "\(age)"
+            return firstName + " " + lastName + " " + "\(age)"
         }
     }
 }
