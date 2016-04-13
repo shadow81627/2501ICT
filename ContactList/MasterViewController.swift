@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
+    //the array of contacts
     var objects = [ContactListEntry]()
 
 
@@ -18,13 +19,14 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //the old code for the add button
+        /*the old code for the add button
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
+        //self.navigationItem.rightBarButtonItem = addButton*/
+        //addes a defualt object tot he objects array
+        objects.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Bendoverson", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            objects.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Bendoverson", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         }
     }
 
@@ -39,7 +41,7 @@ class MasterViewController: UITableViewController {
     }
 
     /*func insertNewObject(sender: AnyObject) {
-        objects.insert(ContactListEntry(), atIndex: 0)
+        objects.insert(, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }*/
@@ -63,6 +65,13 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }*/
         }
+        if let identifier = segue.identifier where identifier == "showDetail" {
+            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                vc.person = objects[indexPath.row]
+            }
+        }
+        
     }
 
     // MARK: - Table View
