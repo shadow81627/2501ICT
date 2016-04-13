@@ -19,8 +19,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     var delegate: DetailViewControllerDelegate?
     var person: ContactListEntry?
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
     @IBOutlet weak var firstNameField: UITextField!
 
     @IBOutlet weak var middleNameField: UITextField!
@@ -34,28 +32,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var addressField: UITextField!
     
     
-    
-    var detailItem: AnyObject? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-    }
-
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
-        
+       
         if let firstName = person?.firstName {
             firstNameField.text = firstName
         }

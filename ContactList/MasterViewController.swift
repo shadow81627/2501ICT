@@ -19,7 +19,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //addes a defualt object tot he objects array
+        //adds a defualt object tot he objects array
         objects.insert(ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
     func insertNewObject(vc: DetailViewController) {
         objects.insert(vc.person!, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
