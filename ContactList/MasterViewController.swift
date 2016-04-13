@@ -19,9 +19,6 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        /*the old code for the add button
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton*/
         //addes a defualt object tot he objects array
         objects.insert(ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
@@ -40,32 +37,21 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         // Dispose of any resources that can be recreated.
     }
 
-    /*func insertNewObject(sender: AnyObject) {
-        objects.insert(, atIndex: 0)
+    func insertNewObject(vc: DetailViewController) {
+        objects.insert(vc.person!, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }*/
+    }
 
     // MARK: - Segues
     //the prepare for segue function is used to proform actions and transfer data when switching views
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //This segue is used buy the addnew contact button to display a page with text fields where a contacts details can be entered in
+        //This segue is used by the add new contact button to display a page with text fields where a contacts details can be entered in
         if let identifier = segue.identifier where identifier == "contactDetailSegue" {
-            print("Got contactDetailSegue")
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.person = ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234")
             vc.delegate = self
-            
-            //old code
-            /*if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }*/
         }
-        //the show detail segue is used 
+        //the show detail segue is used to edit an existing person in the contactList
         if let identifier = segue.identifier where identifier == "showDetail" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -73,12 +59,9 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
                 vc.delegate = self
             }
         }
-        
     }
     
-    
     func cancelPressed(vc: DetailViewController){
-       print("stuff")
         self.navigationController?.popViewControllerAnimated(true)
     }
 

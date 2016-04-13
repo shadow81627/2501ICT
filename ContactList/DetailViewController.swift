@@ -11,6 +11,7 @@ import UIKit
 //
 protocol DetailViewControllerDelegate {
    func cancelPressed(vc: DetailViewController)
+    func insertNewObject(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
@@ -86,6 +87,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     }
     
     override func viewWillDisappear(animated: Bool) {
+        if (person != nil){
+            delegate?.insertNewObject(self)
+        }else if (person == nil) {
+            person = ContactListEntry(firstName: firstNameField.text!,
+                lastName: lastNameField.text!,
+                yearOfBirth: Int(yearOfBirthField.text!),
+                middleName: middleNameField.text,
+                address: addressField.text,
+                phoneNumber: phoneField.text)
+        }
+        
         if (firstNameField.text != nil) {
             person?.firstName = firstNameField.text!
         }
@@ -104,7 +116,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         if (addressField.text != nil) {
             person?.address = addressField.text
         }
+        if (person != nil){
+            delegate?.insertNewObject(self)
+        }else if (person == nil) {
+            person = ContactListEntry(firstName: firstNameField.text!,
+                                        lastName: lastNameField.text!,
+                                        yearOfBirth: Int(yearOfBirthField.text!),
+                                        middleName: middleNameField.text,
+                                        address: addressField.text,
+                                        phoneNumber: phoneField.text)
+        }
     }
-
 }
 
