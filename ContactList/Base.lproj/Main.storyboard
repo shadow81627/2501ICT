@@ -120,11 +120,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Enter Contact Details" id="mOI-FS-AaM">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="3cB-ns-l9c">
-                            <connections>
-                                <action selector="cancelButton:" destination="JEX-9P-axG" id="sj8-kx-mRR"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="3cB-ns-l9c"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addressField" destination="FIB-fu-bky" id="U1V-Pr-azM"/>

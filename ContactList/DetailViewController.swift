@@ -10,9 +10,7 @@ import UIKit
 
 //
 protocol DetailViewControllerDelegate {
-    func submitPressed(vc: DetailViewController)
-    
-    func cancelPressed(vc: DetailViewController)
+   func cancelPressed(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
@@ -82,36 +80,30 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func submitButton(sender: AnyObject) {
-        delegate?.submitPressed(self)
-    }
-    
-    
-    
+   
     @IBAction func cancelButton(sender: AnyObject) {
         delegate?.cancelPressed(self)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if let firstName = firstNameField.text {
+        if (firstNameField.text != nil) {
             person?.firstName = firstNameField.text!
         }
-        if let lastName = lastNameField.text {
+        if (lastNameField.text != nil) {
             person?.lastName = lastNameField.text!
         }
-        if let middleName = person?.middleName {
-            middleNameField.text = middleName
+        if (middleNameField.text != nil) {
+            person?.middleName = middleNameField.text
         }
-        if let yearOfBirth = person?.yearOfBirth {
-            person?.yearOfBirth = yearOfBirthField.text = String(yearOfBirth)
+        if (yearOfBirthField.text != nil) {
+            person?.yearOfBirth = Int(yearOfBirthField.text!)
         }
-        if let phone = person?.phoneNumber {
-            phoneField.text = String(phone)
+        if (phoneField.text != nil){
+            person?.phoneNumber = phoneField.text
         }
-        if let address = person?.address {
-            addressField.text = address
+        if (addressField.text != nil) {
+            person?.address = addressField.text
         }
-    }
     }
 
 }

@@ -47,10 +47,9 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     }*/
 
     // MARK: - Segues
-    //gets the segue looks at the identifier and if the identifier is "contactDetailSegue"
-    //
-
+    //the prepare for segue function is used to proform actions and transfer data when switching views
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //This segue is used buy the addnew contact button to display a page with text fields where a contacts details can be entered in
         if let identifier = segue.identifier where identifier == "contactDetailSegue" {
             print("Got contactDetailSegue")
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
@@ -66,6 +65,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }*/
         }
+        //the show detail segue is used 
         if let identifier = segue.identifier where identifier == "showDetail" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -76,12 +76,10 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         
     }
     
-    func submitPressed(vc: DetailViewController){
-        dismissViewControllerAnimated(true, completion: nil)
-    }
     
     func cancelPressed(vc: DetailViewController){
-        dismissViewControllerAnimated(true, completion: nil)
+       print("stuff")
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     // MARK: - Table View
