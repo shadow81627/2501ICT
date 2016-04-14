@@ -37,8 +37,9 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         // Dispose of any resources that can be recreated.
     }
     //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
-    func insertNewObject(vc: DetailViewController) {
-        objects.insert(vc.person!, atIndex: 0)
+    func insertNewObject(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String?, address: String?, phoneNumber: String?)  {
+        let person = ContactListEntry(firstName: firstName, lastName: lastName, yearOfBirth: yearOfBirth, middleName: middleName, address: address, phoneNumber: phoneNumber)
+        objects.insert(person, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -47,7 +48,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     //the prepare for segue function is used to proform actions and transfer data when switching views
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //This segue is used by the add new contact button to display a page with text fields where a contacts details can be entered in
-        if let identifier = segue.identifier where identifier == "contactDetailSegue" {
+        if let identifier = segue.identifier where identifier == "addContact" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             vc.delegate = self
         }
@@ -63,6 +64,10 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     
     func cancelPressed(vc: DetailViewController){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func update(){
+        tableView.reloadData()
     }
 
     // MARK: - Table View

@@ -11,7 +11,8 @@ import UIKit
 //
 protocol DetailViewControllerDelegate {
     func cancelPressed(vc: DetailViewController)
-    func insertNewObject(vc: DetailViewController)
+    func insertNewObject(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String?, address: String?, phoneNumber: String?)
+    func update()
 }
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
@@ -67,35 +68,38 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         delegate?.cancelPressed(self)
     }
     
+    
+    
     override func viewWillDisappear(animated: Bool) {
         
-        if (firstNameField.text != nil) {
-            person?.firstName = firstNameField.text!
-        }
-        if (lastNameField.text != nil) {
-            person?.lastName = lastNameField.text!
-        }
-        if (middleNameField.text != nil) {
-            person?.middleName = middleNameField.text
-        }
-        if (yearOfBirthField.text != nil) {
-            person?.yearOfBirth = Int(yearOfBirthField.text!)
-        }
-        if (phoneField.text != nil){
-            person?.phoneNumber = phoneField.text
-        }
-        if (addressField.text != nil) {
-            person?.address = addressField.text
-        }
-        if (person != nil){
-            delegate?.insertNewObject(self)
-        }else if (person == nil) {
-            person = ContactListEntry(firstName: firstNameField.text!,
-                                        lastName: lastNameField.text!,
-                                        yearOfBirth: Int(yearOfBirthField.text!),
-                                        middleName: middleNameField.text,
-                                        address: addressField.text,
-                                        phoneNumber: phoneField.text)
+        if (person == nil) {
+            delegate?.insertNewObject(firstNameField.text!,
+                lastName: lastNameField.text!,
+                yearOfBirth: Int(yearOfBirthField.text!),
+                middleName: middleNameField.text,
+                address: addressField.text,
+                phoneNumber: phoneField.text)
+            delegate?.update()
+        }else{
+            if (firstNameField.text != nil) {
+                person?.firstName = firstNameField.text!
+            }
+            if (lastNameField.text != nil) {
+                person?.lastName = lastNameField.text!
+            }
+            if (middleNameField.text != nil) {
+                person?.middleName = middleNameField.text
+            }
+            if (yearOfBirthField.text != nil) {
+                person?.yearOfBirth = Int(yearOfBirthField.text!)
+            }
+            if (phoneField.text != nil){
+                person?.phoneNumber = phoneField.text
+            }
+            if (addressField.text != nil) {
+                person?.address = addressField.text
+            }
+            delegate?.update()
         }
     }
 }
