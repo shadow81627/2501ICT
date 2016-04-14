@@ -36,12 +36,6 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
-    func insertNewObject(vc: DetailViewController)  {
-        objects.insert(vc.person!, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
 
     // MARK: - Segues
     //the prepare for segue function is used to proform actions and transfer data when switching views
@@ -64,6 +58,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         }
     }
     
+    // MARK: - Delegates
     //cancels the add or update detials
     func cancelPressed(vc: DetailViewController){
         self.navigationController?.popViewControllerAnimated(true)
@@ -79,9 +74,15 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }else {
-            
+            //dont do anything becuase you probab;y want to cancel at this point
         }
-        
+    }
+    
+    //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
+    func insertNewObject(vc: DetailViewController)  {
+        objects.insert(vc.person!, atIndex: 0)
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     // MARK: - Table View

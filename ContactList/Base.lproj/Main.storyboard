@@ -193,7 +193,7 @@
                     <navigationItem key="navigationItem" title="Contact List" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CCv-xf-6Jm">
                             <connections>
-                                <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="contactDetailSegue" id="bBI-Hk-sAn"/>
+                                <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="addContact" id="bBI-Hk-sAn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
