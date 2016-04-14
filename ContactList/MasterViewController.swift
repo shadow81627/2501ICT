@@ -72,7 +72,9 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     func update(vc: DetailViewController){
         if(vc.update == "update"){
             tableView.reloadData()
-        }else if(vc.update == "add"){ //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
+        //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
+        //does not add the person to the list if they do not have a first name or last name
+        }else if(vc.update == "add" && (vc.person!.firstName != "" || vc.person!.lastName != "")){
             contacts.entries.insert(vc.person!, atIndex: 0)
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
