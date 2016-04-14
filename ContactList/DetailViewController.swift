@@ -10,7 +10,7 @@ import UIKit
 
 //
 protocol DetailViewControllerDelegate {
-   func cancelPressed(vc: DetailViewController)
+    func cancelPressed(vc: DetailViewController)
     func insertNewObject(vc: DetailViewController)
 }
 
@@ -68,16 +68,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if (person != nil){
-            delegate?.insertNewObject(self)
-        }else if (person == nil) {
-            person = ContactListEntry(firstName: firstNameField.text!,
-                lastName: lastNameField.text!,
-                yearOfBirth: Int(yearOfBirthField.text!),
-                middleName: middleNameField.text,
-                address: addressField.text,
-                phoneNumber: phoneField.text)
-        }
         
         if (firstNameField.text != nil) {
             person?.firstName = firstNameField.text!

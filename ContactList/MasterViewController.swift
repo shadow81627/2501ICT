@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         //adds a defualt object tot he objects array
-        objects.insert(ContactListEntry(firstName: "Peter", lastName: "Smith", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
+        objects.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
