@@ -16,11 +16,11 @@ protocol DetailViewControllerDelegate {
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
     
-    //
+    //the view controller that will be manipulating the detail view controller
     var delegate: DetailViewControllerDelegate?
     //the person that will be edited or added to the contact list
     var person: ContactListEntry?
-    //used to tell if update add or cancel should happen
+    //flag used to tell if update add or cancel should happen
     var update: String?
 
     //the text fields

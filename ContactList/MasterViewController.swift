@@ -15,7 +15,6 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     //the list of contacts
     var contacts = ContactList()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,13 +38,15 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     }
 
     // MARK: - Segues
+    
     //the prepare for segue function is used to proform actions and transfer data when switching views
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
         //This segue is used by the add new contact button to display a page with text fields where a contacts details can be entered in
         if let identifier = segue.identifier where identifier == "addContact" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.person = ContactListEntry(firstName: "1", lastName: "2")
-            vc.update = "add"
+            vc.person = ContactListEntry(firstName: "", lastName: "") //adds an empty person to the detail view
+            vc.update = "add" //set the detial view flag to be add
             vc.delegate = self
         }
         //the show detail segue is used to edit an existing person in the contactList
@@ -53,17 +54,18 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 vc.person = contacts.entries[indexPath.row]
-                vc.update = "update"
+                vc.update = "update" // set the detail view flag to update
                 vc.delegate = self
             }
         }
     }
     
     // MARK: - Delegates
+    
     //cancels the add or update detials
     func cancelPressed(vc: DetailViewController){
         self.navigationController?.popViewControllerAnimated(true)
-        vc.update = "cancel"
+        vc.update = "cancel" // set the detal view flag to be cancel
     }
     
     //updates the table view with edited data or adds a new contact if the add button was pressed
