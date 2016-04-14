@@ -37,9 +37,8 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         // Dispose of any resources that can be recreated.
     }
     //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
-    func insertNewObject(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String?, address: String?, phoneNumber: String?)  {
-        let person = ContactListEntry(firstName: firstName, lastName: lastName, yearOfBirth: yearOfBirth, middleName: middleName, address: address, phoneNumber: phoneNumber)
-        objects.insert(person, atIndex: 0)
+    func insertNewObject(vc: DetailViewController)  {
+        objects.insert(vc.person!, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -50,6 +49,8 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         //This segue is used by the add new contact button to display a page with text fields where a contacts details can be entered in
         if let identifier = segue.identifier where identifier == "addContact" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            vc.person = ContactListEntry(firstName: "1", lastName: "2")
+            vc.update = "add"
             vc.delegate = self
         }
         //the show detail segue is used to edit an existing person in the contactList
@@ -57,17 +58,30 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 vc.person = objects[indexPath.row]
+                vc.update = "update"
                 vc.delegate = self
             }
         }
     }
     
+    //cancels the add or update detials
     func cancelPressed(vc: DetailViewController){
         self.navigationController?.popViewControllerAnimated(true)
+        vc.update = "cancel"
     }
     
-    func update(){
-        tableView.reloadData()
+    //updates the table view with edited data or adds a new contact if the add button was pressed
+    func update(vc: DetailViewController){
+        if(vc.update == "update"){
+            tableView.reloadData()
+        }else if(vc.update == "add"){
+            objects.insert(vc.person!, atIndex: 0)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }else {
+            
+        }
+        
     }
 
     // MARK: - Table View

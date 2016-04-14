@@ -8,32 +8,31 @@
 
 import UIKit
 
-//
+//the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {
     func cancelPressed(vc: DetailViewController)
-    func insertNewObject(firstName: String, lastName: String, yearOfBirth: Int?, middleName: String?, address: String?, phoneNumber: String?)
-    func update()
+    func insertNewObject(vc: DetailViewController)
+    func update(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController, UITextFieldDelegate{
     
+    //
     var delegate: DetailViewControllerDelegate?
+    //the person that will be edited or added to the contact list
     var person: ContactListEntry?
+    //used to tell if update add or cancel should happen
+    var update: String?
 
+    //the text fields
     @IBOutlet weak var firstNameField: UITextField!
-
     @IBOutlet weak var middleNameField: UITextField!
-    
     @IBOutlet weak var lastNameField: UITextField!
-    
     @IBOutlet weak var yearOfBirthField: UITextField!
-
     @IBOutlet weak var phoneField: UITextField!
-    
     @IBOutlet weak var addressField: UITextField!
-    
-    
    
+    //updates the textfields with the data of the selected person if there is any
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -63,44 +62,35 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-   
+   //the cancel button wont add or update the person
     @IBAction func cancelButton(sender: AnyObject) {
         delegate?.cancelPressed(self)
     }
     
     
-    
+    //retrives the data from the textfields and updates the contact list with this data
     override func viewWillDisappear(animated: Bool) {
         
-        if (person == nil) {
-            delegate?.insertNewObject(firstNameField.text!,
-                lastName: lastNameField.text!,
-                yearOfBirth: Int(yearOfBirthField.text!),
-                middleName: middleNameField.text,
-                address: addressField.text,
-                phoneNumber: phoneField.text)
-            delegate?.update()
-        }else{
-            if (firstNameField.text != nil) {
-                person?.firstName = firstNameField.text!
-            }
-            if (lastNameField.text != nil) {
-                person?.lastName = lastNameField.text!
-            }
-            if (middleNameField.text != nil) {
-                person?.middleName = middleNameField.text
-            }
-            if (yearOfBirthField.text != nil) {
-                person?.yearOfBirth = Int(yearOfBirthField.text!)
-            }
-            if (phoneField.text != nil){
-                person?.phoneNumber = phoneField.text
-            }
-            if (addressField.text != nil) {
-                person?.address = addressField.text
-            }
-            delegate?.update()
+        if (firstNameField.text != nil) {
+            person?.firstName = firstNameField.text!
         }
+        if (lastNameField.text != nil) {
+            person?.lastName = lastNameField.text!
+        }
+        if (middleNameField.text != nil) {
+            person?.middleName = middleNameField.text
+        }
+        if (yearOfBirthField.text != nil) {
+            person?.yearOfBirth = Int(yearOfBirthField.text!)
+        }
+        if (phoneField.text != nil){
+        person?.phoneNumber = phoneField.text
+        }
+        if (addressField.text != nil) {
+            person?.address = addressField.text
+        }
+        
+        delegate?.update(self)
     }
 }
 
