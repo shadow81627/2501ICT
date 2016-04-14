@@ -10,17 +10,18 @@ import UIKit
 
 class MasterViewController: UITableViewController, DetailViewControllerDelegate {
 
+    //the detail view the master view will work on
     var detailViewController: DetailViewController? = nil
-    //the array of contacts
-    var objects = [ContactListEntry]()
+    //the list of contacts
+    var contacts = ContactList()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //adds a defualt object tot he objects array
-        objects.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
+        //adds a defualt contact to the contacts list
+        contacts.entries.insert(ContactListEntry(firstName: "Peter", lastName: "File", yearOfBirth: 1943, middleName: "Ben", address: "9 Fake st", phoneNumber: "12234"), atIndex: 0)
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -51,7 +52,7 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
         if let identifier = segue.identifier where identifier == "showDetail" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                vc.person = objects[indexPath.row]
+                vc.person = contacts.entries[indexPath.row]
                 vc.update = "update"
                 vc.delegate = self
             }
@@ -69,20 +70,13 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     func update(vc: DetailViewController){
         if(vc.update == "update"){
             tableView.reloadData()
-        }else if(vc.update == "add"){
-            objects.insert(vc.person!, atIndex: 0)
+        }else if(vc.update == "add"){ //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
+            contacts.entries.insert(vc.person!, atIndex: 0)
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }else {
             //dont do anything becuase you probab;y want to cancel at this point
         }
-    }
-    
-    //adds the persons detials entered in the detial view as a contactList entry to the array of contacts
-    func insertNewObject(vc: DetailViewController)  {
-        objects.insert(vc.person!, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     // MARK: - Table View
@@ -92,13 +86,13 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return contacts.entries.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row]
+        let object = contacts.entries[indexPath.row]
         cell.textLabel!.text = object.fullName()
         return cell
     }
@@ -110,10 +104,10 @@ class MasterViewController: UITableViewController, DetailViewControllerDelegate 
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            contacts.entries.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            // Create a new instance of the appropriate class, insert it into the list, and add a new row to the table view.
         }
     }
 

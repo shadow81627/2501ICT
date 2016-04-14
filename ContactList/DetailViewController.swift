@@ -11,7 +11,6 @@ import UIKit
 //the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {
     func cancelPressed(vc: DetailViewController)
-    func insertNewObject(vc: DetailViewController)
     func update(vc: DetailViewController)
 }
 
