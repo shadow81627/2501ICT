@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Photo {
+    
+    var url: String
+    var imageData: NSData?
+    
+    init(url: String, imageData: NSData? = nil){
+        self.url = url
+        self.imageData = imageData
+    }
+}
