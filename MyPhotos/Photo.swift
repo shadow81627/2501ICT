@@ -13,7 +13,7 @@ class Photo {
     var url: String
     var imageData: NSData?
     
-    init(title: String, tag: String, url: String, imageData: NSData? = nil){
+    init(url: String, imageData: NSData? = nil){
         self.url = url
         self.imageData = imageData
     }
