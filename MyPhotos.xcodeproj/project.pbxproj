@@ -15,6 +15,7 @@
 		5B1B69DA1CC71D45005E4B38 /* MyPhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69D91CC71D45005E4B38 /* MyPhotosTests.swift */; };
 		5B1B69E51CC71D45005E4B38 /* MyPhotosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69E41CC71D45005E4B38 /* MyPhotosUITests.swift */; };
 		5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */; };
+		5B1B69F51CC72983005E4B38 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F41CC72983005E4B38 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5B1B69E41CC71D45005E4B38 /* MyPhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotosUITests.swift; sourceTree = "<group>"; };
 		5B1B69E61CC71D45005E4B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5B1B69F41CC72983005E4B38 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				5B1B69C61CC71D45005E4B38 /* ViewController.swift */,
 				5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */,
 				5B1B69C81CC71D45005E4B38 /* Main.storyboard */,
+				5B1B69F41CC72983005E4B38 /* Photo.swift */,
 				5B1B69CB1CC71D45005E4B38 /* Assets.xcassets */,
 				5B1B69CD1CC71D45005E4B38 /* LaunchScreen.storyboard */,
 				5B1B69D01CC71D45005E4B38 /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B1B69F51CC72983005E4B38 /* Photo.swift in Sources */,
 				5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */,
 				5B1B69C71CC71D45005E4B38 /* ViewController.swift in Sources */,
 				5B1B69C51CC71D45005E4B38 /* AppDelegate.swift in Sources */,

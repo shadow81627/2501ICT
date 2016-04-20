@@ -124,6 +124,11 @@
                             <constraint firstItem="Lnn-js-VSg" firstAttribute="centerX" secondItem="uA1-Lq-LKs" secondAttribute="centerX" id="ygl-Sc-ZQD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tagField" destination="hzS-6C-tw0" id="PFJ-FY-tNl"/>
+                        <outlet property="titleField" destination="bTV-Gc-rE7" id="jdg-KM-B4Q"/>
+                        <outlet property="urlfield" destination="HeW-8V-e3f" id="sNQ-nJ-OR4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v78-aU-oaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
