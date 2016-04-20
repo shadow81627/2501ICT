@@ -9,7 +9,7 @@
         <!--Photo Collection-->
         <scene sceneID="xAU-AX-b6b">
             <objects>
-                <collectionViewController id="VXL-sC-uov" sceneMemberID="viewController">
+                <collectionViewController id="VXL-sC-uov" customClass="MasterViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="frS-YY-5GO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,9 +144,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="image" destination="EcV-Df-joR" id="d3o-xD-PeS"/>
+                        <outlet property="imageDisplay" destination="yIF-hG-mYa" id="VkZ-80-hQs"/>
                         <outlet property="tagField" destination="hzS-6C-tw0" id="PFJ-FY-tNl"/>
                         <outlet property="titleField" destination="bTV-Gc-rE7" id="jdg-KM-B4Q"/>
-                        <outlet property="urlfield" destination="HeW-8V-e3f" id="sNQ-nJ-OR4"/>
+                        <outlet property="urlField" destination="HeW-8V-e3f" id="CiS-5x-tdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v78-aU-oaV" userLabel="First Responder" sceneMemberID="firstResponder"/>

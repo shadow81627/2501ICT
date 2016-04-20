@@ -10,10 +10,14 @@ import Foundation
 
 class Photo {
     
+    var title: String
+    var tag: String
     var url: String
     var imageData: NSData?
     
-    init(url: String, imageData: NSData? = nil){
+    init(title: String, tag: String, url: String, imageData: NSData? = nil){
+        self.title = title
+        self.tag = tag
         self.url = url
         self.imageData = imageData
     }
