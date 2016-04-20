@@ -43,7 +43,7 @@ class MasterViewController: UICollectionViewController {
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.photo = Photo(url: "")
+            vc.photo = Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
             
         }
     }
