@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if let title = photo?.title {
+        /*if let title = photo?.title {
             titleField.text = title
         }
         if let tag = photo?.tag {
@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
         }
         if let url = photo?.url {
             urlField.text = url
-        }
+        }*/
     }
     
     override func didReceiveMemoryWarning() {
