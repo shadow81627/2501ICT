@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     //the phot to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
+    var flag: Bool?
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!
@@ -29,8 +30,18 @@ class DetailViewController: UIViewController {
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if let imageData = photo?.imageData{
-            self.imageDisplay.image = UIImage(data: imageData)
+        if let title = photo?.title {
+            titleField.text = title
+        }
+        if var tag = photo?.tag {
+            let first: String = tag.removeFirst()
+            tagField.text = tag.reduce(first, combine: { " \($0). \($1)" })
+        }
+        if let url = photo?.url {
+            urlField.text = url
+        }
+        if let imageData = photo?.imageData {
+            imageDisplay.image = UIImage(data: imageData)
         }
     }
     

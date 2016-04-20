@@ -42,7 +42,8 @@ class MasterViewController: UICollectionViewController {
             vc.photo = photoList[indexPath.row]
         }
         if let identifier = segue.identifier where identifier == "addButton" {
-           let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            vc.photo = Photo(url: "")
             
         }
     }
@@ -60,7 +61,7 @@ class MasterViewController: UICollectionViewController {
                     self.collectionView!.reloadData()
                 })
             }else {
-                print("Could not download image'\(photo.url)', what were you even thinking?")
+                print("Could not download image'\(photo.url)'")
             }
         }
         dispatch_async(queue, backgroundDownload)
