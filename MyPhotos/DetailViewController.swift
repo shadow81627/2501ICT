@@ -33,10 +33,14 @@ class DetailViewController: UIViewController {
             self.imageDisplay.image = UIImage(data: imageData)
         }
     }
+    
+    //when the page closes the data from the text fields is added back into the photo
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
         if(titleField.text != nil) {
             photo?.title = titleField.text
         }
+        //the tag text field is a series of comma seperated values that get split into an array
         if (tagField.text != nil) {
             photo?.tag = tagField.text!.componentsSeparatedByString(",").flatMap {
                 let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -44,7 +48,7 @@ class DetailViewController: UIViewController {
             }
         }
         if(urlField.text != nil) {
-            //photo?.url = urlField.text
+            photo?.url = urlField.text!
         }
     }
     
