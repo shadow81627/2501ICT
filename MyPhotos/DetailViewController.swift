@@ -8,6 +8,11 @@
 
 import UIKit
 
+//the delegate for handling actions with the master view
+protocol DetailViewControllerDelegate {
+
+}
+
 class DetailViewController: UIViewController {
     
     override func viewDidLoad() {

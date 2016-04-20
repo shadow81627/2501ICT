@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var detailViewController: DetailViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,8 +21,9 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if let identifier = segue.identifier where identifier == "addContact" {
+            if let identifier = segue.identifier where identifier == "showDetail" {
                 let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
             }
     }
