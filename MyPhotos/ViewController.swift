@@ -19,7 +19,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if let identifier = segue.identifier where identifier == "addContact" {
+                let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            }
+    }
 }
 
