@@ -33,6 +33,20 @@ class DetailViewController: UIViewController {
             self.imageDisplay.image = UIImage(data: imageData)
         }
     }
+    override func viewWillDisappear(animated: Bool) {
+        if(titleField.text != nil) {
+            photo?.title = titleField.text
+        }
+        if (tagField.text != nil) {
+            photo?.tag = tagField.text!.componentsSeparatedByString(",").flatMap {
+                let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                return temp == "" ? nil : temp
+            }
+        }
+        if(urlField.text != nil) {
+            //photo?.url = urlField.text
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
