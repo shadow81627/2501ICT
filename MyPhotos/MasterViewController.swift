@@ -20,7 +20,7 @@ class MasterViewController: UICollectionViewController {
         photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.append(Photo(url: ""))
        
-        //download the image data int eh background
+        //download the image data in the background
         for photo in photoList {
             loadPhotoInBackground(photo)
         }

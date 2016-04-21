@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Collection-->
+        <!--Master View Controller-->
         <scene sceneID="xAU-AX-b6b">
             <objects>
-                <collectionViewController id="VXL-sC-uov" customClass="MasterViewController" sceneMemberID="viewController">
+                <collectionViewController id="VXL-sC-uov" userLabel="Master View Controller" customClass="MasterViewController" customModule="MyPhotos" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="frS-YY-5GO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +122,7 @@
                             <constraint firstItem="UJW-Zb-uVG" firstAttribute="centerX" secondItem="3h4-KI-wic" secondAttribute="centerX" id="Plu-eq-61X"/>
                             <constraint firstItem="yIF-hG-mYa" firstAttribute="leading" secondItem="HeW-8V-e3f" secondAttribute="leading" id="QJ4-eU-uhC"/>
                             <constraint firstItem="Lnn-js-VSg" firstAttribute="top" secondItem="hzS-6C-tw0" secondAttribute="bottom" constant="21" id="SE9-9l-7Vl"/>
-                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="top" secondItem="N4D-VC-u1h" secondAttribute="bottom" constant="46" id="ZIp-qK-FfS"/>
+                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="top" secondItem="N4D-VC-u1h" secondAttribute="bottom" constant="2" id="ZIp-qK-FfS"/>
                             <constraint firstItem="UJW-Zb-uVG" firstAttribute="leading" secondItem="Lnn-js-VSg" secondAttribute="leading" id="eHp-Js-skR"/>
                             <constraint firstItem="hzS-6C-tw0" firstAttribute="leading" secondItem="bTV-Gc-rE7" secondAttribute="leading" id="eW2-Mj-fnU"/>
                             <constraint firstAttribute="bottom" secondItem="yIF-hG-mYa" secondAttribute="bottom" constant="5" id="fOk-Zf-21p"/>
