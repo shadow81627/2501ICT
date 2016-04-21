@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
             urlField.text = url
         }
         if let imageData = photo?.imageData {
-            imageDisplay.image = UIImage(data: imageData)
+            self.imageDisplay.image = UIImage(data: imageData)
         }
     }
     
