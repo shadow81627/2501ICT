@@ -41,7 +41,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="image" destination="C35-Hz-5cX" id="dqw-jk-kUZ"/>
-                                    <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" action="showDetailViewController:sender:" id="x0n-NR-9LZ"/>
+                                    <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" id="DJT-GM-FU2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -171,7 +171,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8iT-kS-47N"/>
+        <segue reference="DJT-GM-FU2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
