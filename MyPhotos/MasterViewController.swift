@@ -18,6 +18,7 @@ class MasterViewController: UICollectionViewController {
         super.viewDidLoad()
         // creates a new Photo from with the url
         photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.append(Photo(url: ""))
        
         //download the image data int eh background
         for photo in photoList {

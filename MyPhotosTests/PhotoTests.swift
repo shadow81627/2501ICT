@@ -32,10 +32,11 @@ class PhotoTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    //tests to see if the title works
     func testTitle() {
-       // let titleToTest = "Nice Photo"
-       // let photo = Photo(title: titleToTest, url: "SomeLastName")
-        //XCTAssertEqual(photo.title, titleToTest)
+        let titleToTest = "Nice Photo"
+        let photo = Photo(title: titleToTest, url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
+        XCTAssertEqual(photo.title, titleToTest)
     }
     
 }
