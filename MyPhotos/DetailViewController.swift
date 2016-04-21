@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         }
         if var tag = photo?.tag {
             let first: String = tag.removeFirst()
-            tagField.text = tag.reduce(first, combine: { " \($0). \($1)" })
+            tagField.text = tag.reduce(first, combine: { " \($0), \($1)" })
         }
         if let url = photo?.url {
             urlField.text = url
