@@ -54,7 +54,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qcx-pR-cI0">
                             <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="TCx-DE-08r" kind="show" identifier="addButton" id="8iT-kS-47N"/>
+                                <segue destination="TCx-DE-08r" kind="showDetail" identifier="addButton" action="showViewController:sender:" id="8iT-kS-47N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
