@@ -10,7 +10,7 @@ import UIKit
 
 //the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {
-
+    func update(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController {
@@ -61,6 +61,7 @@ class DetailViewController: UIViewController {
         if(urlField.text != nil) {
             photo?.url = urlField.text!
         }
+        delegate?.update(self)
     }
     
     override func viewDidLoad() {

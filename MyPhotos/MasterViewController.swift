@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UICollectionViewController {
+class MasterViewController: UICollectionViewController, DetailViewControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var photoList: [Photo] = []
@@ -17,6 +17,8 @@ class MasterViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // creates a new Photo from with the url
+        photoList.append(Photo(title: "1", tag: ["2"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.append(Photo(url: ""))
        
@@ -41,10 +43,12 @@ class MasterViewController: UICollectionViewController {
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList[indexPath.row]
+            vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
-            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            vc.photo = Photo(title: "1", url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.photo = Photo(title: "1", tag: ["2"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
+            vc.delegate = self
             
         }
     }
@@ -68,7 +72,28 @@ class MasterViewController: UICollectionViewController {
         dispatch_async(queue, backgroundDownload)
     }
     
+    // MARK: -Delegates
+    
+    func update(vc: DetailViewController) {
+        self.collectionView!.reloadData()
+        /*if(vc.update == "update"){
+            self.collectionView!.reloadData()*/
+            //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
+            //does not add the person to the list if they do not have a first name or last name
+        /*}else if(vc.update == "add" && (vc.person!.firstName != "" || vc.person!.lastName != "")){ */
+            photoList.insert(vc.photo!, atIndex: 0)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            //self.collectionView?.insertItemsAtIndexPaths([indexPath])
+        /*}else {
+            //dont do anything becuase you probab;y want to cancel at this point
+        }*/
+    }
+    
     //MARK: - Collection View
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     //gets the number of items in the selection returning the count of the array
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
