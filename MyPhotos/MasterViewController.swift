@@ -37,7 +37,7 @@ class MasterViewController: UICollectionViewController {
     //when the add button is pressed segue to the detail view to creat a new Photo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier where identifier == "showDetail" {
-            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            let vc = segue.destinationViewController as! DetailViewController
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList[indexPath.row]
