@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     //the phot to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
-    var flag: Bool?
+    var flag = true
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!

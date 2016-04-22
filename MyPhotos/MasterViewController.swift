@@ -20,7 +20,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         photoList.append(Photo(title: "1", tag: ["2"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.append(Photo(url: ""))
+        photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
        
         //download the image data in the background
         for photo in photoList {
@@ -43,11 +43,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList[indexPath.row]
+            vc.flag = true
             vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController
             vc.photo = Photo(title: "1", tag: ["2"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
+            vc.flag = false
             vc.delegate = self
             
         }
@@ -76,17 +78,17 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     func update(vc: DetailViewController) {
         self.collectionView!.reloadData()
-        /*if(vc.update == "update"){
-            self.collectionView!.reloadData()*/
+        if(vc.flag){
+            print("\(vc.flag)" + "update")
+            self.collectionView!.reloadData()
             //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
             //does not add the person to the list if they do not have a first name or last name
-        /*}else if(vc.update == "add" && (vc.person!.firstName != "" || vc.person!.lastName != "")){ */
+        }else if(!vc.flag){
+            print("\(vc.flag)" + "not update")
             photoList.insert(vc.photo!, atIndex: 0)
-            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            //self.collectionView?.insertItemsAtIndexPaths([indexPath])
-        /*}else {
-            //dont do anything becuase you probab;y want to cancel at this point
-        }*/
+        }else {
+            //dont do anything becuase you probably want to cancel at this point
+        }
     }
     
     //MARK: - Collection View

@@ -135,7 +135,10 @@
                             <constraint firstItem="HeW-8V-e3f" firstAttribute="trailing" secondItem="hzS-6C-tw0" secondAttribute="trailing" id="uEf-7l-5hs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo" id="4aw-bp-gDy"/>
+                    <navigationItem key="navigationItem" title="Photo" id="4aw-bp-gDy">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="d1a-4X-y81"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="imageDisplay" destination="yIF-hG-mYa" id="VkZ-80-hQs"/>
                         <outlet property="tagField" destination="hzS-6C-tw0" id="PFJ-FY-tNl"/>
@@ -152,12 +155,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KWJ-Pl-lu2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ls1-uR-3Yk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Ls1-uR-3Yk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
