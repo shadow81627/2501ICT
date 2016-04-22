@@ -47,10 +47,10 @@ class PhotoTests: XCTestCase {
     }
     
     //tests to see if the tags works
-    func testTag() {
-        let tagToTest = ["Memes"]
-        let photo = Photo(tag: tagToTest, url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
-        XCTAssertEqual(photo.tag!, tagToTest)
+    func testUrl() {
+        let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+        let photo = Photo(url: urlToTest)
+        XCTAssertEqual(photo.url, urlToTest)
     }
     
 }

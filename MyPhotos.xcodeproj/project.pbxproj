@@ -15,7 +15,6 @@
 		5B1B69DA1CC71D45005E4B38 /* MyPhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69D91CC71D45005E4B38 /* MyPhotosTests.swift */; };
 		5B1B69E51CC71D45005E4B38 /* MyPhotosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69E41CC71D45005E4B38 /* MyPhotosUITests.swift */; };
 		5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */; };
-		5B1B69F51CC72983005E4B38 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F41CC72983005E4B38 /* Photo.swift */; };
 		5B1B69F71CC72E36005E4B38 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */; };
 		5BAD58E91CC844280002C728 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD58E81CC844280002C728 /* PhotoTests.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +51,6 @@
 		5B1B69E41CC71D45005E4B38 /* MyPhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotosUITests.swift; sourceTree = "<group>"; };
 		5B1B69E61CC71D45005E4B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		5B1B69F41CC72983005E4B38 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5BAD58E81CC844280002C728 /* PhotoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +103,6 @@
 		5B1B69C31CC71D45005E4B38 /* MyPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				5B1B69F41CC72983005E4B38 /* Photo.swift */,
 				5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */,
 				5B1B69C61CC71D45005E4B38 /* MasterViewController.swift */,
 				5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */,
@@ -269,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1B69F71CC72E36005E4B38 /* CollectionViewCell.swift in Sources */,
-				5B1B69F51CC72983005E4B38 /* Photo.swift in Sources */,
 				5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */,
 				5B1B69C71CC71D45005E4B38 /* MasterViewController.swift in Sources */,
 				5B1B69C51CC71D45005E4B38 /* AppDelegate.swift in Sources */,
