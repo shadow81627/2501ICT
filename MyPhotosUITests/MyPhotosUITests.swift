@@ -29,8 +29,8 @@ class MyPhotosUITests: XCTestCase {
     }
     
     func testAddingEntries() {
-        let addButton = XCUIApplication().navigationBars["Master"].buttons["Add"]
-        addButton.tap()
+       // let addButton = XCUIApplication().navigationBars["Master"].buttons["Add"]
+       // addButton.tap()
     }
     
 }

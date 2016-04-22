@@ -53,4 +53,13 @@ class PhotoTests: XCTestCase {
         XCTAssertEqual(photo.url, urlToTest)
     }
     
+    //tests to see if the tags to string works
+    func testToStringTag(){
+        let tagToTest = "stuff, and, more, things"
+        let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+        let photo = Photo(tag: tagToTest, url: urlToTest)
+        XCTAssertEqual(photo.tag![0], "stuff")
+        XCTAssertEqual(photo.tag![1], "and")
+        
+    }
 }

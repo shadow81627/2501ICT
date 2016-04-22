@@ -22,6 +22,7 @@ class Photo {
         self.imageData = imageData
     }
     
+    //set the tags witha string
     convenience init(title: String? = nil, tag: String, url: String, imageData: NSData? = nil){
         let tags: [String] = tag.componentsSeparatedByString(",").flatMap{
             let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -32,9 +33,21 @@ class Photo {
     
     //returns a String of comma seperated values from the input string
     func toStringTag(var tag: [String]) -> String{
-        let first: String = tag.removeFirst()
-        let memes = tag.reduce(first, combine: { " \($0), \($1)" })
+        if (tag.count < 0){
+            let first: String = tag.removeFirst()
+            let memes = tag.reduce(first, combine: { " \($0), \($1)" })
         
-        return memes
+            return memes
+        }else{
+            return ""
+        }
+    }
+    //returns an array from a string of comma seperated values
+    func stringToArray( tag: String) ->[String] {
+         let tags: [String] = tag.componentsSeparatedByString(",").flatMap{
+            let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            return temp == "" ? nil : temp
+        }
+        return tags
     }
 }
