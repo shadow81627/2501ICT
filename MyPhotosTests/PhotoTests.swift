@@ -62,4 +62,34 @@ class PhotoTests: XCTestCase {
         XCTAssertEqual(photo.tag![1], "and")
         
     }
+    //tests to see if the photo array lets you insert
+    func testArrayInsert(){
+        let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+        let photo = Photo(url: urlToTest)
+        let photoEmpty = Photo(url: urlToTest)
+        let photoList = PhotoList()
+        photoList.entries.insert(photo, atIndex: 0)
+        //photoLIst.entires.insert(photoEmpty, Index: 1)
+        XCTAssertEqual(photoList.entries[0].url, photo.url)
+        //XCTAssertEqual(photoList.entries[1].url, photoEmpty.url)
+    }
+    
+    //tests to see if the photo array lets you insert
+    func testArrayInsertMiddle(){
+        /*let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+        let photo = Photo(url: urlToTest)
+        let photoList = PhotoList()
+        photoList.entries.insert(photo, atIndex: 3)
+        XCTAssertEqual(photoList.entries[3].url, photo.url)*/
+    }
+    
+    //tests to see if the photo array lets you append
+    func testArrayAppend(){
+        let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+        let photo = Photo(url: urlToTest)
+        let photoList = PhotoList()
+        photoList.entries.append(photo)
+        XCTAssertEqual(photoList.entries[0].url, photo.url)
+    }
+
 }

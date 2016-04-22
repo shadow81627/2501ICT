@@ -9,30 +9,30 @@
 import UIKit
 
 class MasterViewController: UICollectionViewController, DetailViewControllerDelegate {
-
+    
     var detailViewController: DetailViewController? = nil
-    var photoList: [Photo] = []
+    var photos = PhotoList()
     
     //when the view loads add a defualt photos
     override func viewDidLoad() {
         super.viewDidLoad()
         // creates a new Photo from with the url
-        photoList.append(Photo(title: "1", tag: ["2"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
-       
+        photos.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        
         //download the image data in the background
-        for photo in photoList {
+        for photo in photos.entries {
             loadPhotoInBackground(photo)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
+    
     // MARK: - Segue
     
     //when a cell is selected segue to the detail view to display details
@@ -42,7 +42,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let vc = segue.destinationViewController as! DetailViewController
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
-            vc.photo = photoList[indexPath.row]
+            vc.photo = photos.entries[indexPath.row]
             vc.flag = true
             vc.delegate = self
         }
@@ -85,7 +85,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             //does not add the person to the list if they do not have a first name or last name
         }else if(!vc.flag){
             print("\(vc.flag)" + "not update")
-            photoList.insert(vc.photo!, atIndex: 0)
+            photos.entries.insert(vc.photo!, atIndex: 0)
         }else {
             //dont do anything becuase you probably want to cancel at this point
         }
@@ -99,13 +99,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //gets the number of items in the selection returning the count of the array
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.photoList.count
+        return self.photos.entries.count
     }
     
     //if there is an image to put into the view then the image data is turned into a image and displayed in the collection view
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) ->UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
-        if let picture = photoList[indexPath.row].imageData{
+        if let picture = photos.entries[indexPath.row].imageData{
             cell.image.image = UIImage(data: picture)
         }
         return cell

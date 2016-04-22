@@ -17,6 +17,7 @@
 		5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */; };
 		5B1B69F71CC72E36005E4B38 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */; };
 		5B66DD781CC9F26000600D51 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66DD771CC9F26000600D51 /* Photo.swift */; };
+		5B66DD7A1CCA033900600D51 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66DD791CCA033900600D51 /* PhotoList.swift */; };
 		5BAD58E91CC844280002C728 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD58E81CC844280002C728 /* PhotoTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5B66DD771CC9F26000600D51 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		5B66DD791CCA033900600D51 /* PhotoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoList.swift; path = "../../../Downloads/myphotos 2/MyPhotos/PhotoList.swift"; sourceTree = "<group>"; };
 		5BAD58E81CC844280002C728 /* PhotoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 			children = (
 				5B1B69F61CC72E36005E4B38 /* CollectionViewCell.swift */,
 				5B66DD771CC9F26000600D51 /* Photo.swift */,
+				5B66DD791CCA033900600D51 /* PhotoList.swift */,
 				5B1B69C61CC71D45005E4B38 /* MasterViewController.swift */,
 				5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */,
 				5B1B69C81CC71D45005E4B38 /* Main.storyboard */,
@@ -270,6 +273,7 @@
 			files = (
 				5B1B69F71CC72E36005E4B38 /* CollectionViewCell.swift in Sources */,
 				5B1B69F31CC71FA4005E4B38 /* DetailViewController.swift in Sources */,
+				5B66DD7A1CCA033900600D51 /* PhotoList.swift in Sources */,
 				5B1B69C71CC71D45005E4B38 /* MasterViewController.swift in Sources */,
 				5B1B69C51CC71D45005E4B38 /* AppDelegate.swift in Sources */,
 				5B66DD781CC9F26000600D51 /* Photo.swift in Sources */,
