@@ -22,13 +22,13 @@ class Photo {
         self.imageData = imageData
     }
     
-    /*convenience init(title: String? = nil, tag: String, url: String, imageData: NSData? = nil){
-        var tags = tag.componentsSeparatedByString(",").flatMap {
-            var temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    convenience init(title: String? = nil, tag: String, url: String, imageData: NSData? = nil){
+        let tags: [String] = tag.componentsSeparatedByString(",").flatMap{
+            let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             return temp == "" ? nil : temp
         }
-        self.init(title: String? = nil, tags: [String]? = nil, url: String, imageData: NSData? = nil)
-    }*/
+        self.init(title: title, tag: tags, url: url, imageData: imageData)
+    }
     
     //returns a String of comma seperated values from the input string
     func toStringTag(var tag: [String]) -> String{
