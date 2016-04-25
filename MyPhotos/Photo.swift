@@ -32,12 +32,12 @@ class Photo {
     }
     
     //returns a String of comma seperated values from the input string
-    func toStringTag(var tag: [String]) -> String{
-        if (tag.count < 0){
-            let first: String = tag.removeFirst()
-            let memes = tag.reduce(first, combine: { " \($0), \($1)" })
+    func toStringTag() -> String{
+        if (self.tag?.count < 0){
+            let first: String = (self.tag?.removeFirst())!
+            let memes = self.tag?.reduce(first, combine: { " \($0), \($1)" })
         
-            return memes
+            return memes!
         }else{
             return ""
         }
