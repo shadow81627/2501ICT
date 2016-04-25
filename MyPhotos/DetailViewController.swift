@@ -33,7 +33,9 @@ class DetailViewController: UIViewController {
         if let title = photo?.title {
             titleField.text = title
         }
-        tagField.text = photo!.toStringTag()
+        if let tag = photo?.tag{
+            tagField.text = photo?.toStringTag()
+        }
         if let url = photo?.url {
             urlField.text = url
         }
