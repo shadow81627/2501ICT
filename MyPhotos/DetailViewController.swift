@@ -33,8 +33,9 @@ class DetailViewController: UIViewController {
         if let title = photo?.title {
             titleField.text = title
         }
-        if let tag = photo?.tag{
-            tagField.text = photo?.toStringTag()
+        if var tag = photo?.tag {
+            let first: String = tag.removeFirst()
+            tagField.text = tag.reduce(first, combine: { " \($0), \($1)" })
         }
         if let url = photo?.url {
             urlField.text = url
@@ -52,7 +53,10 @@ class DetailViewController: UIViewController {
         }
         //the tag text field is a series of comma seperated values that get split into an array
         if (tagField.text != nil) {
-            photo?.tag = photo?.stringToArray(tagField.text!)
+            photo?.tag = tagField.text!.componentsSeparatedByString(",").flatMap {
+                let temp: String = $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                return temp == "" ? nil : temp
+            }
         }
         if(urlField.text != nil) {
             photo?.url = urlField.text!
