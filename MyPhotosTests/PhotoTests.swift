@@ -30,29 +30,28 @@ class PhotoTests: XCTestCase {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
-        
-            //tests to see if the title works
-            func testTitle() {
-                let titleToTest = "Nice Photo"
-                let photo = Photo(title: titleToTest, url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
-                XCTAssertEqual(photo.title, titleToTest)
-            }
             
-            //tests to see if the tags Array works
-            func testTag() {
-                let tagToTest = ["stuff", "more stuff"]
-                let photo = Photo(tag: tagToTest, url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png")
-                XCTAssertEqual(photo.tag!, tagToTest)
-            }
-            
-            //tests to see if the url works
-            func testUrl() {
-                let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
-                let photo = Photo(url: urlToTest)
-                XCTAssertEqual(photo.url, urlToTest)
-            }
-        
         }
-      
-    }    
+    }
+    
+    //tests to see if the title works
+    func testTitle() {
+        let titleToTest = "Nice Photo"
+        let photo = Photo(title: titleToTest, url: "0")
+        XCTAssertEqual(photo.title, titleToTest)
+    }
+    
+    //tests to see if the tags Array works
+    func testTag() {
+        let tagToTest = ["stuff", "more stuff"]
+        let photo = Photo(tag: tagToTest, url: "0")
+        XCTAssertEqual(photo.tag!, tagToTest)
+    }
+    
+    //tests to see if the url works
+    func testUrl() {
+        let urlToTest = "0"
+        let photo = Photo(url: urlToTest)
+        XCTAssertEqual(photo.url, urlToTest)
+    }
 }
