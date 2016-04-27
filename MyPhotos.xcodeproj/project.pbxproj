@@ -19,6 +19,7 @@
 		5B53B4E41CCED4F30020863D /* PhotoLIst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B53B4E31CCED4F30020863D /* PhotoLIst.swift */; };
 		5B66DD781CC9F26000600D51 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B66DD771CC9F26000600D51 /* Photo.swift */; };
 		5BAD58E91CC844280002C728 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD58E81CC844280002C728 /* PhotoTests.swift */; };
+		5BD761B31CD17555002229E2 /* PhotoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD761B21CD17555002229E2 /* PhotoListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5B53B4E31CCED4F30020863D /* PhotoLIst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLIst.swift; sourceTree = "<group>"; };
 		5B66DD771CC9F26000600D51 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5BAD58E81CC844280002C728 /* PhotoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
+		5BD761B21CD17555002229E2 /* PhotoListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				5B1B69D91CC71D45005E4B38 /* MyPhotosTests.swift */,
 				5B1B69DB1CC71D45005E4B38 /* Info.plist */,
 				5BAD58E81CC844280002C728 /* PhotoTests.swift */,
+				5BD761B21CD17555002229E2 /* PhotoListTests.swift */,
 			);
 			path = MyPhotosTests;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD761B31CD17555002229E2 /* PhotoListTests.swift in Sources */,
 				5BAD58E91CC844280002C728 /* PhotoTests.swift in Sources */,
 				5B1B69DA1CC71D45005E4B38 /* MyPhotosTests.swift in Sources */,
 			);
