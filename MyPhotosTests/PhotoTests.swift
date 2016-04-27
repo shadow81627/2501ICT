@@ -34,6 +34,11 @@ class PhotoTests: XCTestCase {
         }
     }
     
+    func testDict() {
+        let d = ["1": 1, "2": 2, "3": 3]
+        print(d)
+    }
+    
     //tests to see if the title works
     func testTitle() {
         let titleToTest = "Nice Photo"

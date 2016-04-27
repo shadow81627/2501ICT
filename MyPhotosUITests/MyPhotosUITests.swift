@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Foundation
 
 class MyPhotosUITests: XCTestCase {
         
@@ -37,6 +36,9 @@ class MyPhotosUITests: XCTestCase {
     }
     
     func testDeleteEtries(){
+        
+        
+        
         
         
     }
