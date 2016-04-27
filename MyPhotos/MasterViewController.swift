@@ -11,19 +11,19 @@ import UIKit
 class MasterViewController: UICollectionViewController, DetailViewControllerDelegate {
     
     var detailViewController: DetailViewController? = nil
-    var photos = PhotoList()
+    var photoList = PhotoList()
     
     //when the view loads add a defualt photos
     override func viewDidLoad() {
         super.viewDidLoad()
         // creates a new Photo from with the url
-        photos.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photos.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
         
         //download the image data in the background
-        for photo in photos.entries {
+        for photo in photoList.entries {
             loadPhotoInBackground(photo)
         }
     }
@@ -42,7 +42,8 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let vc = segue.destinationViewController as! DetailViewController
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
-            vc.photo = photos.entries[indexPath.row]
+            vc.photo = photoList.entries[indexPath.row]
+            vc.key = indexPath
             vc.update = true
             vc.delegate = self
         }
@@ -78,7 +79,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //removes the detail views photo from the photo list
     func binPressed(vc: DetailViewController){
-        photos.entries.removeAtIndex(0)
+        photoList.entries.removeAtIndex(vc.key!.row)
         vc.update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -92,7 +93,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         //adds the photos detials entered in the detial view to the list of contacts
         }else if(!vc.update){
             loadPhotoInBackground(vc.photo!)
-            photos.entries.insert(vc.photo!, atIndex: 0)
+            photoList.entries.insert(vc.photo!, atIndex: 0)
         }else {
             //dont do anything becuase you probably want to cancel at this point
         }
@@ -106,13 +107,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //gets the number of items in the selection returning the count of the array
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.photos.entries.count
+        return self.photoList.entries.count
     }
     
     //if there is an image to put into the view then the image data is turned into a image and displayed in the collection view
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) ->UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
-        if let picture = photos.entries[indexPath.row].imageData{
+        if let picture = photoList.entries[indexPath.row].imageData{
             cell.image.image = UIImage(data: picture)
         }
         return cell
