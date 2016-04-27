@@ -78,9 +78,9 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //removes the detail views photo from the photo list
     func binPressed(vc: DetailViewController){
-        
-        self.navigationController?.popViewControllerAnimated(true)
+        photos.entries.removeAtIndex(0)
         vc.update =  true // set the detal view flag to be cancel
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //
@@ -88,7 +88,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         self.collectionView!.reloadData()
         if(vc.update){
             self.collectionView!.reloadData()
-            //adds the photos detials entered in the detial view to the list of contacts
+        //adds the photos detials entered in the detial view to the list of contacts
         }else if(!vc.update){
             photos.entries.insert(vc.photo!, atIndex: 0)
         }else {
