@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var urlField: UITextField!
     //image view
     @IBOutlet weak var imageDisplay: UIImageView!
+    @IBOutlet weak var binButton: UIBarButtonItem!
 
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
