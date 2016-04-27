@@ -43,13 +43,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photos.entries[indexPath.row]
-            vc.flag = true
+            vc.update = true
             vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController
             vc.photo = Photo(url: "")
-            vc.flag = false
+            vc.update = false
             vc.delegate = self
             
         }
@@ -76,13 +76,20 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     // MARK: -Delegates
     
+    //removes the detail views photo from the photo list
+    func binPressed(vc: DetailViewController){
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        vc.update =  true // set the detal view flag to be cancel
+    }
+    
+    //
     func update(vc: DetailViewController) {
         self.collectionView!.reloadData()
-        if(vc.flag){
+        if(vc.update){
             self.collectionView!.reloadData()
-            //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
-            //does not add the person to the list if they do not have a first name or last name
-        }else if(!vc.flag){
+            //adds the photos detials entered in the detial view to the list of contacts
+        }else if(!vc.update){
             photos.entries.insert(vc.photo!, atIndex: 0)
         }else {
             //dont do anything becuase you probably want to cancel at this point

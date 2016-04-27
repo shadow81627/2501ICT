@@ -11,6 +11,7 @@ import UIKit
 //the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {
     func update(vc: DetailViewController)
+    func binPressed(vc: DetailViewController)
 }
 
 class DetailViewController: UIViewController {
@@ -18,7 +19,7 @@ class DetailViewController: UIViewController {
     //the phot to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
-    var flag = true
+    var update = true
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!
@@ -26,6 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var urlField: UITextField!
     //image view
     @IBOutlet weak var imageDisplay: UIImageView!
+    //Button for bin
     @IBOutlet weak var binButton: UIBarButtonItem!
 
     //when the view loads the image from photo is extracted and displayed
@@ -46,6 +48,11 @@ class DetailViewController: UIViewController {
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
         }
+    }
+    
+    @IBAction func binButton(sender: AnyObject) {
+        delegate?.binPressed(self)
+        delegate?.update(self)
     }
     
     //when the page closes the data from the text fields is added back into the photo
