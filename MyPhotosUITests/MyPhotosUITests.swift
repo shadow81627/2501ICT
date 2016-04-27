@@ -32,4 +32,12 @@ class MyPhotosUITests: XCTestCase {
         
     }
     
+    func testDeleteEtries(){
+        
+    }
+    
+    func testUpdateEntries(){
+        
+    }
+    
 }
