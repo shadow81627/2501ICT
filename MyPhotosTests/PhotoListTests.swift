@@ -33,28 +33,37 @@ class PhotoListTests: XCTestCase {
     
             //tests to see if the photo array lets you insert
             func testArrayInsert(){
-                let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+                let urlToTest = "0"
                 let photo = Photo(url: urlToTest)
-                let photoEmpty = Photo(url: urlToTest)
                 let photoList = PhotoList()
                 photoList.entries.insert(photo, atIndex: 0)
-                //photoLIst.entires.insert(photoEmpty, Index: 1)
                 XCTAssertEqual(photoList.entries[0].url, photo.url)
-                //XCTAssertEqual(photoList.entries[1].url, photoEmpty.url)
             }
             
-            //tests to see if the photo array lets you insert
+            //tests to see if the photo array lets you insert in the middle of the array
             func testArrayInsertMiddle(){
-                /*let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+                let urlToTest = "0"
                 let photo = Photo(url: urlToTest)
+                let photo1 = Photo(url: "1")
+                let photo2 = Photo(url: "2")
                 let photoList = PhotoList()
-                photoList.entries.insert(photo, atIndex: 3)
-                XCTAssertEqual(photoList.entries[3].url, photo.url)*/
+                //insert first photo
+                var index = (photoList.entries.count)/2
+                photoList.entries.insert(photo, atIndex: index)
+                //insert second photo
+                index = (photoList.entries.count)/2
+                photoList.entries.insert(photo1, atIndex: index)
+                //insert third photo into the middle of the array
+                index = (photoList.entries.count)/2
+                photoList.entries.insert(photo2, atIndex: index)
+                //test to see if the url in the middle of the array is the same as the photo inserted into the middle
+                XCTAssertEqual(photoList.entries[index].url, photo2.url)
             }
-
+            
+           
             //tests to see if the photo array lets you append
             func testArrayAppend(){
-                let urlToTest = "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"
+                let urlToTest = "0"
                 let photo = Photo(url: urlToTest)
                 let photoList = PhotoList()
                 photoList.entries.append(photo)
