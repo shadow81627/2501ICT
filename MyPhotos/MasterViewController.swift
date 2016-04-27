@@ -79,12 +79,12 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     func update(vc: DetailViewController) {
         self.collectionView!.reloadData()
         if(vc.flag){
-            print("\(vc.flag)" + "update")
+            //print("\(vc.flag)" + "update")
             self.collectionView!.reloadData()
             //adds the persons detials entered in the detial view as a contactList entry to the list of contacts
             //does not add the person to the list if they do not have a first name or last name
         }else if(!vc.flag){
-            print("\(vc.flag)" + "not update")
+            //print("\(vc.flag)" + "not update")
             photos.entries.insert(vc.photo!, atIndex: 0)
         }else {
             //dont do anything becuase you probably want to cancel at this point
