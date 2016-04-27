@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
     var update = true
+    var key: NSIndexPath?
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!
