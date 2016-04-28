@@ -64,6 +64,21 @@ class PhotoListTests: XCTestCase {
         photoList.entries.append(photo)
         XCTAssertEqual(photoList.entries[0].url, photo.url)
     }
+    
+    //test to see if the photo list saves to file
+    func testSave(){
+        let photoList = PhotoList()
+        let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
+        XCTAssert(photoList.save())
+    }
+    
+    //test to see if the photo list loads from file
+    func testLoad(){
+        let photoList = PhotoList()
+        let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
+        photoList.save()
+
+    }
 
     
     func testPerformanceExample() {
