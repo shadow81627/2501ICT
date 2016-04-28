@@ -69,6 +69,7 @@ class PhotoListTests: XCTestCase {
     func testSave(){
         let photoList = PhotoList()
         let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
+        photoList.entries.insert(testPhoto, atIndex: 0)
         XCTAssert(photoList.save())
     }
     
@@ -76,7 +77,10 @@ class PhotoListTests: XCTestCase {
     func testLoad(){
         let photoList = PhotoList()
         let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
+        photoList.entries.insert(testPhoto, atIndex: 0)
         photoList.save()
+        photoList.load()
+        XCTAssertEqual(<#T##expression1: [T]##[T]#>, <#T##expression2: [T]##[T]#>)
 
     }
 

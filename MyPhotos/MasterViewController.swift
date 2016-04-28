@@ -97,6 +97,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         }else {
             //dont do anything becuase you probably want to cancel at this point
         }
+        
     }
     
     //MARK: - Collection View

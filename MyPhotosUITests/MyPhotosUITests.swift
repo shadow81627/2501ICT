@@ -35,16 +35,11 @@ class MyPhotosUITests: XCTestCase {
     }
     
     func testDeleteEtries(){
-        let app = XCUIApplication()
-        app.navigationBars["Photo Collection"].buttons["Add"].tap()
-        app.navigationBars["Photo"].buttons["Photo Collection"].tap()
-        
-        
-        
-        
+
     }
     
     func testUpdateEntries(){
+        
         
     }
     
