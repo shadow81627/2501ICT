@@ -16,11 +16,16 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //when the view loads add a defualt photos
     override func viewDidLoad() {
         super.viewDidLoad()
-        // creates a new Photo from with the url
+        //loads entries from file
+        photoList.load()
+        
+        // creates a new Photo from with the url if there are no entries
+        if photoList.entries.count < 0 {
         photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        }
         
         //download the image data in the background
         for photo in photoList.entries {
