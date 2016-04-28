@@ -29,23 +29,31 @@ class MyPhotosUITests: XCTestCase {
         super.tearDown()
     }
     
+    func wait(delay: NSTimeInterval = 2){
+        let runLoop = NSRunLoop.mainRunLoop()
+        let someFutureDate = NSDate(timeIntervalSinceNow: delay)
+        runLoop.runUntilDate(someFutureDate)
+    }
+    
     //tests to see if the buttons for adding a photo work
     func testAddingEntries() {
         let app = XCUIApplication()
         app.navigationBars["Photo Collection"].buttons["Add"].tap()
+        wait(10)
         app.navigationBars["Photo"].buttons["Photo Collection"].tap()
     }
     
     //tests to see if the buttons for deleteing a photo work
     func testDeleteEtries(){
         let app = XCUIApplication()
+        wait(10)
         app.navigationBars["Photo"].buttons["Delete"].tap()
+        wait(10)
         app.sheets["Confirm Delete"].collectionViews.buttons["Delete"].tap()
         
     }
     
-    func testUpdateEntries(){
-        
+    func testUpdateEntries(){        
         
     }
     
