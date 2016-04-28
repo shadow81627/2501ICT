@@ -39,22 +39,25 @@ class MyPhotosUITests: XCTestCase {
     func testAddingEntries() {
         let app = XCUIApplication()
         app.navigationBars["Photo Collection"].buttons["Add"].tap()
-        wait(10)
+        wait(5)
         app.navigationBars["Photo"].buttons["Photo Collection"].tap()
     }
     
     //tests to see if the buttons for deleteing a photo work
     func testDeleteEtries(){
         let app = XCUIApplication()
+        //couldnt record UI test for clicking on a detailed item
         wait(10)
         app.navigationBars["Photo"].buttons["Delete"].tap()
-        wait(10)
+        wait(5)
         app.sheets["Confirm Delete"].collectionViews.buttons["Delete"].tap()
+        
         
     }
     
+    //tests to see if the buttons and textfields for updating work
     func testUpdateEntries(){        
-        
+        //I couldnt record the UI test
     }
     
 }
