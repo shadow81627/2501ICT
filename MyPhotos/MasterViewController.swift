@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UICollectionViewController, DetailViewControllerDelegate {
     
     var detailViewController: DetailViewController? = nil
+    //the list of photos
     var photoList = PhotoList()
     
     //when the view loads add a defualt photos
@@ -82,14 +83,16 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     // MARK: -Delegates
     
-    //removes the detail views photo from the photo list
+    //removes the a selected photo from the photo list
     func binPressed(vc: DetailViewController){
         photoList.entries.removeAtIndex(vc.key!.row)
         vc.update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    //
+    //if the flag update is true then the photoList will be updated
+    //if the flag is not update then a new entrie will be added
+    //after the photoList has been added to or updated it will then be saved to file
     func update(vc: DetailViewController) {
         self.collectionView!.reloadData()
         if(vc.update){
@@ -102,7 +105,8 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         }else {
             //dont do anything becuase you probably want to cancel at this point
         }
-        
+        //saves the photoList to a file so it can be loaded next time the app is opened
+        photoList.save()
     }
     
     //MARK: - Collection View
