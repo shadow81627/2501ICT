@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
     
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler: {
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Photo Deleted")
             self.delegate?.binPressed(self)
