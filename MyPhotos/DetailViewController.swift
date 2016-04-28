@@ -51,10 +51,16 @@ class DetailViewController: UIViewController {
         }
     }
     
+    //makes the keyboard disappear when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
     
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text)", preferredStyle: .ActionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
