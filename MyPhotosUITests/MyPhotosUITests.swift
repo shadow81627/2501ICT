@@ -28,14 +28,19 @@ class MyPhotosUITests: XCTestCase {
         super.tearDown()
     }
     
+    //tests to see if the buttons for adding a photo work
     func testAddingEntries() {
         let app = XCUIApplication()
         app.navigationBars["Photo Collection"].buttons["Add"].tap()
         app.navigationBars["Photo"].buttons["Photo Collection"].tap()
     }
     
+    //tests to see if the buttons for deleteing a photo work
     func testDeleteEtries(){
-
+        let app = XCUIApplication()
+        app.navigationBars["Photo"].buttons["Delete"].tap()
+        app.sheets["Confirm Delete"].collectionViews.buttons["Delete"].tap()
+        
     }
     
     func testUpdateEntries(){
