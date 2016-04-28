@@ -34,8 +34,8 @@ class PhotoTests: XCTestCase {
         }
     }
     
-    func testDict() {
-        let d = ["1": 1, "2": 2, "3": 3]
+    func testPropertyList() {
+        let d = ["title": 1, "tag": 2, "url": 3, ]
         print(d)
     }
     
@@ -58,5 +58,14 @@ class PhotoTests: XCTestCase {
         let urlToTest = "0"
         let photo = Photo(url: urlToTest)
         XCTAssertEqual(photo.url, urlToTest)
+    }
+    
+    func testSaveToFile(){
+        let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
+        let testPropertyList = testPhoto.propertyList()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
+        XCTAssert(testPropertyList.writeToFile(fileName, atomically: true))
+        
     }
 }
