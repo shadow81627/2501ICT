@@ -80,7 +80,7 @@ class PhotoListTests: XCTestCase {
         photoList.entries.insert(testPhoto, atIndex: 0)
         photoList.save()
         photoList.load()
-        XCTAssertEqual(<#T##expression1: [T]##[T]#>, <#T##expression2: [T]##[T]#>)
+        XCTAssertEqual(photoList.entries[0].title, testPhoto.title)
 
     }
 
