@@ -56,28 +56,30 @@ class DetailViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
         
-        let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text!)", preferredStyle: .ActionSheet)
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("Photo Deleted")
-            self.delegate?.binPressed(self)
-            self.delegate?.update(self)
-        })
-      
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("Cancelled")
-        })
-        
-        optionMenu.addAction(deleteAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        if(titleField != nil || titleField != "") && (urlField != nil || urlField != ""){
+
+            let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text!)", preferredStyle: .ActionSheet)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("Photo Deleted")
+                self.delegate?.binPressed(self)
+                self.delegate?.update(self)
+            })
+          
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("Cancelled")
+            })
+            
+            optionMenu.addAction(deleteAction)
+            optionMenu.addAction(cancelAction)
+            
+            self.presentViewController(optionMenu, animated: true, completion: nil)
+        }
     }
     
     //when the page closes the data from the text fields is added back into the photo
