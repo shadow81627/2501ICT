@@ -21,12 +21,11 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         photoList.load()
         
         // creates a new Photo from with the url if there are no entries
-        if photoList.entries.count < 0 {
+        //if photoList.entries.count < 0 {
         photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
-        }
+        photoList.entries.append(Photo(title: "", url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(title: "", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        //}
         
         //download the image data in the background
         for photo in photoList.entries {
@@ -55,7 +54,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController
-            vc.photo = Photo(url: "")
+            vc.photo = Photo(title: "", url: "")
             vc.update = false
             vc.delegate = self
             
@@ -94,7 +93,6 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //if the flag is not update then a new entrie will be added
     //after the photoList has been added to or updated it will then be saved to file
     func update(vc: DetailViewController) {
-        self.collectionView!.reloadData()
         if(vc.update){
             loadPhotoInBackground(vc.photo!)
             self.collectionView!.reloadData()
