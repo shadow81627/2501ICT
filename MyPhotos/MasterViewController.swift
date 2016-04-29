@@ -21,11 +21,11 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         photoList.load()
         
         // creates a new Photo from with the url if there are no entries
-        //if photoList.entries.count < 0 {
+        if photoList.entries.count <= 0 {
         photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(title: "", url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(title: "", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
-        //}
+        photoList.entries.append(Photo(title: "a", url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(title: "b", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        }
         
         //download the image data in the background
         for photo in photoList.entries {
@@ -100,6 +100,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         }else if(!vc.update && (vc.photo?.url != nil && vc.photo?.url != "")){
             loadPhotoInBackground(vc.photo! )
             photoList.entries.insert(vc.photo!, atIndex: 0)
+            self.collectionView!.reloadData()
         }else {
             //dont do anything becuase you probably want to cancel at this point
         }

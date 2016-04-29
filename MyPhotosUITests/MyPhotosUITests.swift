@@ -47,6 +47,7 @@ class MyPhotosUITests: XCTestCase {
     func testDeleteEtries(){
         let app = XCUIApplication()
         //couldnt record UI test for clicking on a detailed item
+        
         app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element.tap()
         wait(5)
         app.navigationBars["Photo"].buttons["Delete"].tap()
