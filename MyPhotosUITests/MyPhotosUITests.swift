@@ -47,7 +47,8 @@ class MyPhotosUITests: XCTestCase {
     func testDeleteEtries(){
         let app = XCUIApplication()
         //couldnt record UI test for clicking on a detailed item
-        wait(10)
+        app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element.tap()
+        wait(5)
         app.navigationBars["Photo"].buttons["Delete"].tap()
         wait(5)
         app.sheets["Confirm Delete"].collectionViews.buttons["Delete"].tap()
@@ -56,7 +57,20 @@ class MyPhotosUITests: XCTestCase {
     }
     
     //tests to see if the buttons and textfields for updating work
-    func testUpdateEntries(){        
+    func testUpdateEntries(){
+        
+        let app = XCUIApplication()
+        app.navigationBars["Photo Collection"].buttons["Add"].tap()
+        
+        let photoCollectionButton = app.navigationBars["Photo"].buttons["Photo Collection"]
+        photoCollectionButton.tap()
+        app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element.tap()
+        photoCollectionButton.tap()
+        
+        let collectionView = app.otherElements.containingType(.NavigationBar, identifier:"Photo Collection").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.CollectionView).element
+        collectionView.tap()
+        collectionView.tap()
+        
         //I couldnt record the UI test
     }
     
