@@ -29,7 +29,7 @@ class PhotoListTests: XCTestCase {
     //tests to see if the photo array lets you insert
     func testArrayInsert(){
         let urlToTest = "0"
-        let photo = Photo(url: urlToTest)
+        let photo = Photo(title: "", url: urlToTest)
         let photoList = PhotoList()
         photoList.entries.insert(photo, atIndex: 0)
         XCTAssertEqual(photoList.entries[0].url, photo.url)
@@ -38,9 +38,9 @@ class PhotoListTests: XCTestCase {
     //tests to see if the photo array lets you insert in the middle of the array
     func testArrayInsertMiddle(){
         let urlToTest = "0"
-        let photo = Photo(url: urlToTest)
-        let photo1 = Photo(url: "1")
-        let photo2 = Photo(url: "2")
+        let photo = Photo(title: "", url: urlToTest)
+        let photo1 = Photo(title: "", url: "1")
+        let photo2 = Photo(title: "", url: "2")
         let photoList = PhotoList()
         //insert first photo
         var index = (photoList.entries.count)/2
@@ -59,7 +59,7 @@ class PhotoListTests: XCTestCase {
     //tests to see if the photo array lets you append
     func testArrayAppend(){
         let urlToTest = "0"
-        let photo = Photo(url: urlToTest)
+        let photo = Photo(title: "", url: urlToTest)
         let photoList = PhotoList()
         photoList.entries.append(photo)
         XCTAssertEqual(photoList.entries[0].url, photo.url)

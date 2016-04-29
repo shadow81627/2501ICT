@@ -49,29 +49,19 @@ class PhotoTests: XCTestCase {
     //tests to see if the tags Array works
     func testTag() {
         let tagToTest = ["stuff", "more stuff"]
-        let photo = Photo(tag: tagToTest, url: "0")
+        let photo = Photo(title: "", tag: tagToTest, url: "0")
         XCTAssertEqual(photo.tag!, tagToTest)
     }
     
     //tests to see if the url works
     func testUrl() {
         let urlToTest = "0";
-        let photo = Photo(url: urlToTest);
+        let photo = Photo(title: "", url: urlToTest);
         XCTAssertEqual(photo.url, urlToTest);
     }
     
-    //test if save data from file works
-    func testSaveToFile(){
-        let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
-        let testPropertyList = testPhoto.propertyList()
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist");
-        XCTAssert(testPropertyList.writeToFile(fileName, atomically: true));
-        
-    }
-    
-    //test if load  data from file works
-    func testLoadFromFile(){
+    //test if propertyList works
+    func testpropertyList(){
         let testPhoto = Photo(title: "0", tag: ["1", "2"], url: "3")
         let testPropertyList = testPhoto.propertyList()
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
@@ -80,9 +70,17 @@ class PhotoTests: XCTestCase {
         let optionalArray = NSDictionary(contentsOfFile: fileName);
         let testPhoto2 = Photo(propertyList: optionalArray!)
         XCTAssertEqual(testPhoto.propertyList(), testPhoto2.propertyList());
-        
-
-        
-        
+    }
+    
+    //test if propertyList hands no tags
+    func testpropertyListNilTags(){
+        let testPhoto = Photo(title: "0", url: "3")
+        let testPropertyList = testPhoto.propertyList()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
+        testPropertyList.writeToFile(fileName, atomically: true)
+        let optionalArray = NSDictionary(contentsOfFile: fileName);
+        let testPhoto2 = Photo(propertyList: optionalArray!)
+        XCTAssertEqual(testPhoto.propertyList(), testPhoto2.propertyList());
     }
 }
