@@ -59,8 +59,8 @@ class DetailViewController: UIViewController {
     
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
-    
-        let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text)", preferredStyle: .ActionSheet)
+        
+        let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text!)", preferredStyle: .ActionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -84,7 +84,7 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         if(titleField.text != nil) {
-            photo?.title = titleField.text
+            photo?.title = titleField.text!
         }
         //the tag text field is a series of comma seperated values that get split into an array
         if (tagField.text != nil) {
@@ -93,7 +93,7 @@ class DetailViewController: UIViewController {
                 return temp == "" ? nil : temp
             }
         }
-        if(urlField.text != nil) {
+        if(urlField.text != nil && urlField.text != "") {
             photo?.url = urlField.text!
         }
         delegate?.update(self)
