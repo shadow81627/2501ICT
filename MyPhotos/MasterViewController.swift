@@ -97,8 +97,8 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             loadPhotoInBackground(vc.photo!)
             self.collectionView!.reloadData()
         //adds the photos detials entered in the detial view to the list of contacts
-        }else if(!vc.update){
-            loadPhotoInBackground(vc.photo!)
+        }else if(!vc.update && (vc.photo?.url != nil && vc.photo?.url != "")){
+            loadPhotoInBackground(vc.photo! )
             photoList.entries.insert(vc.photo!, atIndex: 0)
         }else {
             //dont do anything becuase you probably want to cancel at this point

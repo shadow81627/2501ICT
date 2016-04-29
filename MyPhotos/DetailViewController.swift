@@ -58,8 +58,9 @@ class DetailViewController: UIViewController {
     }
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
-        
-        if(titleField != nil || titleField != "") && (urlField != nil || urlField != ""){
+        print(titleField.text)
+        print(urlField.text)
+        if (titleField.text != nil && titleField.text != "") && (urlField.text != nil && urlField.text != ""){
 
             let optionMenu = UIAlertController(title: "Confirm Delete", message: "Do you really want to delete \(titleField.text!)", preferredStyle: .ActionSheet)
             
