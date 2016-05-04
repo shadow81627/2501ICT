@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol PhotoViewControllerDelegate{
+    func previousPhoto(vc: PhotoViewController)
+    func nextPhoto(vc: PhotoViewController)
+}
+
 class PhotoViewController: UIViewController{
     //the photo to display
     var photo: Photo?
+    var delegate: PhotoViewControllerDelegate?
+    var update = true
+    var key: NSIndexPath?
     
     //the image to be displayed
     @IBOutlet var imageDisplay: UIImageView!
