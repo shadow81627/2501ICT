@@ -17,7 +17,6 @@ class PhotoViewController: UIViewController{
     //the photo to display
     var photo: Photo?
     var delegate: PhotoViewControllerDelegate?
-    var update = true
     
     //the image to be displayed
     @IBOutlet var imageDisplay: UIImageView!
