@@ -13,6 +13,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="frS-YY-5GO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Q2-eV-gWU">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,7 +42,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="image" destination="C35-Hz-5cX" id="dqw-jk-kUZ"/>
-                                    <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" id="DJT-GM-FU2"/>
+                                    <segue destination="Mju-7b-dlQ" kind="show" identifier="" id="SK9-le-CNu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -62,6 +63,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRk-KX-br5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1638" y="671"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="x5L-Zq-dcW">
+            <objects>
+                <viewController id="Mju-7b-dlQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nPi-Nm-bhS"/>
+                        <viewControllerLayoutGuide type="bottom" id="OTC-ly-BDZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BeY-YN-OZM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-Xv-c0Q">
+                                <rect key="frame" x="20" y="72" width="560" height="508"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Te-Xv-c0Q" firstAttribute="leading" secondItem="BeY-YN-OZM" secondAttribute="leadingMargin" id="0eQ-SR-y7x"/>
+                            <constraint firstAttribute="bottom" secondItem="3Te-Xv-c0Q" secondAttribute="bottom" constant="20" symbolic="YES" id="3Wx-P1-xTH"/>
+                            <constraint firstItem="3Te-Xv-c0Q" firstAttribute="top" secondItem="nPi-Nm-bhS" secondAttribute="bottom" constant="8" symbolic="YES" id="F1u-NT-wEZ"/>
+                            <constraint firstItem="3Te-Xv-c0Q" firstAttribute="trailing" secondItem="BeY-YN-OZM" secondAttribute="trailingMargin" id="T4s-GB-R7H"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="-10"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Q4K-iv-x7A">
@@ -222,8 +252,5 @@ Image:</string>
             <point key="canvasLocation" x="826" y="671"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DJT-GM-FU2"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
