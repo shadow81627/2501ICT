@@ -12,6 +12,7 @@ class PhotoViewController: UIViewController{
     //the photo to display
     var photo: Photo?
     
+    //the image to be displayed
     @IBOutlet var imageDisplay: UIImageView!
     
     //action for right swipe
@@ -28,4 +29,15 @@ class PhotoViewController: UIViewController{
             self.imageDisplay.image = UIImage(data: imageData)
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 }
