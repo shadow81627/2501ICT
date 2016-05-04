@@ -62,7 +62,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRk-KX-br5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="671"/>
+            <point key="canvasLocation" x="1536" y="671"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="x5L-Zq-dcW">
@@ -81,6 +81,8 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="8gd-2d-Hmr" appends="YES" id="jf6-KE-VNa"/>
+                                    <outletCollection property="gestureRecognizers" destination="2sA-ig-dMJ" appends="YES" id="KU8-gc-Q5H"/>
+                                    <outletCollection property="gestureRecognizers" destination="AQx-0s-oAh" appends="YES" id="Na2-7X-hzf"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -99,11 +101,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8gd-2d-Hmr">
                     <connections>
-                        <segue destination="TCx-DE-08r" kind="show" id="xCn-2z-6cX"/>
+                        <segue destination="TCx-DE-08r" kind="show" id="Lcc-VA-QZT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="2sA-ig-dMJ" userLabel="Swipe right">
+                    <connections>
+                        <action selector="swipeRight:" destination="Mju-7b-dlQ" id="5uD-lr-BiY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="AQx-0s-oAh" userLabel="Swipe Left">
+                    <connections>
+                        <action selector="swipeLeft:" destination="Mju-7b-dlQ" id="F14-W6-1Yr"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2036" y="-10"/>
+            <point key="canvasLocation" x="2241" y="-68"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Q4K-iv-x7A">
@@ -239,7 +251,7 @@ Image:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v78-aU-oaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2458" y="694"/>
+            <point key="canvasLocation" x="2521" y="671"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s3X-Wm-TFg">
@@ -265,7 +277,7 @@ Image:</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xCn-2z-6cX"/>
+        <segue reference="Lcc-VA-QZT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

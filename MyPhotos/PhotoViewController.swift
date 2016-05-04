@@ -14,6 +14,13 @@ class PhotoViewController: UIViewController{
     
     @IBOutlet var imageDisplay: UIImageView!
     
+    //action for right swipe
+    @IBAction func swipeRight(sender: AnyObject) {
+    }
+    //action for left swipe
+    @IBAction func swipeLeft(sender: AnyObject) {
+    }
+    
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
