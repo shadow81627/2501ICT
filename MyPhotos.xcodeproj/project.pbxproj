@@ -116,12 +116,12 @@
 				5B53B4E31CCED4F30020863D /* PhotoLIst.swift */,
 				5B1B69C61CC71D45005E4B38 /* MasterViewController.swift */,
 				5B1B69F21CC71FA3005E4B38 /* DetailViewController.swift */,
+				5BA07EA71CD9A50900444C7C /* PhotoViewController.swift */,
 				5B1B69C81CC71D45005E4B38 /* Main.storyboard */,
 				5B1B69CB1CC71D45005E4B38 /* Assets.xcassets */,
 				5B1B69CD1CC71D45005E4B38 /* LaunchScreen.storyboard */,
 				5B1B69D01CC71D45005E4B38 /* Info.plist */,
 				5B1B69C41CC71D45005E4B38 /* AppDelegate.swift */,
-				5BA07EA71CD9A50900444C7C /* PhotoViewController.swift */,
 			);
 			path = MyPhotos;
 			sourceTree = "<group>";
