@@ -80,7 +80,7 @@
                                 <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="brm-Wz-uID" appends="YES" id="WYY-TD-SQT"/>
+                                    <outletCollection property="gestureRecognizers" destination="8gd-2d-Hmr" appends="YES" id="jf6-KE-VNa"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -97,7 +97,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="brm-Wz-uID"/>
+                <tapGestureRecognizer id="8gd-2d-Hmr">
+                    <connections>
+                        <segue destination="TCx-DE-08r" kind="show" id="xCn-2z-6cX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2036" y="-10"/>
         </scene>
@@ -260,5 +264,8 @@ Image:</string>
             <point key="canvasLocation" x="826" y="671"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xCn-2z-6cX"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
