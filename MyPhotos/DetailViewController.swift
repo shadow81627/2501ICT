@@ -95,7 +95,9 @@ class DetailViewController: UIViewController {
             }
         }
         if(urlField.text != nil && urlField.text != "") {
-            photo?.url = urlField.text!
+            if (urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).rangeOfCharacterFromSet(NSCharacterSet.whitespaceCharacterSet()) == nil){
+                photo?.url = urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
         }
         delegate?.update(self)
     }
