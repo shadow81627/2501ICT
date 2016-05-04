@@ -16,7 +16,7 @@ protocol DetailViewControllerDelegate {
 
 class DetailViewController: UIViewController {
     
-    //the phot to display
+    //the photo to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
     var update = true

@@ -44,13 +44,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //when the add button is pressed segue to the detail view to creat a new Photo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier where identifier == "showDetail" {
-            let vc = segue.destinationViewController as! DetailViewController
+            let vc = segue.destinationViewController as! PhotoViewController
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList.entries[indexPath.row]
-            vc.key = indexPath
-            vc.update = true
-            vc.delegate = self
+           // vc.key = indexPath
+           // vc.update = true
+            //vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController

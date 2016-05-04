@@ -42,7 +42,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="image" destination="C35-Hz-5cX" id="dqw-jk-kUZ"/>
-                                    <segue destination="Mju-7b-dlQ" kind="show" identifier="" id="SK9-le-CNu"/>
+                                    <segue destination="Mju-7b-dlQ" kind="show" identifier="showDetail" id="SK9-le-CNu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -88,6 +88,9 @@
                             <constraint firstItem="3Te-Xv-c0Q" firstAttribute="trailing" secondItem="BeY-YN-OZM" secondAttribute="trailingMargin" id="T4s-GB-R7H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageDisplay" destination="3Te-Xv-c0Q" id="jCd-xJ-Htz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
