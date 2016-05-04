@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UICollectionViewController, DetailViewControllerDelegate {
+class MasterViewController: UICollectionViewController, DetailViewControllerDelegate, PhotoViewControllerDelegate {
     
     var detailViewController: DetailViewController? = nil
     //the list of photos
     var photoList = PhotoList()
+    var index: NSIndexPath?
     
     //when the view loads add a defualt photos
     override func viewDidLoad() {
@@ -48,9 +49,9 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList.entries[indexPath.row]
-           // vc.key = indexPath
-           // vc.update = true
-            //vc.delegate = self
+            index = indexPath
+            vc.update = true
+            vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController
@@ -84,7 +85,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //removes the a selected photo from the photo list
     func binPressed(vc: DetailViewController){
-        photoList.entries.removeAtIndex(vc.key!.row)
+        photoList.entries.removeAtIndex(index!.row)
         vc.update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -107,6 +108,19 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         //saves the photoList to a file so it can be loaded next time the app is opened
         photoList.save()
     }
+    
+    // MARK: -PhotoViewDelegates
+    
+    //gives the PhotoView the previous Photo in the collection
+    func previousPhoto(vc: PhotoViewController){
+        
+    }
+    
+    //gives the PhotoView the Next Photo int he collection
+    func nextPhoto(vc: PhotoViewController){
+        
+    }
+    
     
     //MARK: - Collection View
     
