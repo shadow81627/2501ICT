@@ -78,6 +78,10 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-Xv-c0Q">
                                 <rect key="frame" x="20" y="72" width="560" height="508"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="brm-Wz-uID" appends="YES" id="WYY-TD-SQT"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,6 +97,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="brm-Wz-uID"/>
             </objects>
             <point key="canvasLocation" x="2036" y="-10"/>
         </scene>
