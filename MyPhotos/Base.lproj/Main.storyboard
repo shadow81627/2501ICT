@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-Xv-c0Q">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Te-Xv-c0Q">
                                 <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -101,7 +101,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ew-Fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8gd-2d-Hmr">
                     <connections>
-                        <segue destination="TCx-DE-08r" kind="show" id="Lcc-VA-QZT"/>
+                        <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" id="Lcc-VA-QZT"/>
                     </connections>
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="2sA-ig-dMJ" userLabel="Swipe right">
