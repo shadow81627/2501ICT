@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
     //the photo to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
-    var update = true
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!

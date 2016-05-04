@@ -14,6 +14,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //the list of photos
     var photoList = PhotoList()
     var index: NSIndexPath?
+    var update = true
     
     //when the view loads add a defualt photos
     override func viewDidLoad() {
@@ -50,13 +51,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let indexPath = indexPaths![0] as NSIndexPath
             vc.photo = photoList.entries[indexPath.row]
             index = indexPath
-            vc.update = true
+            update = true
             vc.delegate = self
         }
         if let identifier = segue.identifier where identifier == "addButton" {
             let vc = segue.destinationViewController as! DetailViewController
             vc.photo = Photo(title: "", url: "")
-            vc.update = false
+            update = false
             vc.delegate = self
             
         }
@@ -86,7 +87,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //removes the a selected photo from the photo list
     func binPressed(vc: DetailViewController){
         photoList.entries.removeAtIndex(index!.row)
-        vc.update =  true // set the detal view flag to be cancel
+        update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -94,11 +95,11 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //if the flag is not update then a new entrie will be added
     //after the photoList has been added to or updated it will then be saved to file
     func update(vc: DetailViewController) {
-        if(vc.update){
+        if(update){
             loadPhotoInBackground(vc.photo!)
             self.collectionView!.reloadData()
         //adds the photos detials entered in the detial view to the list of contacts
-        }else if(!vc.update && (vc.photo?.url != nil && vc.photo?.url != "")){
+        }else if(!update && (vc.photo?.url != nil && vc.photo?.url != "")){
             loadPhotoInBackground(vc.photo! )
             photoList.entries.insert(vc.photo!, atIndex: 0)
             self.collectionView!.reloadData()
