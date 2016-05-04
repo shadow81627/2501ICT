@@ -11,6 +11,15 @@ import Foundation
 class PhotoList {
     var entries = [Photo]()
     
+    var fileName: String{
+        get{
+            return self.fileName
+        }set{
+            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+            self.fileName = documentsDirectory.stringByAppendingPathComponent("photo.plist")
+        }
+    }
+    
     //writes all of the entries to afile for persistent saving of photos
     func save(){
         let propertyList: NSArray = entries.map{ $0.propertyList() }
@@ -23,6 +32,9 @@ class PhotoList {
     func load(){
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         let fileName = documentsDirectory.stringByAppendingPathComponent("photo.plist")
+        if NSArray(contentsOfFile: fileName) == nil {
+            save()
+        }
         let fileContent = NSArray(contentsOfFile: fileName) as! Array<NSDictionary>
         entries = fileContent.map { Photo(propertyList: $0)}
     }
