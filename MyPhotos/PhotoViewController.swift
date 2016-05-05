@@ -34,6 +34,7 @@ class PhotoViewController: UIViewController{
         delegate?.nextPhoto(self)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
+            print("hello")
             print(photo!.url)
         }
     }
@@ -42,8 +43,10 @@ class PhotoViewController: UIViewController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
+            print(photo!.url)
             self.imageDisplay.image = UIImage(data: imageData)
         }
+        print("hello")
         print(photo!.url)
     }
     
@@ -56,6 +59,12 @@ class PhotoViewController: UIViewController{
             let vc = segue.destinationViewController as! DetailViewController
             vc.photo = photo
             vc.delegate = delegate as? DetailViewControllerDelegate
+            vc.onLoadData = {
+                if ($0 == nil) {
+                    return
+                }
+                self.imageDisplay?.image = UIImage(data: $0!)
+            }
         }
     }
     

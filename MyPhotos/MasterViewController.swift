@@ -20,7 +20,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //when the view loads add a defualt photos
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loads entries from file
+                //loads entries from file
         photoList.load()
         
         // creates a new Photo from with the url if there are no entries
@@ -42,6 +42,22 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         for photo in photoList.entries {
             loadPhotoInBackground(photo)
         }
+    }
+    
+    override func viewWillAppear(animated: Bool){
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: "aboutToResign", name: Resign, object: nil)
+
+    }
+    
+    /*override func viewDidDisappear(animated: Bool) {
+        <#code#>
+    }*/
+    
+    //will save the photoList when the app resigns
+    func aboutToResign(){
+        //saves the photoList to a file so it can be loaded next time the app is opened
+        photoList.save()
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +92,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     // MARK: - Download
     
     //downloads the images for the collection view in the background so thatt he UI is still responsive
-    func loadPhotoInBackground(photo: Photo){
+    func loadPhotoInBackground(photo: Photo, callback: (NSData?) -> Void = { _ in }){
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
             if let data = NSData(contentsOfURL:NSURL(string: photo.url)!){
@@ -84,8 +100,10 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
                 dispatch_async(mainQueue, {
                     photo.imageData = data
                     self.collectionView!.reloadData()
+                    callback(data)
                 })
             }else {
+                callback(nil)
                 print("Could not download image'\(photo.url)'")
             }
         }
@@ -105,10 +123,10 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //if the flag update is true then the photoList will be updated
     //if the flag is not update then a new entrie will be added
     //after the photoList has been added to or updated it will then be saved to file
-    func update(vc: DetailViewController) {
+    func update(vc: DetailViewController, callback: (NSData?) -> Void = { _ in }) {
         if(update){
-            loadPhotoInBackground(vc.photo!)
-            photoViewController!.photo = vc.photo
+            loadPhotoInBackground(vc.photo!, callback: callback)
+            //photoViewController!.photo = vc.photo
             self.collectionView!.reloadData()
         //adds the photos detials entered in the detial view to the list of contacts
         }else if(!update && (vc.photo?.url != nil && vc.photo?.url != "")){
@@ -119,7 +137,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             //dont do anything becuase you probably want to cancel at this point
         }
         //saves the photoList to a file so it can be loaded next time the app is opened
-        photoList.save()
+        //photoList.save()
     }
     
     // MARK: - PhotoViewDelegates
@@ -165,4 +183,3 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         return cell
     }
 }
-
