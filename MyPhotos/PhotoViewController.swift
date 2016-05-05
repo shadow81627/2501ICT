@@ -26,7 +26,6 @@ class PhotoViewController: UIViewController{
         delegate?.previousPhoto(self)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
-            print(photo!.url)
         }
     }
     //action for left swipe
@@ -34,8 +33,6 @@ class PhotoViewController: UIViewController{
         delegate?.nextPhoto(self)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
-            print("hello")
-            print(photo!.url)
         }
     }
     
@@ -46,8 +43,6 @@ class PhotoViewController: UIViewController{
             print(photo!.url)
             self.imageDisplay.image = UIImage(data: imageData)
         }
-        print("hello")
-        print(photo!.url)
     }
     
     // MARK: - Segue
