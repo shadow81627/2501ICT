@@ -13,7 +13,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     var detailViewController: DetailViewController? = nil
     //the list of photos
     var photoList = PhotoList()
-    var index: NSIndexPath?
+    var index: Int!
     var update = true
     
     //when the view loads add a defualt photos
@@ -49,8 +49,8 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             let vc = segue.destinationViewController as! PhotoViewController
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()
             let indexPath = indexPaths![0] as NSIndexPath
-            vc.photo = photoList.entries[indexPath.row]
-            index = indexPath
+            index = indexPath.row
+            vc.photo = photoList.entries[index]
             update = true
             vc.delegate = self
         }
@@ -82,11 +82,11 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         dispatch_async(queue, backgroundDownload)
     }
     
-    // MARK: -Delegates
+    // MARK: - Delegates
     
     //removes the a selected photo from the photo list
     func binPressed(vc: DetailViewController){
-        photoList.entries.removeAtIndex(index!.row)
+        photoList.entries.removeAtIndex(index)
         update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -110,16 +110,26 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         photoList.save()
     }
     
-    // MARK: -PhotoViewDelegates
+    // MARK: - PhotoViewDelegates
     
     //gives the PhotoView the previous Photo in the collection
     func previousPhoto(vc: PhotoViewController){
-        
+        if index == 0 {
+            index = photoList.entries.count - 1
+        }else{
+            index = index - 1
+        }
+        vc.photo = photoList.entries[index]
     }
     
     //gives the PhotoView the Next Photo int he collection
     func nextPhoto(vc: PhotoViewController){
-        
+        if index == photoList.entries.count - 1 {
+            index = 0
+        }else{
+            index = index + 1
+        }
+        vc.photo = photoList.entries[index]
     }
     
     

@@ -23,9 +23,11 @@ class PhotoViewController: UIViewController{
     
     //action for right swipe
     @IBAction func swipeRight(sender: AnyObject) {
+        delegate?.previousPhoto(self)
     }
     //action for left swipe
     @IBAction func swipeLeft(sender: AnyObject) {
+        delegate?.nextPhoto(self)
     }
     
     //when the view loads the image from photo is extracted and displayed
@@ -33,6 +35,7 @@ class PhotoViewController: UIViewController{
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
+            print(photo!.title)
         }
     }
     
