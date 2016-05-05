@@ -28,7 +28,6 @@ class PhotoViewController: UIViewController{
             self.imageDisplay.image = UIImage(data: imageData)
             print(photo!.title)
         }
-        print(photo!.title)
     }
     //action for left swipe
     @IBAction func swipeLeft(sender: AnyObject) {
@@ -45,7 +44,6 @@ class PhotoViewController: UIViewController{
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
-            print(photo!.title)
         }
     }
     
