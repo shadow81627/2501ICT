@@ -24,10 +24,20 @@ class PhotoViewController: UIViewController{
     //action for right swipe
     @IBAction func swipeRight(sender: AnyObject) {
         delegate?.previousPhoto(self)
+        if let imageData = photo?.imageData {
+            self.imageDisplay.image = UIImage(data: imageData)
+            print(photo!.title)
+        }
+        print(photo!.title)
     }
     //action for left swipe
     @IBAction func swipeLeft(sender: AnyObject) {
         delegate?.nextPhoto(self)
+        if let imageData = photo?.imageData {
+            self.imageDisplay.image = UIImage(data: imageData)
+            print(photo!.title)
+        }
+        print(photo!.title)
     }
     
     //when the view loads the image from photo is extracted and displayed
@@ -36,6 +46,18 @@ class PhotoViewController: UIViewController{
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
             print(photo!.title)
+        }
+    }
+    
+    // MARK: - Segue
+    
+    //when a cell is selected segue to the detail view to display details
+    //when the add button is pressed segue to the detail view to creat a new Photo
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier where identifier == "showDetail" {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.photo = photo
+            vc.delegate = delegate as? DetailViewControllerDelegate
         }
     }
     
