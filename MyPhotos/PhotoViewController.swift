@@ -26,7 +26,7 @@ class PhotoViewController: UIViewController{
         delegate?.previousPhoto(self)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
-            print(photo!.title)
+            print(photo!.url)
         }
     }
     //action for left swipe
@@ -34,9 +34,8 @@ class PhotoViewController: UIViewController{
         delegate?.nextPhoto(self)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
-            print(photo!.title)
+            print(photo!.url)
         }
-        print(photo!.title)
     }
     
     //when the view loads the image from photo is extracted and displayed
@@ -45,6 +44,7 @@ class PhotoViewController: UIViewController{
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
         }
+        print(photo!.url)
     }
     
     // MARK: - Segue
@@ -61,7 +61,7 @@ class PhotoViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //self.navigationController?.navigationBarHidden = true
     }
     
     override func didReceiveMemoryWarning() {
