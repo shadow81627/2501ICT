@@ -44,15 +44,18 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         }
     }
     
+    //add the resign observer
     override func viewWillAppear(animated: Bool){
         let nc = NSNotificationCenter.defaultCenter()
         nc.addObserver(self, selector: "aboutToResign", name: Resign, object: nil)
 
     }
     
-    /*override func viewDidDisappear(animated: Bool) {
-        <#code#>
-    }*/
+    //removes the resign observer
+    override func viewDidDisappear(animated: Bool) {
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.removeObserver(self)
+    }
     
     //will save the photoList when the app resigns
     func aboutToResign(){
