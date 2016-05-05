@@ -115,7 +115,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2241" y="-68"/>
+            <point key="canvasLocation" x="2278" y="-91"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Q4K-iv-x7A">

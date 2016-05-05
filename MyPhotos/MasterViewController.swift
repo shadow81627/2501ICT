@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UICollectionViewController, DetailViewControllerDelegate, PhotoViewControllerDelegate {
     
     var detailViewController: DetailViewController? = nil
+    var photoViewController: PhotoViewController? = nil
     //the list of photos
     var photoList = PhotoList()
     var index: Int!
@@ -89,6 +90,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         photoList.entries.removeAtIndex(index)
         update =  true // set the detal view flag to be cancel
         self.navigationController?.popViewControllerAnimated(true)
+       //self.navigationController?.popViewControllerAnimated(true)
     }
     
     //if the flag update is true then the photoList will be updated
