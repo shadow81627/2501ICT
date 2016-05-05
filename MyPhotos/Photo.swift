@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Photo {
+class Photo: NSObject {
     
     var title: String
     var tag: [String]?
     var url: String
-    var imageData: NSData?
+    dynamic var imageData: NSData?
     
     //creates a new Photo with given details
     init(title: String, tag: [String]? = nil, url: String, imageData: NSData? = nil){

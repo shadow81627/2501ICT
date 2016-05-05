@@ -48,7 +48,6 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     override func viewWillAppear(animated: Bool){
         let nc = NSNotificationCenter.defaultCenter()
         nc.addObserver(self, selector: "aboutToResign", name: Resign, object: nil)
-
     }
     
     //removes the resign observer
@@ -88,14 +87,13 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             vc.photo = Photo(title: "", url: "")
             update = false
             vc.delegate = self
-            
         }
     }
     
     // MARK: - Download
     
     //downloads the images for the collection view in the background so thatt he UI is still responsive
-    func loadPhotoInBackground(photo: Photo, callback: (NSData?) -> Void = { _ in }){
+    func loadPhotoInBackground(photo: Photo){
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
             if let data = NSData(contentsOfURL:NSURL(string: photo.url)!){
@@ -103,10 +101,8 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
                 dispatch_async(mainQueue, {
                     photo.imageData = data
                     self.collectionView!.reloadData()
-                    callback(data)
                 })
             }else {
-                callback(nil)
                 print("Could not download image'\(photo.url)'")
             }
         }
@@ -126,9 +122,9 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     //if the flag update is true then the photoList will be updated
     //if the flag is not update then a new entrie will be added
     //after the photoList has been added to or updated it will then be saved to file
-    func update(vc: DetailViewController, callback: (NSData?) -> Void = { _ in }) {
+    func update(vc: DetailViewController) {
         if(update){
-            loadPhotoInBackground(vc.photo!, callback: callback)
+            loadPhotoInBackground(vc.photo!)
             //photoViewController!.photo = vc.photo
             self.collectionView!.reloadData()
         //adds the photos detials entered in the detial view to the list of contacts

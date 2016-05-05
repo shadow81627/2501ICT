@@ -43,6 +43,12 @@ class PhotoViewController: UIViewController{
             print(photo!.url)
             self.imageDisplay.image = UIImage(data: imageData)
         }
+        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
+    }
+    
+    //removes the resign observer
+    override func viewDidDisappear(animated: Bool) {
+        photo?.removeObserver(self, forKeyPath: "imageData")
     }
     
     // MARK: - Segue
@@ -54,12 +60,6 @@ class PhotoViewController: UIViewController{
             let vc = segue.destinationViewController as! DetailViewController
             vc.photo = photo
             vc.delegate = delegate as? DetailViewControllerDelegate
-            vc.onLoadData = {
-                if ($0 == nil) {
-                    return
-                }
-                self.imageDisplay?.image = UIImage(data: $0!)
-            }
         }
     }
     
@@ -71,6 +71,18 @@ class PhotoViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard keyPath == "imageData" else{
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            return
+        }
+        if let imageData = photo?.imageData {
+            print(photo!.url)
+            self.imageDisplay.image = UIImage(data: imageData)
+        }
+        print("memes")
     }
 
 }
