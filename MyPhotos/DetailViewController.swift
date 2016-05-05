@@ -10,7 +10,7 @@ import UIKit
 
 //the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {
-    func update(vc: DetailViewController)
+    func update(vc: DetailViewController, callback: (NSData?) -> Void)
     func binPressed(vc: DetailViewController)
 }
 
@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     //the photo to display
     var photo: Photo?
     var delegate: DetailViewControllerDelegate?
+    var onLoadData: (NSData?) -> Void = { _ in }
     
     //title tag and url textFields
     @IBOutlet weak var titleField: UITextField!
@@ -64,7 +65,7 @@ class DetailViewController: UIViewController {
                 (alert: UIAlertAction!) -> Void in
                 print("Photo Deleted")
                 self.delegate?.binPressed(self)
-                self.delegate?.update(self)
+                self.delegate?.update(self, callback: self.onLoadData)
             })
           
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
@@ -97,7 +98,7 @@ class DetailViewController: UIViewController {
                 photo?.url = urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             }
         }
-        delegate?.update(self)
+        delegate?.update(self, callback: self.onLoadData)
     }
     
     override func viewDidLoad() {
