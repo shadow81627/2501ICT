@@ -62,14 +62,12 @@ class DetailViewController: UIViewController {
             
             let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
                 (alert: UIAlertAction!) -> Void in
-                print("Photo Deleted")
                 self.delegate?.binPressed(self)
                 self.delegate?.update(self)
             })
           
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
-                print("Cancelled")
             })
             
             optionMenu.addAction(deleteAction)
