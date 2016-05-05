@@ -40,7 +40,6 @@ class PhotoViewController: UIViewController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
-            print(photo!.url)
             self.imageDisplay.image = UIImage(data: imageData)
         }
         photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
@@ -79,10 +78,8 @@ class PhotoViewController: UIViewController{
             return
         }
         if let imageData = photo?.imageData {
-            print(photo!.url)
             self.imageDisplay.image = UIImage(data: imageData)
         }
-        print("memes")
     }
 
 }
