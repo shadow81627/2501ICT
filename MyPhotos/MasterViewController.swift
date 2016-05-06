@@ -25,9 +25,9 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         
         // creates a new Photo from with the url if there are no entries
         if photoList.entries.count <= 0 {
-        photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        photoList.entries.append(Photo(title: "The Griffith University Logo", tag: ["Griffith", "University"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
         photoList.entries.append(Photo(title: "Hitler riding a sled in his Pyjamas with a rainbow trail", url: "http://i.imgur.com/LuRFBBm.jpg"))
-        photoList.entries.append(Photo(title: "b", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        photoList.entries.append(Photo(title: "A random picture from wikipedia", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
         }
         //download the image data in the background
         for photo in photoList.entries {

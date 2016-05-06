@@ -48,7 +48,9 @@ class PhotoViewController: UIViewController{
     
     //removes the resign observer
     override func viewDidDisappear(animated: Bool) {
-        photo?.removeObserver(self, forKeyPath: "imageData")
+        self.navigationController?.navigationBarHidden = false
+        //couldnt remove observer becuase apparently there isnt one to remove
+        //photo?.removeObserver(self, forKeyPath: "imageData")
     }
     
     // MARK: - Segue
@@ -65,7 +67,7 @@ class PhotoViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = true
     }
     
     override func didReceiveMemoryWarning() {
