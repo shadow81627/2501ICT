@@ -88,8 +88,12 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     // the image is set to a defual no image at the begining while the actual image is being downloaded
     //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(photo: Photo){
-        let image = UIImage(named: "no-image.png")
-        photo.imageData = NSData(data: UIImagePNGRepresentation(image!)!)
+        let image = UIImage(named: "no-image.png")!
+        let photoData = UIImagePNGRepresentation(image)!
+        let noPhoto = NSData(data: photoData)
+        if photo.imageData == nil {
+            photo.imageData = noPhoto
+        }
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
             if let data = NSData(contentsOfURL:NSURL(string: photo.url)!){
@@ -100,7 +104,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
                 })
             }else {
                 print("Could not download image'\(photo.url)'")
-                photo.imageData = NSData(data: UIImagePNGRepresentation(image!)!)
+                photo.imageData = noPhoto
             }
         }
         dispatch_async(queue, backgroundDownload)
@@ -112,8 +116,6 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     func binPressed(vc: DetailViewController){
         photoList.entries.removeAtIndex(index)
         update =  true // set the detal view flag to be cancel
-        self.navigationController?.popViewControllerAnimated(true)
-        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //if the flag update is true then the photoList will be updated
