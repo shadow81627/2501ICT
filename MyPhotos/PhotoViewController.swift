@@ -23,27 +23,25 @@ class PhotoViewController: UIViewController{
     
     //action for right swipe
     @IBAction func swipeRight(sender: AnyObject) {
+        photo?.removeObserver(self, forKeyPath: "imageData")
         delegate?.previousPhoto(self)
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
+        displayImage()
     }
     //action for left swipe
     @IBAction func swipeLeft(sender: AnyObject) {
+        photo?.removeObserver(self, forKeyPath: "imageData")
         delegate?.nextPhoto(self)
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
+        displayImage()
     }
     
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.interactivePopGestureRecognizer!.delegate = nil
-        super.viewWillAppear(true)
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        displayImage()
         //the observer for if the image data changes
         photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
     }
@@ -77,15 +75,20 @@ class PhotoViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    //sets the image display to display the photo image data
+    func displayImage(){
+        if let imageData = photo?.imageData {
+            self.imageDisplay.image = UIImage(data: imageData)
+        }
+    }
+    
     //updates the image data if it has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         guard keyPath == "imageData" else{
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
             return
         }
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        displayImage()
     }
 
 }
