@@ -43,14 +43,14 @@ class PhotoViewController: UIViewController{
             self.imageDisplay.image = UIImage(data: imageData)
         }
         //the observer for if the image data changes
-        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
+        photo?.addObserver(self, forKeyPath: "url", options: .New, context: nil)
     }
     
     //removes the resign observer
     override func viewDidDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         //couldnt remove observer becuase apparently there isnt one to remove
-        //photo?.removeObserver(self, forKeyPath: "imageData")
+        photo?.removeObserver(self, forKeyPath: "url")
     }
     
     // MARK: - Segue
@@ -65,6 +65,7 @@ class PhotoViewController: UIViewController{
         }
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
@@ -77,7 +78,7 @@ class PhotoViewController: UIViewController{
     
     //updates the image data if it has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        guard keyPath == "imageData" else{
+        guard keyPath == "url" else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
             return
         }
