@@ -39,7 +39,7 @@ class PhotoViewController: UIViewController{
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.enabled
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = nil
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
