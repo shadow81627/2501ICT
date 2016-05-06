@@ -57,6 +57,7 @@ class DetailViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
+    
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
         if (titleField.text != nil && titleField.text != "") && (urlField.text != nil && urlField.text != ""){

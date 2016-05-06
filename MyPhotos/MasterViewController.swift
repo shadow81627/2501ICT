@@ -26,18 +26,9 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         // creates a new Photo from with the url if there are no entries
         if photoList.entries.count <= 0 {
         photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        /*photoList.entries.append(Photo(title: "1", tag: ["2", "3"], url: "http://i3.kym-cdn.com/photos/images/facebook/000/875/509/533.jpg"))
-        photoList.entries.append(Photo(title: "a", url: "http://vignette2.wikia.nocookie.net/uncyclopedia/images/a/ab/Holocausttycoon.jpg/revision/latest/scale-to-width-down/250?cb=20060417145631"))
-        photoList.entries.append(Photo(title: "a", url: "http://www.history.co.uk/sites/default/files/adolf-hitler-in-colour.jpg"))
-        photoList.entries.append(Photo(title: "a", url: "http://i.imgur.com/LuRFBBm.jpg"))
-        photoList.entries.append(Photo(title: "a", url: "http://i.imgur.com/175HatD.jpg"))
-        photoList.entries.append(Photo(title: "a", url: "http://i.imgur.com/WeScWlg.jpg"))
-        photoList.entries.append(Photo(title: "a", url: "http://img.ifcdn.com/images/3f053896e5d21348200836f5b69f225fc216a3e83b056fa3d7d7e322fc97cf5b_1.jpg"))*/
+        photoList.entries.append(Photo(title: "Hitler riding a sled in his Pyjamas with a rainbow trail", url: "http://i.imgur.com/LuRFBBm.jpg"))
         photoList.entries.append(Photo(title: "b", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
-            
-            
         }
-        
         //download the image data in the background
         for photo in photoList.entries {
             loadPhotoInBackground(photo)
