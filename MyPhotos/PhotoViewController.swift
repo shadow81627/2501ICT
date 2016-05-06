@@ -42,6 +42,7 @@ class PhotoViewController: UIViewController{
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
         }
+        //the observer for if the image data changes
         photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
     }
     
@@ -72,6 +73,7 @@ class PhotoViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    //updates the image data if it has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         guard keyPath == "imageData" else{
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)

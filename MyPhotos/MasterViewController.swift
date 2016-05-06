@@ -51,9 +51,10 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     }
     
     //removes the resign observer
-    override func viewDidDisappear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool) {
         let nc = NSNotificationCenter.defaultCenter()
         nc.removeObserver(self)
+        print("stuff")
     }
     
     //will save the photoList when the app resigns
@@ -93,7 +94,11 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     // MARK: - Download
     
     //downloads the images for the collection view in the background so thatt he UI is still responsive
+    // the image is set to a defual no image at the begining while the actual image is being downloaded
+    //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(photo: Photo){
+        let image = UIImage(named: "no-image.png")
+        photo.imageData = NSData(data: UIImagePNGRepresentation(image!)!)
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
             if let data = NSData(contentsOfURL:NSURL(string: photo.url)!){
@@ -104,6 +109,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
                 })
             }else {
                 print("Could not download image'\(photo.url)'")
+                photo.imageData = NSData(data: UIImagePNGRepresentation(image!)!)
             }
         }
         dispatch_async(queue, backgroundDownload)
@@ -125,7 +131,6 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     func update(vc: DetailViewController) {
         if(update){
             loadPhotoInBackground(vc.photo!)
-            //photoViewController!.photo = vc.photo
             self.collectionView!.reloadData()
         //adds the photos detials entered in the detial view to the list of contacts
         }else if(!update && (vc.photo?.url != nil && vc.photo?.url != "")){
@@ -136,7 +141,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
             //dont do anything becuase you probably want to cancel at this point
         }
         //saves the photoList to a file so it can be loaded next time the app is opened
-        //photoList.save()
+        photoList.save()
     }
     
     // MARK: - PhotoViewDelegates
