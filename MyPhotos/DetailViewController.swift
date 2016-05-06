@@ -58,6 +58,13 @@ class DetailViewController: UIViewController {
         return true
     }
     
+    @IBAction func backButton(sender: AnyObject) {
+    
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    
+    }
+    
+    
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
         if (titleField.text != nil && titleField.text != "") && (urlField.text != nil && urlField.text != ""){
@@ -68,6 +75,7 @@ class DetailViewController: UIViewController {
                 (alert: UIAlertAction!) -> Void in
                 self.delegate?.binPressed(self)
                 self.delegate?.update(self)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             })
           
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
