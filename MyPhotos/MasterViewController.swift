@@ -26,7 +26,7 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
         // creates a new Photo from with the url if there are no entries
         if photoList.entries.count <= 0 {
         photoList.entries.append(Photo(title: "The Griffith University Logo", tag: ["Griffith", "University"], url: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        photoList.entries.append(Photo(title: "Hitler riding a sled in his Pyjamas with a rainbow trail", url: "http://i.imgur.com/LuRFBBm.jpg"))
+        photoList.entries.append(Photo(title: "The boy in the stripped Pyjamas riding a sled with a rainbow trail", url: "http://i.imgur.com/LuRFBBm.jpg"))
         photoList.entries.append(Photo(title: "A random picture from wikipedia", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
         }
         //download the image data in the background
@@ -37,15 +37,18 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     
     //add the resign observer
     override func viewWillAppear(animated: Bool){
-        let nc = NSNotificationCenter.defaultCenter()
+        /*let nc = NSNotificationCenter.defaultCenter()
         nc.addObserver(self, selector: "aboutToResign", name: Resign, object: nil)
+        for photo in photoList.entries {
+            photo.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
+        }*/
     }
     
     //removes the resign observer
     override func viewWillDisappear(animated: Bool) {
-        let nc = NSNotificationCenter.defaultCenter()
+        /*let nc = NSNotificationCenter.defaultCenter()
         nc.removeObserver(self)
-        print("stuff")
+        print("stuff")*/
     }
     
     //will save the photoList when the app resigns
@@ -88,18 +91,23 @@ class MasterViewController: UICollectionViewController, DetailViewControllerDele
     // the image is set to a defual no image at the begining while the actual image is being downloaded
     //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(photo: Photo){
+        //defualt image
         let image = UIImage(named: "no-image.png")!
         let photoData = UIImagePNGRepresentation(image)!
+        //defualt image data
         let noPhoto = NSData(data: photoData)
         if photo.imageData == nil {
             photo.imageData = noPhoto
         }
+        //photo.imageData = noPhoto
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
             if let data = NSData(contentsOfURL:NSURL(string: photo.url)!){
                 let mainQueue = dispatch_get_main_queue()
                 dispatch_async(mainQueue, {
-                    photo.imageData = data
+                    //if observeValueForKeyPath("imageData", ofObject: photo, change: [String: AnyObject]?, context: nil) {
+                        photo.imageData = data
+                    //}
                     self.collectionView!.reloadData()
                 })
             }else {
