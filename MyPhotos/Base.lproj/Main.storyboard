@@ -93,6 +93,10 @@
                             <constraint firstItem="3Te-Xv-c0Q" firstAttribute="top" secondItem="nPi-Nm-bhS" secondAttribute="bottom" constant="8" symbolic="YES" id="Vzx-H1-hUX"/>
                             <constraint firstItem="3Te-Xv-c0Q" firstAttribute="trailing" secondItem="BeY-YN-OZM" secondAttribute="trailingMargin" id="pJG-Yc-wM1"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LET-Tb-P45" appends="YES" id="r39-gu-apu"/>
+                            <outletCollection property="gestureRecognizers" destination="gMC-wK-q9r" appends="YES" id="ujk-Iz-n4r"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="imageDisplay" destination="3Te-Xv-c0Q" id="jCd-xJ-Htz"/>
@@ -104,6 +108,12 @@
                         <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" id="Lcc-VA-QZT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="gMC-wK-q9r" userLabel="Pan Right">
+                    <rectEdge key="edges" right="YES"/>
+                </screenEdgePanGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="LET-Tb-P45" userLabel="Pan Left">
+                    <rectEdge key="edges" left="YES"/>
+                </screenEdgePanGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="2sA-ig-dMJ" userLabel="Swipe right">
                     <connections>
                         <action selector="swipeRight:" destination="Mju-7b-dlQ" id="5uD-lr-BiY"/>
@@ -188,12 +198,6 @@ Image:</string>
                                 <color key="textColor" red="0.10716575922617677" green="1" blue="0.089520782026897616" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJW-Zb-uVG">
-                                <rect key="frame" x="283" y="72" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-hG-mYa">
                                 <rect key="frame" x="142" y="300" width="438" height="280"/>
                             </imageView>
@@ -203,14 +207,24 @@ Image:</string>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJW-Zb-uVG">
+                                <rect key="frame" x="20" y="64" width="560" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="wqp-80-gM2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hzS-6C-tw0" firstAttribute="top" secondItem="3h4-KI-wic" secondAttribute="bottom" constant="8" id="19Y-c0-xP0"/>
                             <constraint firstItem="Lnn-js-VSg" firstAttribute="leading" secondItem="3h4-KI-wic" secondAttribute="leading" constant="4" id="1AO-a3-ABx"/>
+                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="leading" secondItem="EcV-Df-joR" secondAttribute="leadingMargin" id="2gq-m5-He6"/>
                             <constraint firstItem="hzS-6C-tw0" firstAttribute="trailing" secondItem="HeW-8V-e3f" secondAttribute="trailing" id="74d-t0-HYy"/>
                             <constraint firstItem="HeW-8V-e3f" firstAttribute="top" secondItem="Lnn-js-VSg" secondAttribute="bottom" constant="8" symbolic="YES" id="AbJ-af-HMj"/>
-                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="top" secondItem="N4D-VC-u1h" secondAttribute="bottom" constant="8" id="BN6-3f-DJ1"/>
+                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="top" secondItem="N4D-VC-u1h" secondAttribute="bottom" id="BN6-3f-DJ1"/>
                             <constraint firstItem="yIF-hG-mYa" firstAttribute="leading" secondItem="frd-db-3Ib" secondAttribute="trailing" constant="-4" id="C6V-Hb-mUR"/>
                             <constraint firstItem="yIF-hG-mYa" firstAttribute="trailing" secondItem="EcV-Df-joR" secondAttribute="trailingMargin" id="Cle-MR-ASU"/>
                             <constraint firstItem="frd-db-3Ib" firstAttribute="leading" secondItem="EcV-Df-joR" secondAttribute="leadingMargin" id="E8W-NV-4Do"/>
@@ -226,9 +240,10 @@ Image:</string>
                             <constraint firstAttribute="bottom" secondItem="yIF-hG-mYa" secondAttribute="bottom" constant="20" symbolic="YES" id="ZyY-cm-vdd"/>
                             <constraint firstItem="yIF-hG-mYa" firstAttribute="trailing" secondItem="HeW-8V-e3f" secondAttribute="trailing" id="crc-gt-TAj"/>
                             <constraint firstItem="yIF-hG-mYa" firstAttribute="top" secondItem="HeW-8V-e3f" secondAttribute="bottom" constant="35" id="dQQ-zv-Sg5"/>
+                            <constraint firstItem="UJW-Zb-uVG" firstAttribute="trailing" secondItem="EcV-Df-joR" secondAttribute="trailingMargin" id="dlL-h2-cq7"/>
                             <constraint firstItem="hzS-6C-tw0" firstAttribute="centerX" secondItem="3h4-KI-wic" secondAttribute="centerX" id="emI-mm-V4L"/>
                             <constraint firstItem="hzS-6C-tw0" firstAttribute="top" secondItem="bTV-Gc-rE7" secondAttribute="top" constant="67" id="i1d-Im-3Xh"/>
-                            <constraint firstItem="bTV-Gc-rE7" firstAttribute="top" secondItem="UJW-Zb-uVG" secondAttribute="bottom" constant="8" id="rfg-U2-qmG"/>
+                            <constraint firstItem="bTV-Gc-rE7" firstAttribute="top" secondItem="UJW-Zb-uVG" secondAttribute="bottom" constant="-1" id="rfg-U2-qmG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="4aw-bp-gDy">
