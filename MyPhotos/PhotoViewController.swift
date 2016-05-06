@@ -38,19 +38,21 @@ class PhotoViewController: UIViewController{
     
     //when the view loads the image from photo is extracted and displayed
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.interactivePopGestureRecognizer?.enabled
         super.viewWillAppear(true)
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
         }
         //the observer for if the image data changes
-        photo?.addObserver(self, forKeyPath: "url", options: .New, context: nil)
+        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
     }
     
     //removes the resign observer
-    override func viewDidDisappear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         //couldnt remove observer becuase apparently there isnt one to remove
-        photo?.removeObserver(self, forKeyPath: "url")
+        photo?.removeObserver(self, forKeyPath: "imageData")
     }
     
     // MARK: - Segue
@@ -65,10 +67,9 @@ class PhotoViewController: UIViewController{
         }
     }
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,7 +79,7 @@ class PhotoViewController: UIViewController{
     
     //updates the image data if it has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        guard keyPath == "url" else {
+        guard keyPath == "imageData" else{
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
             return
         }
