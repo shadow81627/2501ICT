@@ -7,31 +7,18 @@
 //
 
 import Foundation
-
+let fileName = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("photo.plist")
 class PhotoList {
     var entries = [Photo]()
-    
-    var fileName: String{
-        get{
-            return self.fileName
-        }set{
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-            self.fileName = documentsDirectory.stringByAppendingPathComponent("photo.plist")
-        }
-    }
     
     //writes all of the entries to afile for persistent saving of photos
     func save(){
         let propertyList: NSArray = entries.map{ $0.propertyList() }
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-            let fileName = documentsDirectory.stringByAppendingPathComponent("photo.plist")
             propertyList.writeToFile(fileName, atomically: true)
     }
     
     //loads photos from a file into the entries array
     func load(){
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let fileName = documentsDirectory.stringByAppendingPathComponent("photo.plist")
         if NSArray(contentsOfFile: fileName) == nil {
             save()
         }
