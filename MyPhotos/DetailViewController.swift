@@ -17,7 +17,7 @@ protocol DetailViewControllerDelegate {
 class DetailViewController: UIViewController {
     
     //the photo to display
-    var photo: Photo?
+    var photo: Photo!
     var delegate: DetailViewControllerDelegate?
     
     //title tag and url textFields
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         if let title = photo?.title {
             titleField.text = title
         }
-        if var tag = photo?.tag {
+        if var tag = photo.tag {
             if (tag.count > 0){
                 let first: String = tag.removeFirst()
                 tagField.text = tag.reduce(first, combine: { " \($0), \($1)" })
@@ -44,9 +44,7 @@ class DetailViewController: UIViewController {
         if let url = photo?.url {
             urlField.text = url
         }
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        displayImage()
         
         //the observer for if the image data changes
         photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
@@ -54,16 +52,11 @@ class DetailViewController: UIViewController {
     
     //makes the keyboard disappear when you hit return
     func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        updateUrl()
+        delegate?.update(self)
         textField.resignFirstResponder()
         return true
     }
-    
-    /*@IBAction func backButton(sender: AnyObject) {
-    
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    
-    }*/
-    
     
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
     @IBAction func binButton(sender: AnyObject) {
@@ -102,14 +95,10 @@ class DetailViewController: UIViewController {
                 return temp == "" ? nil : temp
             }
         }
-        if(urlField.text != nil && urlField.text != "") {
-            if (urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).rangeOfCharacterFromSet(NSCharacterSet.whitespaceCharacterSet()) == nil){
-                photo?.url = urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }
-        }
+        updateUrl()
         delegate?.update(self)
         //removes the resign observer
-        photo?.removeObserver(self, forKeyPath: "imageData")
+        photo!.removeObserver(self, forKeyPath: "imageData")
     }
     
     override func viewDidLoad() {
@@ -122,15 +111,29 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //sets the image display to display the photo image data
+    func displayImage(){
+        if let imageData = photo?.imageData {
+            self.imageDisplay.image = UIImage(data: imageData)
+        }
+    }
+    
+    //updates the photos url with the data in the url field
+    func updateUrl(){
+        if(urlField.text != nil && urlField.text != "") {
+            if (urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).rangeOfCharacterFromSet(NSCharacterSet.whitespaceCharacterSet()) == nil){
+                photo?.url = urlField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
+        }
+    }
+    
     //updates the image data if it has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         guard keyPath == "imageData" else{
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
             return
         }
-        if let imageData = photo?.imageData {
-            self.imageDisplay.image = UIImage(data: imageData)
-        }
+        displayImage()
     }
     
     
