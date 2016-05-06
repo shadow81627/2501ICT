@@ -58,11 +58,11 @@ class DetailViewController: UIViewController {
         return true
     }
     
-    @IBAction func backButton(sender: AnyObject) {
+    /*@IBAction func backButton(sender: AnyObject) {
     
         self.navigationController?.popToRootViewControllerAnimated(true)
     
-    }
+    }*/
     
     
     //when the delete button is pressed an action sheet apears to confirm deleting the photo
