@@ -93,10 +93,6 @@
                             <constraint firstItem="3Te-Xv-c0Q" firstAttribute="top" secondItem="nPi-Nm-bhS" secondAttribute="bottom" constant="8" symbolic="YES" id="Vzx-H1-hUX"/>
                             <constraint firstItem="3Te-Xv-c0Q" firstAttribute="trailing" secondItem="BeY-YN-OZM" secondAttribute="trailingMargin" id="pJG-Yc-wM1"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="LET-Tb-P45" appends="YES" id="r39-gu-apu"/>
-                            <outletCollection property="gestureRecognizers" destination="gMC-wK-q9r" appends="YES" id="ujk-Iz-n4r"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="imageDisplay" destination="3Te-Xv-c0Q" id="jCd-xJ-Htz"/>
@@ -108,12 +104,6 @@
                         <segue destination="TCx-DE-08r" kind="show" identifier="showDetail" id="Lcc-VA-QZT"/>
                     </connections>
                 </tapGestureRecognizer>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="gMC-wK-q9r" userLabel="Pan Right">
-                    <rectEdge key="edges" right="YES"/>
-                </screenEdgePanGestureRecognizer>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="LET-Tb-P45" userLabel="Pan Left">
-                    <rectEdge key="edges" left="YES"/>
-                </screenEdgePanGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="2sA-ig-dMJ" userLabel="Swipe right">
                     <connections>
                         <action selector="swipeRight:" destination="Mju-7b-dlQ" id="5uD-lr-BiY"/>
