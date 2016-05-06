@@ -47,6 +47,9 @@ class DetailViewController: UIViewController {
         if let imageData = photo?.imageData {
             self.imageDisplay.image = UIImage(data: imageData)
         }
+        
+        //the observer for if the image data changes
+        photo?.addObserver(self, forKeyPath: "imageData", options: .New, context: nil)
     }
     
     //makes the keyboard disappear when you hit return
@@ -96,6 +99,8 @@ class DetailViewController: UIViewController {
             }
         }
         delegate?.update(self)
+        //removes the resign observer
+        photo?.removeObserver(self, forKeyPath: "imageData")
     }
     
     override func viewDidLoad() {
@@ -106,6 +111,17 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //updates the image data if it has changed
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard keyPath == "imageData" else{
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            return
+        }
+        if let imageData = photo?.imageData {
+            self.imageDisplay.image = UIImage(data: imageData)
+        }
     }
     
     
