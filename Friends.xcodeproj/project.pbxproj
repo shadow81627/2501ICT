@@ -18,6 +18,7 @@
 		5BA370FD1CE3E72B007C22AF /* FriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370FC1CE3E72B007C22AF /* FriendsUITests.swift */; };
 		5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3710A1CE3E8BC007C22AF /* Contact.swift */; };
 		5BA3710D1CE3F156007C22AF /* no-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3710C1CE3F156007C22AF /* no-image.png */; };
+		5BA3710F1CE3FAF8007C22AF /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5BA370FE1CE3E72B007C22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BA3710A1CE3E8BC007C22AF /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5BA3710C1CE3F156007C22AF /* no-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image.png"; sourceTree = "<group>"; };
+		5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA370F11CE3E72B007C22AF /* FriendsTests.swift */,
+				5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */,
 				5BA370F31CE3E72B007C22AF /* Info.plist */,
 			);
 			path = FriendsTests;
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA3710F1CE3FAF8007C22AF /* ContactTests.swift in Sources */,
 				5BA370F21CE3E72B007C22AF /* FriendsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

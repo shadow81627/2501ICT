@@ -14,12 +14,16 @@ import Foundation
 //
 class Contact: NSObject {
     
+    //Takes a string and sets the address string as the given string
     var address: String
     
+    //Takes a string and sets the firstName and lastName string as the given string
     var firstName: String
     var lastName: String
     
+    //This field holds the image data and is set when there is a URL
     var image: NSData?
+    //Sets the url and then sets the image data witht he given url
     var imageURL: NSURL {
         get{
             return self.imageURL
