@@ -31,6 +31,4 @@ class ViewController: UIViewController {
         webView.loadRequest(request)
         return true
     }
-
-
 }
