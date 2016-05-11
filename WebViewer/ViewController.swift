@@ -26,9 +26,11 @@ class ViewController: UIViewController {
     //makes the keyboard disappear when you hit return
     func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
         textField.resignFirstResponder()
+        guard let url = NSURL(string: urlField.text!) else { return false}
+        let request = NSURLRequest(URL: url)
+        webView.loadRequest(request)
         return true
     }
 
 
 }
-
