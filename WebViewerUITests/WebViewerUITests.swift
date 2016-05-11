@@ -28,13 +28,13 @@ class WebViewerUITests: XCTestCase {
         super.tearDown()
     }
     
+    //test to see if the url https://www.google.com.au/ will be loaded
     func testUrl() {
         let app = XCUIApplication()
         let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.TextField).element
         textField.tap()
         textField.typeText("https://www.google.com.au/")
         app.buttons["Return"].tap()
-       
     }
     
     func testNoUrl() {
