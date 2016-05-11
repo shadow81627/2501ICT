@@ -20,20 +20,28 @@ class Contact: NSObject {
     var lastName: String
     
     var image: NSData?
-    var imageURL: NSURL
+    var imageURL: NSURL {
+        get{
+            return self.imageURL
+        }set(url){
+            self.imageURL = url
+            loadPhotoInBackground()
+        }
+    }
     
     //initialiser for the Contact class
-    init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: NSURL){
+    init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: NSURL){
         self.address = address
         self.firstName = firstName
         self.lastName = lastName
         self.image = image
+        super.init()
         self.imageURL = imageURL
     }
     
     
     //Secondary initialiser for the Contact class that takes a String for the URL
-    convenience init(caddress: String, firstName: String, lastName: String, image: NSData?, imageURL: String){
+    convenience init(caddress: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: String){
         self.init(address: caddress, firstName: firstName, lastName: lastName, image: image, imageURL: NSURL(string: imageURL)!)
     }
     
