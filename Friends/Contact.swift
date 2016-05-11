@@ -11,7 +11,7 @@ import Foundation
 //
 // A Contact has an address firstname and lastname of type String, An image of type NSData and a URL of type NSUrl.
 //
-class Contact {
+class Contact: NSObject {
     
     var address: String
     
@@ -23,11 +23,12 @@ class Contact {
     
     //initialiser for the Contact class
     init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: NSURL){
-            self.address = address
-            self.firstName = firstName
-            self.lastName = lastName
-            self.image = image
-            self.imageURL = imageURL
+        self.address = address
+        self.firstName = firstName
+        self.lastName = lastName
+        self.image = image
+        self.imageURL = imageURL
+        loadPhotoInBackground()
     }
     
     
@@ -39,6 +40,7 @@ class Contact {
         self.lastName = lastName
         self.image = image
         self.imageURL = NSURL(string: imageURL)!
+        loadPhotoInBackground()
     }
     
     // MARK: - Download
@@ -48,12 +50,12 @@ class Contact {
     //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(){
         //defualt image
-        //let image = UIImage(named: "no-image.png")!
-        //let photoData = UIImagePNGRepresentation(image)!
+        let image: UIImage()
+        let photoData = UIImagePNGRepresentation(image)!
         //defualt image data
-        //let noPhoto = NSData(data: photoData)
+        let noPhoto = NSData(data: photoData)
         if self.image == nil {
-            //self.image = noPhoto
+            self.image = noPhoto
         }
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
         let backgroundDownload = {
