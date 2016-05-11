@@ -36,5 +36,13 @@ class WebViewerUITests: XCTestCase {
         app.buttons["Return"].tap()
        
     }
-   
+    
+    func testNoUrl() {
+        let app = XCUIApplication()
+        let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.TextField).element
+        textField.tap()
+        app.buttons["Return"].tap()
+        
+    }
+    
 }
