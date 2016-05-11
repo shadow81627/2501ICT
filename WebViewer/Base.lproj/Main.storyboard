@@ -23,6 +23,7 @@
                             </webView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8To-9e-BV7">
                                 <rect key="frame" x="0.0" y="20" width="600" height="30"/>
+                                <color key="textColor" red="0.0" green="0.53598484848484851" blue="0.0030662700201954437" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
