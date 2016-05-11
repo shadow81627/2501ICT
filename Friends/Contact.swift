@@ -14,11 +14,14 @@ import Foundation
 class Contact {
     
     var address: String
+    
     var firstName: String
     var lastName: String
+    
     var image: NSData?
     var imageURL: NSURL
     
+    //initialiser for the Contact class
     init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: NSURL){
             self.address = address
             self.firstName = firstName
@@ -26,5 +29,17 @@ class Contact {
             self.image = image
             self.imageURL = imageURL
     }
+    
+    
+    //Secondary initialiser for the Contact class that takes a String for the URL
+    convenience init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: String){
+        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: imageURL)
+        self.address = address
+        self.firstName = firstName
+        self.lastName = lastName
+        self.image = image
+        self.imageURL = NSURL(string: imageURL)!
+    }
+    
     
 }
