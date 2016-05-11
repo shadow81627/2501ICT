@@ -37,6 +37,7 @@ class WebViewerUITests: XCTestCase {
         app.buttons["Return"].tap()
     }
     
+    //test to see if no url is handled
     func testNoUrl() {
         let app = XCUIApplication()
         let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.TextField).element
