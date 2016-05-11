@@ -28,9 +28,13 @@ class WebViewerUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUrl() {
+        let app = XCUIApplication()
+        let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.TextField).element
+        textField.tap()
+        textField.typeText("https://www.google.com.au/")
+        app.buttons["Return"].tap()
+       
     }
-    
+   
 }
