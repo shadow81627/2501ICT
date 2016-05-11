@@ -29,19 +29,12 @@ class Contact: NSObject {
         self.lastName = lastName
         self.image = image
         self.imageURL = imageURL
-        loadPhotoInBackground()
     }
     
     
     //Secondary initialiser for the Contact class that takes a String for the URL
-    convenience init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: String){
-        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: imageURL)
-        self.address = address
-        self.firstName = firstName
-        self.lastName = lastName
-        self.image = image
-        self.imageURL = NSURL(string: imageURL)!
-        loadPhotoInBackground()
+    convenience init(caddress: String, firstName: String, lastName: String, image: NSData?, imageURL: String){
+        self.init(address: caddress, firstName: firstName, lastName: lastName, image: image, imageURL: NSURL(string: imageURL)!)
     }
     
     // MARK: - Download
@@ -67,7 +60,7 @@ class Contact: NSObject {
                 })
             }else {
                 print("Could not download image'\(self.imageURL)'")
-                //self.image = noPhoto
+                self.image = noPhoto
             }
         }
         dispatch_async(queue, backgroundDownload)
