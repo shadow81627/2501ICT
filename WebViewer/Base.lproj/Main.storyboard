@@ -38,6 +38,10 @@
                             <constraint firstItem="8To-9e-BV7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sp3-Xb-dIh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="urlField" destination="8To-9e-BV7" id="cHC-4J-YOp"/>
+                        <outlet property="webView" destination="lKB-wd-NnL" id="Y9Z-oY-nII"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
