@@ -41,5 +41,33 @@ class Contact {
         self.imageURL = NSURL(string: imageURL)!
     }
     
+    // MARK: - Download
     
+    //downloads the images for the collection view in the background so thatt he UI is still responsive
+    // the image is set to a defual no image at the begining while the actual image is being downloaded
+    //if the image could not be downlaoded then the defualt image will be displayed
+    func loadPhotoInBackground(){
+        //defualt image
+        //let image = UIImage(named: "no-image.png")!
+        //let photoData = UIImagePNGRepresentation(image)!
+        //defualt image data
+        //let noPhoto = NSData(data: photoData)
+        if self.image == nil {
+            //self.image = noPhoto
+        }
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
+        let backgroundDownload = {
+            if let data = NSData(contentsOfURL: self.imageURL){
+                let mainQueue = dispatch_get_main_queue()
+                dispatch_async(mainQueue, {
+                    self.image = data
+                })
+            }else {
+                print("Could not download image'\(self.imageURL)'")
+                //self.image = noPhoto
+            }
+        }
+        dispatch_async(queue, backgroundDownload)
+    }
+
 }
