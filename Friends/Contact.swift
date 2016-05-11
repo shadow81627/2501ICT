@@ -6,6 +6,7 @@
 //  Copyright © 2016 s5014219. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 //
@@ -50,7 +51,7 @@ class Contact: NSObject {
     //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(){
         //defualt image
-        let image: UIImage()
+        let image = UIImage(named: "no-image.png")!
         let photoData = UIImagePNGRepresentation(image)!
         //defualt image data
         let noPhoto = NSData(data: photoData)
