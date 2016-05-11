@@ -16,6 +16,7 @@
 		5BA370E71CE3E72B007C22AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA370E51CE3E72B007C22AF /* LaunchScreen.storyboard */; };
 		5BA370F21CE3E72B007C22AF /* FriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370F11CE3E72B007C22AF /* FriendsTests.swift */; };
 		5BA370FD1CE3E72B007C22AF /* FriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370FC1CE3E72B007C22AF /* FriendsUITests.swift */; };
+		5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3710A1CE3E8BC007C22AF /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5BA370F81CE3E72B007C22AF /* FriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA370FC1CE3E72B007C22AF /* FriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsUITests.swift; sourceTree = "<group>"; };
 		5BA370FE1CE3E72B007C22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BA3710A1CE3E8BC007C22AF /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				5BA370E51CE3E72B007C22AF /* LaunchScreen.storyboard */,
 				5BA370E81CE3E72B007C22AF /* Info.plist */,
 				5BA370D91CE3E72B007C22AF /* Friends.xcdatamodeld */,
+				5BA3710A1CE3E8BC007C22AF /* Contact.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				5BA370D81CE3E72B007C22AF /* AppDelegate.swift in Sources */,
 				5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */,
+				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
 				5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */,
 				5BA370DF1CE3E72B007C22AF /* DetailViewController.swift in Sources */,
 			);
