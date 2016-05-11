@@ -8,4 +8,23 @@
 
 import Foundation
 
-class Contact
+//
+// A Contact has an address firstname and lastname of type String, An image of type NSData and a URL of type NSUrl.
+//
+class Contact {
+    
+    var address: String
+    var firstName: String
+    var lastName: String
+    var image: NSData?
+    var imageURL: NSURL
+    
+    init(address: String, firstName: String, lastName: String, image: NSData?, imageURL: NSURL){
+            self.address = address
+            self.firstName = firstName
+            self.lastName = lastName
+            self.image = image
+            self.imageURL = imageURL
+    }
+    
+}
