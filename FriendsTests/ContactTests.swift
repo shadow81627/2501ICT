@@ -7,8 +7,17 @@
 //
 
 import XCTest
+import UIKit
+@testable import Friends
 
 class ContactTests: XCTestCase {
+    
+    let someAddress = "9 Fake st"
+    let someFirstName = "Peter"
+    let someLastName = "File"
+    let someImageData = ""
+    let someURL = "https://www.google.com.au/"
+    let someImageURL = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
     
     override func setUp() {
         super.setUp()
@@ -28,9 +37,32 @@ class ContactTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //test to see if the initialiser for the address in Contact class works
+    func testAddress() {
+        let addressToTest = "7 Fake st"
+        let contact = Contact(address: addressToTest, firstName: someFirstName, lastName: someLastName, stringURL: someImageURL)
+        XCTAssertEqual(contact.address, addressToTest)
+    }
+    
+    //test to see if the initialiser for the firstName in Contact class works
+    func testfirstName() {
+        let firstNameToTest = "Ben"
+        let contact = Contact(address: someAddress, firstName: firstNameToTest, lastName: someLastName, stringURL: someImageURL)
+        XCTAssertEqual(contact.address, firstNameToTest)
+    }
+    
+    //test to see if the initialiser for the lastName in Contact class works
+    func testLastName() {
+        let lastNameToTest = "John"
+        let contact = Contact(address: someAddress, firstName: someFirstName, lastName: lastNameToTest, stringURL: someImageURL)
+        XCTAssertEqual(contact.address, lastNameToTest)
+    }
+    
+    //test to see if the initialiser for the stringURL in Contact class works
+    func testfirstName() {
+        let firstNameToTest = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
+        let contact = Contact(address: someAddress, firstName: firstNameToTest, lastName: someLastName, stringURL: someImageURL)
+        XCTAssertEqual(contact.address, firstNameToTest)
     }
 
 }

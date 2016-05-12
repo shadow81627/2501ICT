@@ -45,8 +45,8 @@ class Contact: NSObject {
     
     
     //Secondary initialiser for the Contact class that takes a String for the URL
-    convenience init(caddress: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: String){
-        self.init(address: caddress, firstName: firstName, lastName: lastName, image: image, imageURL: NSURL(string: imageURL)!)
+    convenience init(address: String, firstName: String, lastName: String, image: NSData? = nil, stringURL: String){
+        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: NSURL(string: stringURL)!)
     }
     
     // MARK: - Download
