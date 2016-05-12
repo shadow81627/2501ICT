@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Friends
 
 class TimelineEntryTests: XCTestCase {
     
@@ -20,9 +21,9 @@ class TimelineEntryTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testImage() {
+        
+       //let timeline = TimelineEntry(image: <#T##NSData?#>, siteData: <#T##NSData#>, text: <#T##String#>)
     }
     
     func testPerformanceExample() {

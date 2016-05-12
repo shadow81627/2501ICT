@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import UIKit
 @testable import Friends
 
 class ContactTests: XCTestCase {

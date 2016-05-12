@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Friends
 
 class SocialMediaAccountTests: XCTestCase {
     
@@ -20,9 +21,25 @@ class SocialMediaAccountTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIdentifier() {
+        let identifierToTest = ""
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
+        XCTAssertEqual(account.identifier, identifierToTest)
+    }
+    
+    func testContact() {
+        let identifierToTest = ""
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
+        XCTAssertEqual(account.identifier, identifierToTest)
+    }
+    
+    func testType() {
+        let identifierToTest = ""
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
+        XCTAssertEqual(account.identifier, identifierToTest)
     }
     
     func testPerformanceExample() {
