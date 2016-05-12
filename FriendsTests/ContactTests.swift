@@ -63,5 +63,35 @@ class ContactTests: XCTestCase {
         let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: imageURLToTest!)
         XCTAssertEqual(contact.imageURL, imageURLToTest)
     }
+    
+    func testSettersAndGetters() {
+        let firstNames = ["Anne", "Lin Wah", "David"]
+        let lastNames = ["Billington", "Topor", "Nguyen"]
+        let addresses = ["123 Fake st", "9 21st st", "300 Park dr"]
+        let urls = ["http://epaper2.mid-day.com/images/no_image_thumb.gif", "https://www.google.com.au/", "", " "]
+        
+        let contact = Contact(address: "", firstName: "", lastName: "", stringURL: "")
+        
+        for first in firstNames {
+            contact.firstName = first
+            
+            for last in lastNames {
+                contact.lastName = last
+                
+                for address in addresses {
+                    contact.address = address
+                    
+                    for url in urls {
+                        contact.imageURL = url
+                        
+                        XCTAssertEqual(contact.firstName, first)
+                        XCTAssertEqual(contact.address, address)
+                        XCTAssertEqual(contact.lastName, last)
+                        XCTAssertEqual(contact.address, url)
+                    }
+                }
+            }
+        }
+    }
 
 }
