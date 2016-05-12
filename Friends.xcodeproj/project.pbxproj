@@ -60,7 +60,7 @@
 		5BA3710C1CE3F156007C22AF /* no-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image.png"; sourceTree = "<group>"; };
 		5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
 		5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaAccount.swift; sourceTree = "<group>"; };
-		5BA371121CE41829007C22AF /* TimeLineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineEntry.swift; sourceTree = "<group>"; };
+		5BA371121CE41829007C22AF /* TimeLineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLineEntry.swift; path = ../Friends/TimeLineEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				5BA370D71CE3E72B007C22AF /* AppDelegate.swift */,
-				5BA371121CE41829007C22AF /* TimeLineEntry.swift */,
 				5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */,
 				5BA370DE1CE3E72B007C22AF /* DetailViewController.swift */,
 				5BA370E01CE3E72B007C22AF /* Main.storyboard */,
@@ -132,6 +131,7 @@
 			children = (
 				5BA370F11CE3E72B007C22AF /* FriendsTests.swift */,
 				5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */,
+				5BA371121CE41829007C22AF /* TimeLineEntry.swift */,
 				5BA370F31CE3E72B007C22AF /* Info.plist */,
 			);
 			path = FriendsTests;
