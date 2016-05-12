@@ -12,13 +12,6 @@ import UIKit
 
 class ContactTests: XCTestCase {
     
-    /*let someAddress = "9 Fake st"
-    let someFirstName = "Peter"
-    let someLastName = "File"
-    let someImageData = ""
-    let someURL = "https://www.google.com.au/"
-    let someImageURL = "http://epaper2.mid-day.com/images/no_image_thumb.gif" */
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,31 +24,24 @@ class ContactTests: XCTestCase {
     //test to see if the initialiser for the address in Contact class works
     func testAddress() {
         let addressToTest = "7 Fake st"
-        let contact = Contact(address: addressToTest, firstName: "someFirstName", lastName: "someLastName", stringURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
+        let contact = Contact(address: addressToTest, firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
         XCTAssertEqual(contact.address, addressToTest)
     }
     
     //test to see if the initialiser for the firstName in Contact class works
     func testfirstName() {
         let firstNameToTest = "Ben"
-        let contact = Contact(address: "someAddress", firstName: firstNameToTest, lastName: "someLastName", stringURL: "someImageURL")
+        let contact = Contact(address: "someAddress", firstName: firstNameToTest, lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
         XCTAssertEqual(contact.firstName, firstNameToTest)
     }
     
     //test to see if the initialiser for the lastName in Contact class works
     func testLastName() {
         let lastNameToTest = "John"
-        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: lastNameToTest, stringURL: "someImageURL")
+        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: lastNameToTest, imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
         XCTAssertEqual(contact.lastName, lastNameToTest)
     }
-    
-    //test to see if the initialiser for the stringURL in Contact class works
-    func testStringURL() {
-        let stringURLToTest = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
-        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", stringURL: stringURLToTest)
-        XCTAssertEqual(contact.imageURL, NSURL(string: stringURLToTest))
-    }
-    
+   
     //test to see if the initialiser for the imageURL in Contact class works
     func testImageURL() {
         let stringURLToTest = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
@@ -63,35 +49,4 @@ class ContactTests: XCTestCase {
         let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: imageURLToTest!)
         XCTAssertEqual(contact.imageURL, imageURLToTest)
     }
-    
-    func testSettersAndGetters() {
-        let firstNames = ["Anne", "Lin Wah", "David"]
-        let lastNames = ["Billington", "Topor", "Nguyen"]
-        let addresses = ["123 Fake st", "9 21st st", "300 Park dr"]
-        let urls = ["http://epaper2.mid-day.com/images/no_image_thumb.gif", "https://www.google.com.au/", "", " "]
-        
-        let contact = Contact(address: "", firstName: "", lastName: "", stringURL: "")
-        
-        for first in firstNames {
-            contact.firstName = first
-            
-            for last in lastNames {
-                contact.lastName = last
-                
-                for address in addresses {
-                    contact.address = address
-                    
-                    for url in urls {
-                        contact.imageURL = url
-                        
-                        XCTAssertEqual(contact.firstName, first)
-                        XCTAssertEqual(contact.address, address)
-                        XCTAssertEqual(contact.lastName, last)
-                        XCTAssertEqual(contact.address, url)
-                    }
-                }
-            }
-        }
-    }
-
 }
