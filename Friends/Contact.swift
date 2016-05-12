@@ -24,23 +24,7 @@ class Contact: NSObject {
     //This field holds the image data and is set when there is a URL
     var image: NSData?
     //Sets the url and then sets the image data witht he given url
-    var stringURL: String? {
-        get{
-            return self.stringURL
-        }set(url){
-            self.stringURL = url?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            //loadPhotoInBackground()
-            imageURL = NSURL(string: escapedURL!)!
-        }
-    }
-    var imageURL: NSURL {
-        get{
-            return self.imageURL
-        }set(url){
-            self.imageURL = url
-            loadPhotoInBackground()
-        }
-    }
+    var imageURL: NSURL
     
     //initialiser for the Contact class
     init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: NSURL){
@@ -48,47 +32,6 @@ class Contact: NSObject {
         self.firstName = firstName
         self.lastName = lastName
         self.image = image
-        super.init()
         self.imageURL = imageURL
-        loadPhotoInBackground()
     }
-    
-    
-    //Secondary initialiser for the Contact class that takes a String for the URL
-    convenience init(address: String, firstName: String, lastName: String, image: NSData? = nil, stringURL: String){
-        let escapedURL = stringURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-        let url = NSURL(string: escapedURL!)
-        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: url!)
-        loadPhotoInBackground()
-    }
-    
-    // MARK: - Download
-    
-    //downloads the images for the collection view in the background so thatt he UI is still responsive
-    // the image is set to a defual no image at the begining while the actual image is being downloaded
-    //if the image could not be downlaoded then the defualt image will be displayed
-    func loadPhotoInBackground(){
-        //defualt image
-        let image = UIImage(named: "no-image.png")!
-        let photoData = UIImagePNGRepresentation(image)!
-        //defualt image data
-        let noPhoto = NSData(data: photoData)
-        if self.image == nil {
-            self.image = noPhoto
-        }
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-        let backgroundDownload = {
-            if let data = NSData(contentsOfURL: self.imageURL){
-                let mainQueue = dispatch_get_main_queue()
-                dispatch_async(mainQueue, {
-                    self.image = data
-                })
-            }else {
-                print("Could not download image'\(self.imageURL)'")
-                self.image = noPhoto
-            }
-        }
-        dispatch_async(queue, backgroundDownload)
-    }
-
 }
