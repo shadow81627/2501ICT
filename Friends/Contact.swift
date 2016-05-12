@@ -24,14 +24,14 @@ class Contact: NSObject {
     //This field holds the image data and is set when there is a URL
     var image: NSData?
     //Sets the url and then sets the image data witht he given url
-    var imageURL: NSURL {
+    var imageURL: NSURL /*{
         get{
             return self.imageURL
         }set(url){
             self.imageURL = url
             loadPhotoInBackground()
         }
-    }
+    }*/
     
     //initialiser for the Contact class
     init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: NSURL){
@@ -39,7 +39,7 @@ class Contact: NSObject {
         self.firstName = firstName
         self.lastName = lastName
         self.image = image
-        super.init()
+        //super.init()
         self.imageURL = imageURL
     }
     
