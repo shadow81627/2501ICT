@@ -9,7 +9,7 @@
 import Foundation
 
 //This data structure holds the ID type and thecontact for a social media account
-class SocialMediaAccount {
+class SocialMediaAccount: NSObject {
     
     //The unique ID of the account type string
     var identifier: String

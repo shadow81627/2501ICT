@@ -6,7 +6,6 @@
 //  Copyright © 2016 s5014219. All rights reserved.
 //
 
-import UIKit
 import Foundation
 
 //

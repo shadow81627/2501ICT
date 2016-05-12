@@ -9,7 +9,7 @@
 import Foundation
 
 //
-class TimelineEntry {
+class TimelineEntry: NSObject {
     
     var image: NSData?
     var siteData: NSData
