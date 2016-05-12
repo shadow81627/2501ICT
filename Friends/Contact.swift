@@ -46,7 +46,9 @@ class Contact: NSObject {
     
     //Secondary initialiser for the Contact class that takes a String for the URL
     convenience init(address: String, firstName: String, lastName: String, image: NSData? = nil, stringURL: String){
-        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: NSURL(string: stringURL)!)
+        let escapedURL = stringURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let url = NSURL(string: escapedURL!)
+        self.init(address: address, firstName: firstName, lastName: lastName, image: image, imageURL: url!)
     }
     
     // MARK: - Download
