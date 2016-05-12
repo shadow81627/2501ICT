@@ -19,6 +19,7 @@
 		5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3710A1CE3E8BC007C22AF /* Contact.swift */; };
 		5BA3710D1CE3F156007C22AF /* no-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3710C1CE3F156007C22AF /* no-image.png */; };
 		5BA3710F1CE3FAF8007C22AF /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */; };
+		5BA371111CE417BD007C22AF /* SocialMediaAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5BA3710A1CE3E8BC007C22AF /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5BA3710C1CE3F156007C22AF /* no-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image.png"; sourceTree = "<group>"; };
 		5BA3710E1CE3FAF8007C22AF /* ContactTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
+		5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA370D71CE3E72B007C22AF /* AppDelegate.swift */,
+				5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */,
 				5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */,
 				5BA370DE1CE3E72B007C22AF /* DetailViewController.swift */,
 				5BA370E01CE3E72B007C22AF /* Main.storyboard */,
@@ -275,6 +278,7 @@
 				5BA370D81CE3E72B007C22AF /* AppDelegate.swift in Sources */,
 				5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */,
 				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
+				5BA371111CE417BD007C22AF /* SocialMediaAccount.swift in Sources */,
 				5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */,
 				5BA370DF1CE3E72B007C22AF /* DetailViewController.swift in Sources */,
 			);
