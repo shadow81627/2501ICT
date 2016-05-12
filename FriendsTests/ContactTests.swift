@@ -49,4 +49,11 @@ class ContactTests: XCTestCase {
         let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: imageURLToTest!)
         XCTAssertEqual(contact.imageURL, imageURLToTest)
     }
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measureBlock {
+            // Put the code you want to measure the time of here.
+        }
+    }
 }
