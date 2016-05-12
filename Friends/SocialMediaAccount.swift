@@ -8,6 +8,11 @@
 
 import Foundation
 
+//
 class SocialMediaAccount {
+    
+    //var identifer: String
+    
+    
     
 }
