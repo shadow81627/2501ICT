@@ -26,7 +26,7 @@ class Contact: NSObject {
     //Sets the url and then sets the image data witht he given url
     var imageURL: NSURL
     
-    //initialiser for the Contact class
+    //initialiser for the Contact class takes a String address, firstname, lastname NSURL imageURL and can take image data.
     init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: NSURL){
         self.address = address
         self.firstName = firstName

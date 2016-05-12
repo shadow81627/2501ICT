@@ -18,7 +18,7 @@ class SocialMediaAccount {
     //the contact which the account belongs
     var contact: Contact
     
-    //the initaliser for the class takes a String identifier, type and a Contact
+    //the initialiser for the class takes a String identifier, type and a Contact
     init(identifier: String, type: String, contact: Contact){
         self.identifier = identifier
         self.type = type
