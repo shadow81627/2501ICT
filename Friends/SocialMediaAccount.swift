@@ -8,10 +8,22 @@
 
 import Foundation
 
-//
+//This data structure holds the ID type and thecontact for a social media account
 class SocialMediaAccount {
     
-    //var identifer: String
+    //The unique ID of the account type string
+    var identifier: String
+    //the type of account type string
+    var type: String
+    //the contact which the account belongs
+    var contact: Contact
+    
+    //the initaliser for the class takes a String identifier, type and a Contact
+    init(identifier: String, type: String, contact: Contact){
+        self.identifier = identifier
+        self.type = type
+        self.contact = contact
+    }
     
     
     
