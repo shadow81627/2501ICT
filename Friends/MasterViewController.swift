@@ -45,7 +45,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let object = contacts.entries[indexPath.row]
-        cell.textLabel!.text = object.fullName()
+        if let contactCell = cell as? ContactUITableViewCell {
+            contactCell.fullName!.text = object.fullName()
+        }
         return cell
     }
     
