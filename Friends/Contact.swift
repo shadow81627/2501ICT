@@ -23,14 +23,31 @@ class Contact: NSObject {
     //This field holds the image data and is set when there is a URL
     var image: NSData?
     //Sets the url and then sets the image data witht he given url
-    var imageURL: NSURL
+    var imageURL: String
     
     //initialiser for the Contact class takes a String address, firstname, lastname NSURL imageURL and can take image data.
-    init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: NSURL){
+    init(address: String, firstName: String, lastName: String, image: NSData? = nil, imageURL: String){
         self.address = address
         self.firstName = firstName
         self.lastName = lastName
         self.image = image
         self.imageURL = imageURL
     }
+    
+    /*//creates a photo from saved photo data of type NSDictionary
+    convenience init(propertyList: NSDictionary){
+        self.init(title: " ", url: " ")
+        address = (propertyList["address"] as? String)!
+        firstName = propertyList["tag"] as?
+        imageURL = (propertyList["imageURL"] as? NSURL)!
+    }
+    
+    //returns a dictionaray of the photo details
+    func propertyList() -> NSDictionary {
+        if tag == nil {
+            return ["title": title, "tag": [""], "url": url]
+        }
+        return ["title": title, "tag": tag!, "url": url]
+    }*/
+    
 }

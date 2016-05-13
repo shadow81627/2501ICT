@@ -23,21 +23,21 @@ class SocialMediaAccountTests: XCTestCase {
     
     func testIdentifier() {
         let identifierToTest = ""
-        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
         XCTAssertEqual(account.identifier, identifierToTest)
     }
     
     func testContact() {
         let identifierToTest = ""
-        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
         XCTAssertEqual(account.identifier, identifierToTest)
     }
     
     func testType() {
         let identifierToTest = ""
-        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: "7 Fake st", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         let account = SocialMediaAccount(identifier: identifierToTest, type: "stuff", contact: contact)
         XCTAssertEqual(account.identifier, identifierToTest)
     }

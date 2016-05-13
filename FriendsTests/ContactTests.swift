@@ -23,30 +23,30 @@ class ContactTests: XCTestCase {
     //test to see if the initialiser for the address in Contact class works
     func testAddress() {
         let addressToTest = "7 Fake st"
-        let contact = Contact(address: addressToTest, firstName: "someFirstName", lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: addressToTest, firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         XCTAssertEqual(contact.address, addressToTest)
     }
     
     //test to see if the initialiser for the firstName in Contact class works
     func testfirstName() {
         let firstNameToTest = "Ben"
-        let contact = Contact(address: "someAddress", firstName: firstNameToTest, lastName: "someLastName", imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: "someAddress", firstName: firstNameToTest, lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         XCTAssertEqual(contact.firstName, firstNameToTest)
     }
     
     //test to see if the initialiser for the lastName in Contact class works
     func testLastName() {
         let lastNameToTest = "John"
-        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: lastNameToTest, imageURL: NSURL(string:"http://epaper2.mid-day.com/images/no_image_thumb.gif")!)
+        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: lastNameToTest, imageURL:"http://epaper2.mid-day.com/images/no_image_thumb.gif")
         XCTAssertEqual(contact.lastName, lastNameToTest)
     }
    
     //test to see if the initialiser for the imageURL in Contact class works
     func testImageURL() {
         let stringURLToTest = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
-        let imageURLToTest = NSURL(string: stringURLToTest)
-        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: imageURLToTest!)
-        XCTAssertEqual(contact.imageURL, imageURLToTest)
+        //let imageURLToTest = NSURL(string: stringURLToTest)
+        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: stringURLToTest)
+        XCTAssertEqual(contact.imageURL, stringURLToTest)
     }
     
     func testPerformanceExample() {
