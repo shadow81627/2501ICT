@@ -24,6 +24,7 @@
 		5BB131D21CE54924002D0DE1 /* SocialMediaAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */; };
 		5BB131D41CE5493B002D0DE1 /* TimelineEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */; };
 		5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D51CE5576C002D0DE1 /* ContactList.swift */; };
+		5BB131DC1CE56212002D0DE1 /* ContactUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131DB1CE56212002D0DE1 /* ContactUITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaAccountTests.swift; sourceTree = "<group>"; };
 		5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineEntryTests.swift; sourceTree = "<group>"; };
 		5BB131D51CE5576C002D0DE1 /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		5BB131DB1CE56212002D0DE1 /* ContactUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				5BA370D71CE3E72B007C22AF /* AppDelegate.swift */,
 				5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */,
 				5BA370DE1CE3E72B007C22AF /* DetailViewController.swift */,
+				5BB131DB1CE56212002D0DE1 /* ContactUITableViewCell.swift */,
 				5BA370E01CE3E72B007C22AF /* Main.storyboard */,
 				5BA370E31CE3E72B007C22AF /* Assets.xcassets */,
 				5BA370E51CE3E72B007C22AF /* LaunchScreen.storyboard */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA370D81CE3E72B007C22AF /* AppDelegate.swift in Sources */,
+				5BB131DC1CE56212002D0DE1 /* ContactUITableViewCell.swift in Sources */,
 				5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */,
 				5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */,
 				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
