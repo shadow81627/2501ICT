@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
+//the master view controller for the main laugh view
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var detailViewController: DetailViewController? = nil
+   //the list of all the contacts that are displayed in the table view
     var contacts = ContactList()
     
     
@@ -19,16 +21,23 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+       
+        //loads content form a property list file for persisten loading
         contacts.load()
+        
+        //adds defualt contacts if there arent any
         if contacts.entries.count == 0 {
-            insertDummy()
+            insertDefualtContact()
         }
+        
+        //loads all of the images for the contacts
         for contact in contacts.entries {
             loadPhotoInBackground(contact)
         }
     }
     
-    func insertDummy() {
+    //adds a bunch of defualt contacts to the table view
+    func insertDefualtContact() {
         contacts.entries.append(Contact(address: "Subway", firstName: "Peter", lastName: "File", imageURL: "http://www.brandchannel.com/wp-content/uploads/2015/08/subway-jared-fogle-sub-860.jpg"))
         contacts.entries.append(Contact(address: "indover", firstName: "Ben", lastName: "Dover", imageURL: "https://acsbore.files.wordpress.com/2011/09/ben-dover_wordpress.jpg"))
         contacts.entries.append(Contact(address: "6feetunder", firstName: "Adolf", lastName: "Hitler", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
@@ -94,6 +103,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let object = contacts.entries[indexPath.row]
+        //sets the text and image of the contacts in the table view to be that of the contacts in the contact list
         if let contactCell = cell as? ContactUITableViewCell {
             contactCell.fullName!.text = object.fullName()
             contactCell.imageDisplay.image = UIImage(data: object.image!)
