@@ -49,6 +49,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="fullName" destination="6TT-JH-72e" id="A0a-aU-NdK"/>
+                                    <outlet property="imageDisplay" destination="zM3-Ua-BP5" id="gC4-Pg-Pea"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
