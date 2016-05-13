@@ -19,8 +19,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        contacts.entries.append(Contact(address: "someAddress", firstName: "peter", lastName: "file", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Ben", lastName: "Dover", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Peter", lastName: "File", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Ben", lastName: "Dover", imageURL: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Mike", lastName: "Hunt", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Hugh", lastName: "Jazz", imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Adolf", lastName: "Hitler", imageURL: ""))
         
         for contact in contacts.entries {
             loadPhotoInBackground(contact)
