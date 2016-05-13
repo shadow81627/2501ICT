@@ -10,30 +10,40 @@ import UIKit
 import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     var detailViewController: DetailViewController? = nil
     var contacts = ContactList()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Peter", lastName: "File", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Ben", lastName: "Dover", imageURL: "https://upload.wikimedia.org/wikipedia/en/2/2a/Griffith_University_logo.png"))
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Mike", lastName: "Hunt", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Hugh", lastName: "Jazz", imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Big_Bear_Valley,_California.jpg"))
-        contacts.entries.append(Contact(address: "someAddress", firstName: "Adolf", lastName: "Hitler", imageURL: ""))
-        
+        contacts.load()
+        if contacts.entries.count == 0 {
+            insertDummy()
+        }
         for contact in contacts.entries {
             loadPhotoInBackground(contact)
         }
     }
-
+    
+    func insertDummy() {
+        contacts.entries.append(Contact(address: "Subway", firstName: "Peter", lastName: "File", imageURL: "http://www.brandchannel.com/wp-content/uploads/2015/08/subway-jared-fogle-sub-860.jpg"))
+        contacts.entries.append(Contact(address: "indover", firstName: "Ben", lastName: "Dover", imageURL: "https://acsbore.files.wordpress.com/2011/09/ben-dover_wordpress.jpg"))
+        contacts.entries.append(Contact(address: "6feetunder", firstName: "Adolf", lastName: "Hitler", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
+        contacts.entries.append(Contact(address: "behind", firstName: "Hugh", lastName: "Jazz", imageURL: "https://pbs.twimg.com/profile_images/509424292954918912/JSF45qB6.jpeg"))
+        contacts.entries.append(Contact(address: "downunder", firstName: "Mike", lastName: "Litoris", imageURL: "http://clubaristo.net/forums/attachment.php?attachmentid=5076&d=1233188341"))
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        contacts.save()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,9 +96,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let object = contacts.entries[indexPath.row]
         if let contactCell = cell as? ContactUITableViewCell {
             contactCell.fullName!.text = object.fullName()
-            if let imageData = object.image {
-                 contactCell.imageDisplay.image = UIImage(data: object.image!)
-            }
+            contactCell.imageDisplay.image = UIImage(data: object.image!)
         }
         return cell
     }
@@ -102,6 +110,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if editingStyle == .Delete {
             contacts.entries.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            contacts.save()
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the list, and add a new row to the table view.
         }
