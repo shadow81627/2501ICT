@@ -20,6 +20,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         contacts.entries.append(Contact(address: "someAddress", firstName: "peter", lastName: "file", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
+        contacts.entries.append(Contact(address: "someAddress", firstName: "Ben", lastName: "Dover", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif"))
     }
 
     override func viewWillAppear(animated: Bool) {
