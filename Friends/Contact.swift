@@ -34,20 +34,18 @@ class Contact: NSObject {
         self.imageURL = imageURL
     }
     
-    /*//creates a photo from saved photo data of type NSDictionary
+    //creates a contact from saved contact data of type NSDictionary
     convenience init(propertyList: NSDictionary){
-        self.init(title: " ", url: " ")
+        self.init(address: " ", firstName: " ", lastName:" ", imageURL: " ")
         address = (propertyList["address"] as? String)!
-        firstName = propertyList["tag"] as?
-        imageURL = (propertyList["imageURL"] as? NSURL)!
+        firstName = (propertyList["firstName"] as? String)!
+        lastName = (propertyList["lastName"] as? String)!
+        imageURL = (propertyList["imageURL"] as? String)!
     }
     
-    //returns a dictionaray of the photo details
+    //returns a dictionaray of contact details address, firstName, lastName and imageURL
     func propertyList() -> NSDictionary {
-        if tag == nil {
-            return ["title": title, "tag": [""], "url": url]
-        }
-        return ["title": title, "tag": tag!, "url": url]
-    }*/
+        return ["address": address, "firstName": firstName, "lastName": lastName, "imageURL": imageURL]
+    }
     
 }
