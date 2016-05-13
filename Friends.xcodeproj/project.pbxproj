@@ -23,6 +23,7 @@
 		5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA371121CE41829007C22AF /* TimeLineEntry.swift */; };
 		5BB131D21CE54924002D0DE1 /* SocialMediaAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */; };
 		5BB131D41CE5493B002D0DE1 /* TimelineEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */; };
+		5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D51CE5576C002D0DE1 /* ContactList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		5BA371121CE41829007C22AF /* TimeLineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineEntry.swift; sourceTree = "<group>"; };
 		5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaAccountTests.swift; sourceTree = "<group>"; };
 		5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineEntryTests.swift; sourceTree = "<group>"; };
+		5BB131D51CE5576C002D0DE1 /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				5BA3710A1CE3E8BC007C22AF /* Contact.swift */,
 				5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */,
 				5BA371121CE41829007C22AF /* TimeLineEntry.swift */,
+				5BB131D51CE5576C002D0DE1 /* ContactList.swift */,
 				5BA3710C1CE3F156007C22AF /* no-image.png */,
 			);
 			path = Friends;
@@ -288,6 +291,7 @@
 				5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */,
 				5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */,
 				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
+				5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */,
 				5BA371111CE417BD007C22AF /* SocialMediaAccount.swift in Sources */,
 				5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */,
 				5BA370DF1CE3E72B007C22AF /* DetailViewController.swift in Sources */,
