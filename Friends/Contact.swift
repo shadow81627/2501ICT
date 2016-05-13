@@ -34,6 +34,11 @@ class Contact: NSObject {
         self.imageURL = imageURL
     }
     
+    // The fullName function returns the full name of a contact
+    func fullName() -> String {
+            return firstName + " " + lastName
+    }
+    
     //creates a contact from saved contact data of type NSDictionary
     convenience init(propertyList: NSDictionary){
         self.init(address: " ", firstName: " ", lastName:" ", imageURL: " ")
