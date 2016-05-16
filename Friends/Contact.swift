@@ -54,7 +54,7 @@ class Contact: NSObject {
     
     //returns a dictionaray of contact details address, firstName, lastName, imageURL and accounts if there are any
     func propertyList() -> NSDictionary {
-        if accounts!.count > 0 {
+        if accounts != nil {
             return ["address": address, "firstName": firstName, "lastName": lastName, "imageURL": imageURL, "accounts": accounts!]
         }else{
             return ["address": address, "firstName": firstName, "lastName": lastName, "imageURL": imageURL, "accounts": [""]]
