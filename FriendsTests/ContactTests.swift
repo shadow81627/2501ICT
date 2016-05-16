@@ -44,10 +44,45 @@ class ContactTests: XCTestCase {
     //test to see if the initialiser for the imageURL in Contact class works
     func testImageURL() {
         let stringURLToTest = "http://epaper2.mid-day.com/images/no_image_thumb.gif"
-        //let imageURLToTest = NSURL(string: stringURLToTest)
         let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: stringURLToTest)
         XCTAssertEqual(contact.imageURL, stringURLToTest)
     }
+    
+    //test to see if the initialiser for the accounts list in Contact class works
+    func testAccounts() {
+        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
+        let account0 = SocialMediaAccount(identifier: "jim@facebook.com", type: "Facebook", contact: contact)
+        let account1 = SocialMediaAccount(identifier: "jim@twitter.com", type: "Twitter", contact: contact)
+        var accountsToTest = [SocialMediaAccount]()
+        accountsToTest.append(account0)
+        accountsToTest.append(account1)
+        contact.accounts = accountsToTest
+        XCTAssertEqual(contact.accounts!, accountsToTest)
+    }
+    
+    /*//test if propertyList works
+    func testpropertyList(){
+        let testContact = Contact(address: <#T##String#>, firstName: <#T##String#>, lastName: <#T##String#>, image: <#T##NSData?#>, imageURL: <#T##String#>, accounts: <#T##[SocialMediaAccount]?#>)
+        let testPropertyList = testContact.propertyList()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
+        testPropertyList.writeToFile(fileName, atomically: true)
+        let optionalArray = NSDictionary(contentsOfFile: fileName);
+        let testPhoto2 = Photo(propertyList: optionalArray!)
+        XCTAssertEqual(testContact.propertyList(), testPhoto2.propertyList());
+    }
+    
+    //test if propertyList hands no tags
+    func testpropertyListNilTags(){
+        let testPhoto = Photo(title: "0", url: "3")
+        let testPropertyList = testPhoto.propertyList()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
+        testPropertyList.writeToFile(fileName, atomically: true)
+        let optionalArray = NSDictionary(contentsOfFile: fileName);
+        let testPhoto2 = Photo(propertyList: optionalArray!)
+        XCTAssertEqual(testPhoto.propertyList(), testPhoto2.propertyList());
+    }*/
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
