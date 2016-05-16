@@ -60,29 +60,29 @@ class ContactTests: XCTestCase {
         XCTAssertEqual(contact.accounts!, accountsToTest)
     }
     
-    /*//test if propertyList works
-    func testpropertyList(){
-        let testContact = Contact(address: <#T##String#>, firstName: <#T##String#>, lastName: <#T##String#>, image: <#T##NSData?#>, imageURL: <#T##String#>, accounts: <#T##[SocialMediaAccount]?#>)
+    //test if propertyList works
+    func testPropertyList(){
+        let testContact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
         let testPropertyList = testContact.propertyList()
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
         testPropertyList.writeToFile(fileName, atomically: true)
         let optionalArray = NSDictionary(contentsOfFile: fileName);
-        let testPhoto2 = Photo(propertyList: optionalArray!)
+        let testPhoto2 = Contact(propertyList: optionalArray!)
         XCTAssertEqual(testContact.propertyList(), testPhoto2.propertyList());
     }
     
     //test if propertyList hands no tags
-    func testpropertyListNilTags(){
-        let testPhoto = Photo(title: "0", url: "3")
-        let testPropertyList = testPhoto.propertyList()
+    func testPropertyListNilTags(){
+        let testContact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
+        let testPropertyList = testContact.propertyList()
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
         testPropertyList.writeToFile(fileName, atomically: true)
         let optionalArray = NSDictionary(contentsOfFile: fileName);
-        let testPhoto2 = Photo(propertyList: optionalArray!)
-        XCTAssertEqual(testPhoto.propertyList(), testPhoto2.propertyList());
-    }*/
+        let testPhoto2 = Contact(propertyList: optionalArray!)
+        XCTAssertEqual(testContact.propertyList(), testPhoto2.propertyList());
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
