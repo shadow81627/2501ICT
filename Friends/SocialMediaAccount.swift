@@ -25,6 +25,17 @@ class SocialMediaAccount: NSObject {
         self.contact = contact
     }
     
+    //creates a social media account from saved account data of type NSDictionary
+    convenience init(propertyList: NSDictionary){
+        self.init(
+        identifier: (propertyList["identifier"] as? String)!,
+        type: (propertyList["type"] as? String)!,
+        contact: (propertyList["Contact"] as? Contact)!)
+    }
     
+    //returns a dictionaray of social media account detials
+    func propertyList() -> NSDictionary {
+        return ["identifier": identifier, "type": type, "contact": contact]
+    }
     
 }

@@ -59,7 +59,6 @@ class Contact: NSObject {
         }else{
             return ["address": address, "firstName": firstName, "lastName": lastName, "imageURL": imageURL, "accounts": [""]]
         }
-
     }
     
 }

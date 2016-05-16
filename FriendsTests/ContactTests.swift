@@ -72,18 +72,7 @@ class ContactTests: XCTestCase {
         XCTAssertEqual(testContact.propertyList(), testPhoto2.propertyList());
     }
     
-    //test if propertyList hands no tags
-    func testPropertyListNilTags(){
-        let testContact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
-        let testPropertyList = testContact.propertyList()
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
-        testPropertyList.writeToFile(fileName, atomically: true)
-        let optionalArray = NSDictionary(contentsOfFile: fileName);
-        let testPhoto2 = Contact(propertyList: optionalArray!)
-        XCTAssertEqual(testContact.propertyList(), testPhoto2.propertyList());
-    }
-    
+   
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {

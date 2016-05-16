@@ -42,6 +42,24 @@ class SocialMediaAccountTests: XCTestCase {
         XCTAssertEqual(account.identifier, identifierToTest)
     }
     
+    //test if propertyList works
+    func testPropertyList(){
+        let contact = Contact(address: "someAddress", firstName: "someFirstName", lastName: "someLastName", imageURL: "http://epaper2.mid-day.com/images/no_image_thumb.gif")
+        let accountToTest = SocialMediaAccount(identifier: "jim@facebook.com", type: "Facebook", contact: contact)
+        let account1 = SocialMediaAccount(identifier: "jim@twitter.com", type: "Twitter", contact: contact)
+        var accountsToTest = [SocialMediaAccount]()
+        accountsToTest.append(accountToTest)
+        accountsToTest.append(account1)
+        contact.accounts = accountsToTest
+        let testPropertyList = accountToTest.propertyList()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fileName = documentsDirectory.stringByAppendingPathComponent("test.plist")
+        testPropertyList.writeToFile(fileName, atomically: true)
+        let optionalArray = NSDictionary(contentsOfFile: fileName);
+        let accountToTest2 = SocialMediaAccount(propertyList: optionalArray!)
+        XCTAssertEqual(accountToTest.propertyList(), accountToTest2.propertyList());
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
