@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 //the master view controller for the main laugh view
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, DetailViewControllerDelegate{
     
     var detailViewController: DetailViewController? = nil
    //the list of all the contacts that are displayed in the table view
@@ -43,6 +43,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         contacts.entries.append(Contact(address: "6feetunder", firstName: "Adolf", lastName: "Hitler", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
         contacts.entries.append(Contact(address: "behind", firstName: "Hugh", lastName: "Jazz", imageURL: "https://pbs.twimg.com/profile_images/509424292954918912/JSF45qB6.jpeg"))
         contacts.entries.append(Contact(address: "downunder", firstName: "Mike", lastName: "Litoris", imageURL: "http://clubaristo.net/forums/attachment.php?attachmentid=5076&d=1233188341"))
+        contacts.entries.append(Contact(address: "downunder", firstName: "Sam", lastName: "Pound", imageURL: "http://img.ifcdn.com/images/164c717b7b29257727278c500b85f0d5ecb4d504a758df22ffe6894d1230a0ba_1.jpgx"))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,10 +59,34 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Segue
+    
+    //when a cell is selected segue to the detail view to display details
+    //when the add button is pressed segue to the detail view to creat a new Photo
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier where identifier == "showDetail" {
+            let vc = segue.destinationViewController as! DetailViewController
+            
+            if let indexPaths = self.tableView.indexPathForSelectedRow {
+                let indexPath = indexPaths[0] as NSIndexPath
+                index = indexPath.row
+                vc.contact = contacts.entries[index]
+                vc.update = true
+                vc.delegate = self
+            }
+        }
+        if let identifier = segue.identifier where identifier == "addButton" {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.contact = Contact(address: "", firstName: "", lastName: "", imageURL: "")
+            vc.update = false
+            vc.delegate = self
+        }
+    }
+    
     // MARK: - Download
     
     //downloads the images for the collection view in the background so thatt he UI is still responsive
-    // the image is set to a defual no image at the begining while the actual image is being downloaded
+    //the image is set to a defual no image at the begining while the actual image is being downloaded
     //if the image could not be downlaoded then the defualt image will be displayed
     func loadPhotoInBackground(contact: Contact){
         //defualt image

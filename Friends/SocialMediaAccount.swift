@@ -18,6 +18,9 @@ class SocialMediaAccount: NSObject {
     //the contact which the account belongs
     var contact: Contact
     
+    //the list of timeline entries
+    var entries: [TimelineEntry]?
+    
     //the initialiser for the class takes a String identifier, type and a Contact
     init(identifier: String, type: String, contact: Contact){
         self.identifier = identifier
