@@ -8,7 +8,21 @@
 
 import UIKit
 
+//the delegate for handling actions with the master view
+protocol DetailViewControllerDelegate {
+    //func update(vc: DetailViewController)
+    //func binPressed(vc: DetailViewController)
+}
+
 class DetailViewController: UITableViewController {
+    
+    var delegate: DetailViewController?
+    
+    var update: Bool?
+    
+    var contact: Contact?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
