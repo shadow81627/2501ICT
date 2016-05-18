@@ -14,9 +14,12 @@ import CoreData
 
 extension SocialMediaAccount {
 
-    @NSManaged var identifier: String?
-    @NSManaged var type: String?
-    @NSManaged var contact: NSManagedObject?
+    //The unique ID of the account type string
+    @NSManaged var identifier: String
+    //the type of account type string
+    @NSManaged var type: String
+    //the contact which the account belongs
+    @NSManaged var contact: NSManagedObject
+    //the list of timeline entries
     @NSManaged var entries: TimelineEntry?
-
 }

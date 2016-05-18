@@ -14,18 +14,18 @@
     <entity name="SocialMediaAccount" representedClassName=".SocialMediaAccount" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="accounts" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="contact" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="accounts" inverseEntity="Contact" syncable="YES"/>
         <relationship name="entries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="account" inverseEntity="TimelineEntry" syncable="YES"/>
     </entity>
     <entity name="TimelineEntry" representedClassName=".TimelineEntry" syncable="YES">
         <attribute name="image" optional="YES" syncable="YES"/>
         <attribute name="siteData" optional="YES" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="account" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="entries" inverseEntity="SocialMediaAccount" syncable="YES"/>
+        <relationship name="account" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="entries" inverseEntity="SocialMediaAccount" syncable="YES"/>
     </entity>
     <elements>
         <element name="Contact" positionX="-792" positionY="72" width="128" height="133"/>
         <element name="SocialMediaAccount" positionX="-605" positionY="74" width="128" height="103"/>
-        <element name="TimelineEntry" positionX="-398" positionY="72" width="128" height="103"/>
+        <element name="TimelineEntry" positionX="-405" positionY="72" width="128" height="103"/>
     </elements>
 </model>

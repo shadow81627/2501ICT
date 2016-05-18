@@ -10,16 +10,6 @@ import Foundation
 import CoreData
 
 //
-class TimelineEntry: NSObject {
-    
-    var image: NSData?
-    var siteData: NSData
-    var text: String
-    
-    //
-    init(image: NSData?, siteData: NSData, text: String){
-        self.image = image
-        self.siteData = siteData
-        self.text = text
-    }
+class TimelineEntry: NSManagedObject {
+
 }
