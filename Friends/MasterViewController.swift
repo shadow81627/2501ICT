@@ -17,23 +17,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
    //the list of all the contacts that are displayed in the table view
     
     var index: Int!
+    var update = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //insertNewObject(self)
         
     }
     
     func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
+        let contact = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Contact
         
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
+        contact.address = "stuff"
+        contact.firstName = "bob"
+        contact.lastName = "bill"
+        contact.imageURL = "http://i.imgur.com/LuRFBBm.jpg"
+        loadPhotoInBackground(contact)
+        
         
         // Save the context.
         do {
@@ -76,10 +81,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let contact = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Contact
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                let controller = segue.destinationViewController as! DetailViewController
                 controller.contact = contact
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        }
+        if let identifier = segue.identifier where identifier == "addButton" {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.delegate = self
         }
     }
 
@@ -113,6 +122,27 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
         dispatch_async(queue, backgroundDownload)
+    }
+    
+    // MARK: - Delegates
+    
+    //if the flag update is true then the photoList will be updated
+    //if the flag is not update then a new entrie will be added
+    //after the photoList has been added to or updated it will then be saved to file
+    func update(vc: DetailViewController) {
+        if((update){
+            loadPhotoInBackground(vc.contact!)
+            self.tableView!.reloadData()
+            //adds the photos detials entered in the detial view to the list of contacts
+        }else if(!update && (vc.contact?.url != nil && vc.contact?.url != "")){
+            loadPhotoInBackground(vc.contact! )
+            photoList.entries.insert(vc.photo!, atIndex: 0)
+            self.tableView!.reloadData()
+        }else {
+            //dont do anything becuase you probably want to cancel at this point
+        }
+        //saves the photoList to a file so it can be loaded next time the app is opened
+        photoList.save()
     }
     
     // MARK: - Table View
@@ -158,10 +188,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     //sets the text and image of the contacts in the table view to be that of the contacts in the contact list
     func configureCell(cell: UITableViewCell, contact: Contact) {
-        //cell.textLabel!.text = object.valueForKey("timeStamp")!.description
         if let contactCell = cell as? ContactUITableViewCell {
             contactCell.fullName!.text = contact.fullName()
-            contactCell.imageDisplay.image = UIImage(data: contact.image!)
+            //contactCell.imageDisplay.image = UIImage(data: contact.image!)
         }
     }
     

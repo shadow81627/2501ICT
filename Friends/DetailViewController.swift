@@ -18,8 +18,6 @@ class DetailViewController: UITableViewController {
     
     var delegate: DetailViewControllerDelegate?
     
-    var update: Bool?
-    
     var contact: Contact?
     
     
