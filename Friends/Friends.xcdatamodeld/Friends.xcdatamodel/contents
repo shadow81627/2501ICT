@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
+    <entity name="Contact">
+        <attribute name="address" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="firstName" optional="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" syncable="YES"/>
+        <attribute name="imagURL" optional="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="contact" inverseEntity="SocialMediaAccount" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="SocialMediaAccount" syncable="YES">
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="accounts" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="entries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="account" inverseEntity="TimelineEntry" syncable="YES"/>
+    </entity>
+    <entity name="TimelineEntry" syncable="YES">
+        <attribute name="image" optional="YES" syncable="YES"/>
+        <attribute name="siteData" optional="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" syncable="YES"/>
+        <relationship name="account" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="entries" inverseEntity="SocialMediaAccount" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Contact" positionX="-792" positionY="72" width="128" height="133"/>
+        <element name="SocialMediaAccount" positionX="-605" positionY="74" width="128" height="103"/>
+        <element name="TimelineEntry" positionX="-398" positionY="72" width="128" height="103"/>
     </elements>
 </model>
