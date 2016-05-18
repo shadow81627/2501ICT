@@ -16,6 +16,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
    //the list of all the contacts that are displayed in the table view
     var contacts = ContactList()
     
+    var index: Int!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +69,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if let identifier = segue.identifier where identifier == "showDetail" {
             let vc = segue.destinationViewController as! DetailViewController
             
-            if let indexPaths = self.tableView.indexPathForSelectedRow {
+            if let indexPaths = self.tableView.indexPathsForSelectedRows {
                 let indexPath = indexPaths[0] as NSIndexPath
                 index = indexPath.row
                 vc.contact = contacts.entries[index]
