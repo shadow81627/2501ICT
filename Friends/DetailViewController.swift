@@ -16,7 +16,7 @@ protocol DetailViewControllerDelegate {
 
 class DetailViewController: UITableViewController {
     
-    var delegate: DetailViewController?
+    var delegate: DetailViewControllerDelegate?
     
     var update: Bool?
     
