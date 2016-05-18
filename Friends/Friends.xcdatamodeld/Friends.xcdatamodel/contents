@@ -5,22 +5,22 @@
             <userInfo/>
         </attribute>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageURL" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="contact" inverseEntity="SocialMediaAccount" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="SocialMediaAccount" representedClassName=".SocialMediaAccount" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
         <relationship name="contact" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="accounts" inverseEntity="Contact" syncable="YES"/>
         <relationship name="entries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="account" inverseEntity="TimelineEntry" syncable="YES"/>
     </entity>
     <entity name="TimelineEntry" representedClassName=".TimelineEntry" syncable="YES">
-        <attribute name="image" optional="YES" syncable="YES"/>
-        <attribute name="siteData" optional="YES" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="siteData" attributeType="String" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
         <relationship name="account" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="entries" inverseEntity="SocialMediaAccount" syncable="YES"/>
     </entity>
     <elements>

@@ -14,7 +14,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     var detailViewController: DetailViewController? = nil
    //the list of all the contacts that are displayed in the table view
-    var contacts = ContactList()
     
     var index: Int!
     
@@ -23,13 +22,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-       
-        //loads content form a property list file for persisten loading
-        contacts.load()
+
         
         //adds defualt contacts if there arent any
         if contacts.entries.count == 0 {
-            insertDefualtContact()
+            //insertDefualtContact()
         }
         
         //loads all of the images for the contacts
@@ -39,21 +36,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     //adds a bunch of defualt contacts to the table view
-    func insertDefualtContact() {
+    /*func insertDefualtContact() {
         contacts.entries.append(Contact(address: "Subway", firstName: "Peter", lastName: "File", imageURL: "http://www.brandchannel.com/wp-content/uploads/2015/08/subway-jared-fogle-sub-860.jpg"))
         contacts.entries.append(Contact(address: "indover", firstName: "Ben", lastName: "Dover", imageURL: "https://acsbore.files.wordpress.com/2011/09/ben-dover_wordpress.jpg"))
         contacts.entries.append(Contact(address: "6feetunder", firstName: "Adolf", lastName: "Hitler", imageURL: "http://i.imgur.com/LuRFBBm.jpg"))
         contacts.entries.append(Contact(address: "behind", firstName: "Hugh", lastName: "Jazz", imageURL: "https://pbs.twimg.com/profile_images/509424292954918912/JSF45qB6.jpeg"))
         contacts.entries.append(Contact(address: "downunder", firstName: "Mike", lastName: "Litoris", imageURL: "http://clubaristo.net/forums/attachment.php?attachmentid=5076&d=1233188341"))
         contacts.entries.append(Contact(address: "downunder", firstName: "Sam", lastName: "Pound", imageURL: "http://img.ifcdn.com/images/164c717b7b29257727278c500b85f0d5ecb4d504a758df22ffe6894d1230a0ba_1.jpgx"))
-    }
+    }*/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        contacts.save()
     }
     
     override func didReceiveMemoryWarning() {

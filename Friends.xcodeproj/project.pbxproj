@@ -26,7 +26,6 @@
 		5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA371121CE41829007C22AF /* TimeLineEntry.swift */; };
 		5BB131D21CE54924002D0DE1 /* SocialMediaAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */; };
 		5BB131D41CE5493B002D0DE1 /* TimelineEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */; };
-		5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131D51CE5576C002D0DE1 /* ContactList.swift */; };
 		5BB131DC1CE56212002D0DE1 /* ContactUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB131DB1CE56212002D0DE1 /* ContactUITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,6 @@
 		5BA371121CE41829007C22AF /* TimeLineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineEntry.swift; sourceTree = "<group>"; };
 		5BB131D11CE54924002D0DE1 /* SocialMediaAccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaAccountTests.swift; sourceTree = "<group>"; };
 		5BB131D31CE5493B002D0DE1 /* TimelineEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineEntryTests.swift; sourceTree = "<group>"; };
-		5BB131D51CE5576C002D0DE1 /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		5BB131DB1CE56212002D0DE1 /* ContactUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,9 +123,6 @@
 		5BA370D61CE3E72B007C22AF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				5B97715F1CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift */,
-				5B97715D1CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift */,
-				5B97715E1CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift */,
 				5BA370D71CE3E72B007C22AF /* AppDelegate.swift */,
 				5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */,
 				5BA370DE1CE3E72B007C22AF /* DetailViewController.swift */,
@@ -138,9 +133,11 @@
 				5BA370E81CE3E72B007C22AF /* Info.plist */,
 				5BA370D91CE3E72B007C22AF /* Friends.xcdatamodeld */,
 				5BA3710A1CE3E8BC007C22AF /* Contact.swift */,
+				5B97715F1CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift */,
 				5BA371101CE417BD007C22AF /* SocialMediaAccount.swift */,
+				5B97715E1CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift */,
 				5BA371121CE41829007C22AF /* TimeLineEntry.swift */,
-				5BB131D51CE5576C002D0DE1 /* ContactList.swift */,
+				5B97715D1CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift */,
 				5BA3710C1CE3F156007C22AF /* no-image.png */,
 			);
 			path = Friends;
@@ -306,7 +303,6 @@
 				5B9771601CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift in Sources */,
 				5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */,
 				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
-				5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */,
 				5BA371111CE417BD007C22AF /* SocialMediaAccount.swift in Sources */,
 				5B9771611CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift in Sources */,
 				5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */,

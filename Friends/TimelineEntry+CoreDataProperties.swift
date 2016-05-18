@@ -15,7 +15,7 @@ import CoreData
 extension TimelineEntry {
 
     @NSManaged var image: NSData
-    @NSManaged var siteData: UNKNOWN_TYPE
+    @NSManaged var siteData: String
     @NSManaged var text: String?
     @NSManaged var account: NSSet
 
