@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9771601CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97715D1CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift */; };
+		5B9771611CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97715E1CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift */; };
+		5B9771621CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97715F1CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift */; };
 		5BA370D81CE3E72B007C22AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370D71CE3E72B007C22AF /* AppDelegate.swift */; };
 		5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370D91CE3E72B007C22AF /* Friends.xcdatamodeld */; };
 		5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B97715D1CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimelineEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B97715E1CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SocialMediaAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B97715F1CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5BA370D41CE3E72B007C22AF /* Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA370D71CE3E72B007C22AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA370DA1CE3E72B007C22AF /* Friends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Friends.xcdatamodel; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 		5BA370D61CE3E72B007C22AF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				5B97715F1CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift */,
+				5B97715D1CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift */,
+				5B97715E1CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift */,
 				5BA370D71CE3E72B007C22AF /* AppDelegate.swift */,
 				5BA370DC1CE3E72B007C22AF /* MasterViewController.swift */,
 				5BA370DE1CE3E72B007C22AF /* DetailViewController.swift */,
@@ -290,13 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9771621CEC1CA400FF9B9E /* Contact+CoreDataProperties.swift in Sources */,
 				5BA370D81CE3E72B007C22AF /* AppDelegate.swift in Sources */,
 				5BB131DC1CE56212002D0DE1 /* ContactUITableViewCell.swift in Sources */,
 				5BA370DB1CE3E72B007C22AF /* Friends.xcdatamodeld in Sources */,
+				5B9771601CEC1CA400FF9B9E /* TimelineEntry+CoreDataProperties.swift in Sources */,
 				5BA371131CE41829007C22AF /* TimeLineEntry.swift in Sources */,
 				5BA3710B1CE3E8BC007C22AF /* Contact.swift in Sources */,
 				5BB131D61CE5576C002D0DE1 /* ContactList.swift in Sources */,
 				5BA371111CE417BD007C22AF /* SocialMediaAccount.swift in Sources */,
+				5B9771611CEC1CA400FF9B9E /* SocialMediaAccount+CoreDataProperties.swift in Sources */,
 				5BA370DD1CE3E72B007C22AF /* MasterViewController.swift in Sources */,
 				5BA370DF1CE3E72B007C22AF /* DetailViewController.swift in Sources */,
 			);

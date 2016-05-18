@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
-    <entity name="Contact">
-        <attribute name="address" optional="YES" attributeType="Date">
+    <entity name="Contact" representedClassName=".Contact">
+        <attribute name="address" attributeType="String">
             <userInfo/>
         </attribute>
-        <attribute name="firstName" optional="YES" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" syncable="YES"/>
-        <attribute name="imagURL" optional="YES" syncable="YES"/>
-        <attribute name="lastName" optional="YES" syncable="YES"/>
+        <attribute name="imageURL" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="contact" inverseEntity="SocialMediaAccount" syncable="YES"/>
         <userInfo/>
     </entity>
-    <entity name="SocialMediaAccount" syncable="YES">
-        <attribute name="identifier" optional="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" syncable="YES"/>
+    <entity name="SocialMediaAccount" representedClassName=".SocialMediaAccount" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="accounts" inverseEntity="Contact" syncable="YES"/>
         <relationship name="entries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="account" inverseEntity="TimelineEntry" syncable="YES"/>
     </entity>
-    <entity name="TimelineEntry" syncable="YES">
+    <entity name="TimelineEntry" representedClassName=".TimelineEntry" syncable="YES">
         <attribute name="image" optional="YES" syncable="YES"/>
         <attribute name="siteData" optional="YES" syncable="YES"/>
-        <attribute name="text" optional="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="account" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SocialMediaAccount" inverseName="entries" inverseEntity="SocialMediaAccount" syncable="YES"/>
     </entity>
     <elements>
