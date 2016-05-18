@@ -126,6 +126,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return contacts.entries.count
     }
     
+    //sets the content of the dynamic reusalbe cells to be the content of the contacts arrays contacts
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
