@@ -13,6 +13,7 @@ import CoreData
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, DetailViewControllerDelegate{
     
     var detailViewController: DetailViewController? = nil
+    var managedObjectContext: NSManagedObjectContext? = nil
    //the list of all the contacts that are displayed in the table view
     
     var index: Int!
@@ -22,16 +23,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
         
-        //adds defualt contacts if there arent any
-        if contacts.entries.count == 0 {
-            //insertDefualtContact()
-        }
+    }
+    
+    func insertNewObject(sender: AnyObject) {
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
         
-        //loads all of the images for the contacts
-        for contact in contacts.entries {
-            loadPhotoInBackground(contact)
+        // If appropriate, configure the new managed object.
+        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
+        
+        // Save the context.
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            //print("Unresolved error \(error), \(error.userInfo)")
+            abort()
         }
     }
     
@@ -57,29 +68,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Segue
+    // MARK: - Segues
     
     //when a cell is selected segue to the detail view to display details
     //when the add button is pressed segue to the detail view to creat a new Photo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier where identifier == "showDetail" {
-            let vc = segue.destinationViewController as! DetailViewController
-            
-            if let indexPaths = self.tableView.indexPathsForSelectedRows {
-                let indexPath = indexPaths[0] as NSIndexPath
-                index = indexPath.row
-                vc.contact = contacts.entries[index]
-                vc.update = true
-                vc.delegate = self
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let contact = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Contact
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                controller.contact = contact
+                controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
-        if let identifier = segue.identifier where identifier == "addButton" {
-            let vc = segue.destinationViewController as! DetailViewController
-            vc.contact = Contact(address: "", firstName: "", lastName: "", imageURL: "")
-            vc.update = false
-            vc.delegate = self
-        }
     }
+
     
     // MARK: - Download
     
@@ -115,24 +118,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return self.fetchedResultsController.sections?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.entries.count
+        let sectionInfo = self.fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
-    //sets the content of the dynamic reusalbe cells to be the content of the contacts arrays contacts
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Contact
+        self.configureCell(cell, contact: object)
         
-        let object = contacts.entries[indexPath.row]
-        //sets the text and image of the contacts in the table view to be that of the contacts in the contact list
-        if let contactCell = cell as? ContactUITableViewCell {
-            contactCell.fullName!.text = object.fullName()
-            contactCell.imageDisplay.image = UIImage(data: object.image!)
-        }
         return cell
+
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -142,13 +142,112 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            contacts.entries.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            contacts.save()
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the list, and add a new row to the table view.
+            let context = self.fetchedResultsController.managedObjectContext
+            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
+            
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                //print("Unresolved error \(error), \(error.userInfo)")
+                abort()
+            }
         }
     }
     
+    //sets the text and image of the contacts in the table view to be that of the contacts in the contact list
+    func configureCell(cell: UITableViewCell, contact: Contact) {
+        //cell.textLabel!.text = object.valueForKey("timeStamp")!.description
+        if let contactCell = cell as? ContactUITableViewCell {
+            contactCell.fullName!.text = contact.fullName()
+            contactCell.imageDisplay.image = UIImage(data: contact.image!)
+        }
+    }
+    
+    // MARK: - Fetched results controller
+    
+    var fetchedResultsController: NSFetchedResultsController {
+        if _fetchedResultsController != nil {
+            return _fetchedResultsController!
+        }
+        
+        let fetchRequest = NSFetchRequest()
+        // Edit the entity name as appropriate.
+        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        fetchRequest.entity = entity
+        
+        // Set the batch size to a suitable number.
+        fetchRequest.fetchBatchSize = 20
+        
+        // Edit the sort key as appropriate.
+        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
+        aFetchedResultsController.delegate = self
+        _fetchedResultsController = aFetchedResultsController
+        
+        do {
+            try _fetchedResultsController!.performFetch()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            //print("Unresolved error \(error), \(error.userInfo)")
+            abort()
+        }
+        
+        return _fetchedResultsController!
+    }
+    var _fetchedResultsController: NSFetchedResultsController? = nil
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Insert:
+            self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .Delete:
+            self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        case .Update:
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath!) as! Contact
+            self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, contact: object)
+        case .Move:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
+    /*
+    // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    // In the simplest, most efficient, case, reload the table view.
+    self.tableView.reloadData()
+    }
+    */
+    
 }
+
+
 
