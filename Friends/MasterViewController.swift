@@ -24,7 +24,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //insertNewObject(self)
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let contact = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Contact
+        
+        contact.address = "stuff"
+        contact.firstName = "bob"
+        contact.lastName = "bill"
+        contact.imageURL = "http://i.imgur.com/LuRFBBm.jpg"
+        loadPhotoInBackground(contact)
+
         
     }
     
@@ -256,7 +265,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath!) as! Contact
-            self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, contact: object)
+            self.configureCell(tableView.cellForRowAtIndexPath((indexPath)!)!, contact: object)
         case .Move:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
