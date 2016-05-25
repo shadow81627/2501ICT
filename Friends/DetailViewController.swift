@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 //the delegate for handling actions with the master view
 protocol DetailViewControllerDelegate {

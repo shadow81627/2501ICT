@@ -129,13 +129,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     //if the flag update is true then the photoList will be updated
     //if the flag is not update then a new entrie will be added
     //after the photoList has been added to or updated it will then be saved to file
-    func update(vc: DetailViewController) {
+    /*func update(vc: DetailViewController) {
         if((update){
             loadPhotoInBackground(vc.contact!)
             self.tableView!.reloadData()
             //adds the photos detials entered in the detial view to the list of contacts
         }else if(!update && (vc.contact?.url != nil && vc.contact?.url != "")){
-            loadPhotoInBackground(vc.contact! )
+            loadPhotoInBackground(vc.contact!)
             photoList.entries.insert(vc.photo!, atIndex: 0)
             self.tableView!.reloadData()
         }else {
@@ -143,7 +143,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         //saves the photoList to a file so it can be loaded next time the app is opened
         photoList.save()
-    }
+    }*/
     
     // MARK: - Table View
     
